@@ -186,45 +186,45 @@ bseti a0, a1, 1
 # CHECK-NEXT: [9]: LLVM Opcode Name
 
 # CHECK:      [1]    [2]    [3]    [4]    [5]    [6]    [7]    [8]                                        [9]                        Instructions:
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  C_ADDI                     addi	a0, a0, 1
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  C_ADDIW                    addiw	a0, a0, 1
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  SLTI                       slti	a0, a0, 1
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  SLTIU                      seqz	a0, a0
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  C_ANDI                     andi	a0, a0, 1
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  ORI                        ori	a0, a0, 1
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  XORI                       xori	a0, a0, 1
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  C_SLLI                     slli	a0, a0, 1
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  C_SRLI                     srli	a0, a0, 1
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  C_SRAI                     srai	a0, a0, 1
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  SLLIW                      slliw	a0, a0, 1
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  SRLIW                      srliw	a0, a0, 1
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  SRAIW                      sraiw	a0, a0, 1
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  C_LUI                      lui	a0, 1
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  AUIPC                      auipc	a1, 1
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  C_ADD                      add	a0, a0, a1
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  C_ADDW                     addw	a0, a0, a0
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  SLT                        slt	a0, a0, a0
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  SLTU                       sltu	a0, a0, a0
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  C_AND                      and	a0, a0, a0
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  C_OR                       or	a0, a0, a0
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  C_XOR                      xor	a0, a0, a0
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  SLL                        sll	a0, a0, a0
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  SRL                        srl	a0, a0, a0
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  SRA                        sra	a0, a0, a0
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  SLLW                       sllw	a0, a0, a0
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  SRLW                       srlw	a0, a0, a0
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  SRAW                       sraw	a0, a0, a0
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  C_SUB                      sub	a0, a0, a0
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  C_SUBW                     subw	a0, a0, a0
-# CHECK-NEXT:  1      1     1.00                         1     SMX60_IEU,SMX60_IEUA                       JAL                        jal	a0, .Ltmp0
-# CHECK-NEXT:  1      1     1.00                         1     SMX60_IEU,SMX60_IEUA                       C_JALR                     jalr	a0
-# CHECK-NEXT:  1      1     1.00                         1     SMX60_IEU,SMX60_IEUA                       BEQ                        beq	a0, a0, .Ltmp1
-# CHECK-NEXT:  1      1     1.00                         1     SMX60_IEU,SMX60_IEUA                       BNE                        bne	a0, a0, .Ltmp2
-# CHECK-NEXT:  1      1     1.00                         1     SMX60_IEU,SMX60_IEUA                       BLT                        blt	a0, a0, .Ltmp3
-# CHECK-NEXT:  1      1     1.00                         1     SMX60_IEU,SMX60_IEUA                       BLTU                       bltu	a0, a0, .Ltmp4
-# CHECK-NEXT:  1      1     1.00                         1     SMX60_IEU,SMX60_IEUA                       BGE                        bge	a0, a0, .Ltmp5
-# CHECK-NEXT:  1      1     1.00                         1     SMX60_IEU,SMX60_IEUA                       BGEU                       bgeu	a0, a0, .Ltmp6
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  C_ADD                      add	a0, a0, a0
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  C_ADDI                     addi	a0, a0, 1
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  C_ADDIW                    addiw	a0, a0, 1
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  SLTI                       slti	a0, a0, 1
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  SLTIU                      seqz	a0, a0
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  C_ANDI                     andi	a0, a0, 1
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  ORI                        ori	a0, a0, 1
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  XORI                       xori	a0, a0, 1
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  C_SLLI                     slli	a0, a0, 1
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  C_SRLI                     srli	a0, a0, 1
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  C_SRAI                     srai	a0, a0, 1
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  SLLIW                      slliw	a0, a0, 1
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  SRLIW                      srliw	a0, a0, 1
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  SRAIW                      sraiw	a0, a0, 1
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  C_LUI                      lui	a0, 1
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  AUIPC                      auipc	a1, 1
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  C_ADD                      add	a0, a0, a1
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  C_ADDW                     addw	a0, a0, a0
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  SLT                        slt	a0, a0, a0
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  SLTU                       sltu	a0, a0, a0
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  C_AND                      and	a0, a0, a0
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  C_OR                       or	a0, a0, a0
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  C_XOR                      xor	a0, a0, a0
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  SLL                        sll	a0, a0, a0
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  SRL                        srl	a0, a0, a0
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  SRA                        sra	a0, a0, a0
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  SLLW                       sllw	a0, a0, a0
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  SRLW                       srlw	a0, a0, a0
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  SRAW                       sraw	a0, a0, a0
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  C_SUB                      sub	a0, a0, a0
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  C_SUBW                     subw	a0, a0, a0
+# CHECK-NEXT:  1      2     1.00                         2     SMX60_IEU,SMX60_IEUA                       JAL                        jal	a0, .Ltmp0
+# CHECK-NEXT:  1      2     1.00                         2     SMX60_IEU,SMX60_IEUA                       C_JALR                     jalr	a0
+# CHECK-NEXT:  1      2     1.00                         2     SMX60_IEU,SMX60_IEUA                       BEQ                        beq	a0, a0, .Ltmp1
+# CHECK-NEXT:  1      2     1.00                         2     SMX60_IEU,SMX60_IEUA                       BNE                        bne	a0, a0, .Ltmp2
+# CHECK-NEXT:  1      2     1.00                         2     SMX60_IEU,SMX60_IEUA                       BLT                        blt	a0, a0, .Ltmp3
+# CHECK-NEXT:  1      2     1.00                         2     SMX60_IEU,SMX60_IEUA                       BLTU                       bltu	a0, a0, .Ltmp4
+# CHECK-NEXT:  1      2     1.00                         2     SMX60_IEU,SMX60_IEUA                       BGE                        bge	a0, a0, .Ltmp5
+# CHECK-NEXT:  1      2     1.00                         2     SMX60_IEU,SMX60_IEUA                       BGEU                       bgeu	a0, a0, .Ltmp6
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  C_ADD                      add	a0, a0, a0
 # CHECK-NEXT:  1      4     0.50    *                    4     SMX60_LS                                   LB                         lb	t0, 0(a0)
 # CHECK-NEXT:  1      4     0.50    *                    4     SMX60_LS                                   LBU                        lbu	t0, 0(a0)
 # CHECK-NEXT:  1      4     0.50    *                    4     SMX60_LS                                   LH                         lh	t0, 0(a0)
@@ -241,67 +241,67 @@ bseti a0, a1, 1
 # CHECK-NEXT:  1      6     0.50                         6     SMX60_IEU                                  MULHU                      mulhu	a0, a0, a0
 # CHECK-NEXT:  1      6     0.50                         6     SMX60_IEU                                  MULHSU                     mulhsu	a0, a0, a0
 # CHECK-NEXT:  1      3     0.50                         3     SMX60_IEU                                  MULW                       mulw	a0, a0, a0
-# CHECK-NEXT:  1      20    20.00                        20    SMX60_IEU[20],SMX60_IEUA[20]               DIV                        div	a0, a1, a2
-# CHECK-NEXT:  1      20    20.00                        20    SMX60_IEU[20],SMX60_IEUA[20]               DIVU                       divu	a0, a1, a2
-# CHECK-NEXT:  1      20    20.00                        20    SMX60_IEU[20],SMX60_IEUA[20]               REM                        rem	a0, a1, a2
-# CHECK-NEXT:  1      20    20.00                        20    SMX60_IEU[20],SMX60_IEUA[20]               REMU                       remu	a0, a1, a2
-# CHECK-NEXT:  1      12    12.00                        12    SMX60_IEU[12],SMX60_IEUA[12]               DIVW                       divw	a0, a1, a2
-# CHECK-NEXT:  1      12    12.00                        12    SMX60_IEU[12],SMX60_IEUA[12]               DIVUW                      divuw	a0, a1, a2
-# CHECK-NEXT:  1      12    12.00                        12    SMX60_IEU[12],SMX60_IEUA[12]               REMW                       remw	a0, a1, a2
-# CHECK-NEXT:  1      12    12.00                        12    SMX60_IEU[12],SMX60_IEUA[12]               REMUW                      remuw	a0, a1, a2
-# CHECK-NEXT:  1      1     0.50                  U      1     SMX60_IEU                                  CSRRW                      csrrw	t0, 4095, t1
-# CHECK-NEXT:  1      1     0.50                  U      1     SMX60_IEU                                  CSRRS                      csrrs	s3, fflags, s5
-# CHECK-NEXT:  1      1     0.50                  U      1     SMX60_IEU                                  CSRRC                      csrrc	sp, 0, ra
-# CHECK-NEXT:  1      1     0.50                  U      1     SMX60_IEU                                  CSRRWI                     csrrwi	a5, 0, 0
-# CHECK-NEXT:  1      1     0.50                  U      1     SMX60_IEU                                  CSRRSI                     csrrsi	t2, 4095, 31
-# CHECK-NEXT:  1      1     0.50                  U      1     SMX60_IEU                                  CSRRCI                     csrrci	t1, sscratch, 5
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  CZERO_EQZ                  czero.eqz	a0, a1, a2
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  CZERO_NEZ                  czero.nez	a0, a1, a2
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  CZERO_EQZ                  czero.eqz	a0, a1, a2
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  CZERO_NEZ                  czero.nez	a0, a1, a2
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  ADD_UW                     add.uw	a0, a0, a0
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  SLLI_UW                    slli.uw	a0, a0, 1
+# CHECK-NEXT:  1      4     4.00                         4     SMX60_IEU[4],SMX60_IEUA[4]                 DIV                        div	a0, a1, a2
+# CHECK-NEXT:  1      4     4.00                         4     SMX60_IEU[4],SMX60_IEUA[4]                 DIVU                       divu	a0, a1, a2
+# CHECK-NEXT:  1      4     4.00                         4     SMX60_IEU[4],SMX60_IEUA[4]                 REM                        rem	a0, a1, a2
+# CHECK-NEXT:  1      4     4.00                         4     SMX60_IEU[4],SMX60_IEUA[4]                 REMU                       remu	a0, a1, a2
+# CHECK-NEXT:  1      4     4.00                         4     SMX60_IEU[4],SMX60_IEUA[4]                 DIVW                       divw	a0, a1, a2
+# CHECK-NEXT:  1      4     4.00                         4     SMX60_IEU[4],SMX60_IEUA[4]                 DIVUW                      divuw	a0, a1, a2
+# CHECK-NEXT:  1      4     4.00                         4     SMX60_IEU[4],SMX60_IEUA[4]                 REMW                       remw	a0, a1, a2
+# CHECK-NEXT:  1      4     4.00                         4     SMX60_IEU[4],SMX60_IEUA[4]                 REMUW                      remuw	a0, a1, a2
+# CHECK-NEXT:  1      2     0.50                  U      2     SMX60_IEU                                  CSRRW                      csrrw	t0, 4095, t1
+# CHECK-NEXT:  1      2     0.50                  U      2     SMX60_IEU                                  CSRRS                      csrrs	s3, fflags, s5
+# CHECK-NEXT:  1      2     0.50                  U      2     SMX60_IEU                                  CSRRC                      csrrc	sp, 0, ra
+# CHECK-NEXT:  1      2     0.50                  U      2     SMX60_IEU                                  CSRRWI                     csrrwi	a5, 0, 0
+# CHECK-NEXT:  1      2     0.50                  U      2     SMX60_IEU                                  CSRRSI                     csrrsi	t2, 4095, 31
+# CHECK-NEXT:  1      2     0.50                  U      2     SMX60_IEU                                  CSRRCI                     csrrci	t1, sscratch, 5
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  CZERO_EQZ                  czero.eqz	a0, a1, a2
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  CZERO_NEZ                  czero.nez	a0, a1, a2
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  CZERO_EQZ                  czero.eqz	a0, a1, a2
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  CZERO_NEZ                  czero.nez	a0, a1, a2
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  ADD_UW                     add.uw	a0, a0, a0
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  SLLI_UW                    slli.uw	a0, a0, 1
 # CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  SH1ADD_UW                  sh1add.uw	a0, a0, a0
 # CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  SH2ADD_UW                  sh2add.uw	a0, a0, a0
 # CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  SH3ADD_UW                  sh3add.uw	a0, a0, a0
 # CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  SH1ADD                     sh1add	a0, a0, a0
 # CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  SH2ADD                     sh2add	a0, a0, a0
 # CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  SH3ADD                     sh3add	a0, a0, a0
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  ANDN                       andn	a0, a0, a0
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  ORN                        orn	a0, a0, a0
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  XNOR                       xnor	a0, a0, a0
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  CLZ                        clz	a0, a0
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  CLZW                       clzw	a0, a0
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  CTZ                        ctz	a0, a0
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  CTZW                       ctzw	a0, a0
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  ANDN                       andn	a0, a0, a0
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  ORN                        orn	a0, a0, a0
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  XNOR                       xnor	a0, a0, a0
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  CLZ                        clz	a0, a0
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  CLZW                       clzw	a0, a0
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  CTZ                        ctz	a0, a0
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  CTZW                       ctzw	a0, a0
 # CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  CPOP                       cpop	a0, a0
 # CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  CPOPW                      cpopw	a0, a0
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  MIN                        min	a0, a0, a0
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  MINU                       minu	a0, a0, a0
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  MAX                        max	a0, a0, a0
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  MAXU                       maxu	a0, a0, a0
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  SEXT_B                     sext.b	a0, a0
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  SEXT_H                     sext.h	a0, a0
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  ZEXT_H_RV64                zext.h	a0, a0
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  ROL                        rol	a0, a0, a0
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  ROLW                       rolw	a0, a0, a0
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  ROR                        ror	a0, a0, a0
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  RORW                       rorw	a0, a0, a0
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  RORI                       rori	a0, a0, 1
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  RORIW                      roriw	a0, a0, 1
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  ORC_B                      orc.b	a0, a0
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  REV8_RV64                  rev8	a0, a0
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  MIN                        min	a0, a0, a0
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  MINU                       minu	a0, a0, a0
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  MAX                        max	a0, a0, a0
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  MAXU                       maxu	a0, a0, a0
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  SEXT_B                     sext.b	a0, a0
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  SEXT_H                     sext.h	a0, a0
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  ZEXT_H_RV64                zext.h	a0, a0
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  ROL                        rol	a0, a0, a0
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  ROLW                       rolw	a0, a0, a0
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  ROR                        ror	a0, a0, a0
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  RORW                       rorw	a0, a0, a0
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  RORI                       rori	a0, a0, 1
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  RORIW                      roriw	a0, a0, 1
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  ORC_B                      orc.b	a0, a0
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  REV8_RV64                  rev8	a0, a0
 # CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  CLMUL                      clmul	a0, a0, a0
 # CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  CLMULR                     clmulr	a0, a0, a0
 # CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  CLMULH                     clmulh	a0, a0, a0
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  BCLR                       bclr	a0, a1, a2
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  BCLRI                      bclri	a0, a1, 1
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  BEXT                       bext	a0, a1, a2
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  BEXTI                      bexti	a0, a1, 1
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  BINV                       binv	a0, a1, a2
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  BINVI                      binvi	a0, a1, 1
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  BSET                       bset	a0, a1, a2
-# CHECK-NEXT:  1      1     0.50                         1     SMX60_IEU                                  BSETI                      bseti	a0, a1, 1
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  BCLR                       bclr	a0, a1, a2
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  BCLRI                      bclri	a0, a1, 1
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  BEXT                       bext	a0, a1, a2
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  BEXTI                      bexti	a0, a1, 1
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  BINV                       binv	a0, a1, a2
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  BINVI                      binvi	a0, a1, 1
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  BSET                       bset	a0, a1, a2
+# CHECK-NEXT:  1      2     0.50                         2     SMX60_IEU                                  BSETI                      bseti	a0, a1, 1
 
 # CHECK:      Resources:
 # CHECK-NEXT: [0]   - SMX60_FP
@@ -315,7 +315,7 @@ bseti a0, a1, 1
 
 # CHECK:      Resource pressure per iteration:
 # CHECK-NEXT: [0]    [1]    [2]    [3.0]  [3.1]  [4]    [5]    [6]
-# CHECK-NEXT:  -     180.50 44.50  5.50   5.50    -      -      -
+# CHECK-NEXT:  -     84.50  44.50  5.50   5.50    -      -      -
 
 # CHECK:      Resource pressure by instruction:
 # CHECK-NEXT: [0]    [1]    [2]    [3.0]  [3.1]  [4]    [5]    [6]    Instructions:
@@ -374,14 +374,14 @@ bseti a0, a1, 1
 # CHECK-NEXT:  -     0.50   0.50    -      -      -      -      -     mulhu	a0, a0, a0
 # CHECK-NEXT:  -     0.50   0.50    -      -      -      -      -     mulhsu	a0, a0, a0
 # CHECK-NEXT:  -     0.50   0.50    -      -      -      -      -     mulw	a0, a0, a0
-# CHECK-NEXT:  -     20.00   -      -      -      -      -      -     div	a0, a1, a2
-# CHECK-NEXT:  -     20.00   -      -      -      -      -      -     divu	a0, a1, a2
-# CHECK-NEXT:  -     20.00   -      -      -      -      -      -     rem	a0, a1, a2
-# CHECK-NEXT:  -     20.00   -      -      -      -      -      -     remu	a0, a1, a2
-# CHECK-NEXT:  -     12.00   -      -      -      -      -      -     divw	a0, a1, a2
-# CHECK-NEXT:  -     12.00   -      -      -      -      -      -     divuw	a0, a1, a2
-# CHECK-NEXT:  -     12.00   -      -      -      -      -      -     remw	a0, a1, a2
-# CHECK-NEXT:  -     12.00   -      -      -      -      -      -     remuw	a0, a1, a2
+# CHECK-NEXT:  -     4.00    -      -      -      -      -      -     div	a0, a1, a2
+# CHECK-NEXT:  -     4.00    -      -      -      -      -      -     divu	a0, a1, a2
+# CHECK-NEXT:  -     4.00    -      -      -      -      -      -     rem	a0, a1, a2
+# CHECK-NEXT:  -     4.00    -      -      -      -      -      -     remu	a0, a1, a2
+# CHECK-NEXT:  -     4.00    -      -      -      -      -      -     divw	a0, a1, a2
+# CHECK-NEXT:  -     4.00    -      -      -      -      -      -     divuw	a0, a1, a2
+# CHECK-NEXT:  -     4.00    -      -      -      -      -      -     remw	a0, a1, a2
+# CHECK-NEXT:  -     4.00    -      -      -      -      -      -     remuw	a0, a1, a2
 # CHECK-NEXT:  -     0.50   0.50    -      -      -      -      -     csrrw	t0, 4095, t1
 # CHECK-NEXT:  -     0.50   0.50    -      -      -      -      -     csrrs	s3, fflags, s5
 # CHECK-NEXT:  -     0.50   0.50    -      -      -      -      -     csrrc	sp, 0, ra

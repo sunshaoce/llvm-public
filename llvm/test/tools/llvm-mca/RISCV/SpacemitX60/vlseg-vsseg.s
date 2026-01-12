@@ -1626,1545 +1626,1545 @@ vsoxseg8ei64.v  v8, (a0), v16
 # CHECK-NEXT: [9]: LLVM Opcode Name
 
 # CHECK:      [1]    [2]    [3]    [4]    [5]    [6]    [7]    [8]                                        [9]                        Instructions:
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      8     8.00    *                    8     SMX60_VLS[8]                               VLSEG2E8_V                 vlseg2e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      16    16.00   *                    16    SMX60_VLS[16]                              VLSEG2E8_V                 vlseg2e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLSEG2E8_V                 vlseg2e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      64    64.00   *                    64    SMX60_VLS[64]                              VLSEG2E8_V                 vlseg2e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
 # CHECK-NEXT:  1      128   128.00  *                    128   SMX60_VLS[128]                             VLSEG2E8_V                 vlseg2e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m4, tu, mu
 # CHECK-NEXT:  1      256   256.00  *                    256   SMX60_VLS[256]                             VLSEG2E8_V                 vlseg2e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      8     8.00    *                    8     SMX60_VLS[8]                               VLSEG2E16_V                vlseg2e16.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      16    16.00   *                    16    SMX60_VLS[16]                              VLSEG2E16_V                vlseg2e16.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLSEG2E16_V                vlseg2e16.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
 # CHECK-NEXT:  1      64    64.00   *                    64    SMX60_VLS[64]                              VLSEG2E16_V                vlseg2e16.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m4, tu, mu
 # CHECK-NEXT:  1      128   128.00  *                    128   SMX60_VLS[128]                             VLSEG2E16_V                vlseg2e16.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      8     8.00    *                    8     SMX60_VLS[8]                               VLSEG2E32_V                vlseg2e32.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      16    16.00   *                    16    SMX60_VLS[16]                              VLSEG2E32_V                vlseg2e32.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLSEG2E32_V                vlseg2e32.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m4, tu, mu
 # CHECK-NEXT:  1      64    64.00   *                    64    SMX60_VLS[64]                              VLSEG2E32_V                vlseg2e32.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      8     8.00    *                    8     SMX60_VLS[8]                               VLSEG2E64_V                vlseg2e64.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
 # CHECK-NEXT:  1      16    16.00   *                    16    SMX60_VLS[16]                              VLSEG2E64_V                vlseg2e64.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m4, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLSEG2E64_V                vlseg2e64.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      12    12.00   *                    12    SMX60_VLS[12]                              VLSEG3E8_V                 vlseg3e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      24    24.00   *                    24    SMX60_VLS[24]                              VLSEG3E8_V                 vlseg3e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      48    48.00   *                    48    SMX60_VLS[48]                              VLSEG3E8_V                 vlseg3e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      96    96.00   *                    96    SMX60_VLS[96]                              VLSEG3E8_V                 vlseg3e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
 # CHECK-NEXT:  1      192   192.00  *                    192   SMX60_VLS[192]                             VLSEG3E8_V                 vlseg3e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      12    12.00   *                    12    SMX60_VLS[12]                              VLSEG3E16_V                vlseg3e16.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      24    24.00   *                    24    SMX60_VLS[24]                              VLSEG3E16_V                vlseg3e16.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      48    48.00   *                    48    SMX60_VLS[48]                              VLSEG3E16_V                vlseg3e16.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
 # CHECK-NEXT:  1      96    96.00   *                    96    SMX60_VLS[96]                              VLSEG3E16_V                vlseg3e16.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      12    12.00   *                    12    SMX60_VLS[12]                              VLSEG3E32_V                vlseg3e32.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      24    24.00   *                    24    SMX60_VLS[24]                              VLSEG3E32_V                vlseg3e32.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
 # CHECK-NEXT:  1      48    48.00   *                    48    SMX60_VLS[48]                              VLSEG3E32_V                vlseg3e32.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      12    12.00   *                    12    SMX60_VLS[12]                              VLSEG3E64_V                vlseg3e64.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
 # CHECK-NEXT:  1      24    24.00   *                    24    SMX60_VLS[24]                              VLSEG3E64_V                vlseg3e64.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      16    16.00   *                    16    SMX60_VLS[16]                              VLSEG4E8_V                 vlseg4e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLSEG4E8_V                 vlseg4e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      64    64.00   *                    64    SMX60_VLS[64]                              VLSEG4E8_V                 vlseg4e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      128   128.00  *                    128   SMX60_VLS[128]                             VLSEG4E8_V                 vlseg4e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
 # CHECK-NEXT:  1      256   256.00  *                    256   SMX60_VLS[256]                             VLSEG4E8_V                 vlseg4e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      16    16.00   *                    16    SMX60_VLS[16]                              VLSEG4E16_V                vlseg4e16.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLSEG4E16_V                vlseg4e16.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      64    64.00   *                    64    SMX60_VLS[64]                              VLSEG4E16_V                vlseg4e16.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
 # CHECK-NEXT:  1      128   128.00  *                    128   SMX60_VLS[128]                             VLSEG4E16_V                vlseg4e16.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      16    16.00   *                    16    SMX60_VLS[16]                              VLSEG4E32_V                vlseg4e32.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLSEG4E32_V                vlseg4e32.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
 # CHECK-NEXT:  1      64    64.00   *                    64    SMX60_VLS[64]                              VLSEG4E32_V                vlseg4e32.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      16    16.00   *                    16    SMX60_VLS[16]                              VLSEG4E64_V                vlseg4e64.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLSEG4E64_V                vlseg4e64.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      20    20.00   *                    20    SMX60_VLS[20]                              VLSEG5E8_V                 vlseg5e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      40    40.00   *                    40    SMX60_VLS[40]                              VLSEG5E8_V                 vlseg5e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      80    80.00   *                    80    SMX60_VLS[80]                              VLSEG5E8_V                 vlseg5e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      160   160.00  *                    160   SMX60_VLS[160]                             VLSEG5E8_V                 vlseg5e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      20    20.00   *                    20    SMX60_VLS[20]                              VLSEG5E16_V                vlseg5e16.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      40    40.00   *                    40    SMX60_VLS[40]                              VLSEG5E16_V                vlseg5e16.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      80    80.00   *                    80    SMX60_VLS[80]                              VLSEG5E16_V                vlseg5e16.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      20    20.00   *                    20    SMX60_VLS[20]                              VLSEG5E32_V                vlseg5e32.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      40    40.00   *                    40    SMX60_VLS[40]                              VLSEG5E32_V                vlseg5e32.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      20    20.00   *                    20    SMX60_VLS[20]                              VLSEG5E64_V                vlseg5e64.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      24    24.00   *                    24    SMX60_VLS[24]                              VLSEG6E8_V                 vlseg6e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      48    48.00   *                    48    SMX60_VLS[48]                              VLSEG6E8_V                 vlseg6e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      96    96.00   *                    96    SMX60_VLS[96]                              VLSEG6E8_V                 vlseg6e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      192   192.00  *                    192   SMX60_VLS[192]                             VLSEG6E8_V                 vlseg6e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      24    24.00   *                    24    SMX60_VLS[24]                              VLSEG6E16_V                vlseg6e16.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      48    48.00   *                    48    SMX60_VLS[48]                              VLSEG6E16_V                vlseg6e16.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      96    96.00   *                    96    SMX60_VLS[96]                              VLSEG6E16_V                vlseg6e16.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      24    24.00   *                    24    SMX60_VLS[24]                              VLSEG6E32_V                vlseg6e32.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      48    48.00   *                    48    SMX60_VLS[48]                              VLSEG6E32_V                vlseg6e32.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      24    24.00   *                    24    SMX60_VLS[24]                              VLSEG6E64_V                vlseg6e64.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      28    28.00   *                    28    SMX60_VLS[28]                              VLSEG7E8_V                 vlseg7e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      56    56.00   *                    56    SMX60_VLS[56]                              VLSEG7E8_V                 vlseg7e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      112   112.00  *                    112   SMX60_VLS[112]                             VLSEG7E8_V                 vlseg7e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      224   224.00  *                    224   SMX60_VLS[224]                             VLSEG7E8_V                 vlseg7e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      28    28.00   *                    28    SMX60_VLS[28]                              VLSEG7E16_V                vlseg7e16.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      56    56.00   *                    56    SMX60_VLS[56]                              VLSEG7E16_V                vlseg7e16.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      112   112.00  *                    112   SMX60_VLS[112]                             VLSEG7E16_V                vlseg7e16.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      28    28.00   *                    28    SMX60_VLS[28]                              VLSEG7E32_V                vlseg7e32.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      56    56.00   *                    56    SMX60_VLS[56]                              VLSEG7E32_V                vlseg7e32.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      28    28.00   *                    28    SMX60_VLS[28]                              VLSEG7E64_V                vlseg7e64.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLSEG8E8_V                 vlseg8e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      64    64.00   *                    64    SMX60_VLS[64]                              VLSEG8E8_V                 vlseg8e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      128   128.00  *                    128   SMX60_VLS[128]                             VLSEG8E8_V                 vlseg8e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      256   256.00  *                    256   SMX60_VLS[256]                             VLSEG8E8_V                 vlseg8e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLSEG8E16_V                vlseg8e16.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      64    64.00   *                    64    SMX60_VLS[64]                              VLSEG8E16_V                vlseg8e16.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      128   128.00  *                    128   SMX60_VLS[128]                             VLSEG8E16_V                vlseg8e16.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLSEG8E32_V                vlseg8e32.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      64    64.00   *                    64    SMX60_VLS[64]                              VLSEG8E32_V                vlseg8e32.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLSEG8E64_V                vlseg8e64.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      8     8.00           *             8     SMX60_VLS[8]                               VSSEG2E8_V                 vsseg2e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      16    16.00          *             16    SMX60_VLS[16]                              VSSEG2E8_V                 vsseg2e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      32    32.00          *             32    SMX60_VLS[32]                              VSSEG2E8_V                 vsseg2e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      64    64.00          *             64    SMX60_VLS[64]                              VSSEG2E8_V                 vsseg2e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
 # CHECK-NEXT:  1      128   128.00         *             128   SMX60_VLS[128]                             VSSEG2E8_V                 vsseg2e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m4, tu, mu
 # CHECK-NEXT:  1      256   256.00         *             256   SMX60_VLS[256]                             VSSEG2E8_V                 vsseg2e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      8     8.00           *             8     SMX60_VLS[8]                               VSSEG2E16_V                vsseg2e16.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      16    16.00          *             16    SMX60_VLS[16]                              VSSEG2E16_V                vsseg2e16.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      32    32.00          *             32    SMX60_VLS[32]                              VSSEG2E16_V                vsseg2e16.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
 # CHECK-NEXT:  1      64    64.00          *             64    SMX60_VLS[64]                              VSSEG2E16_V                vsseg2e16.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m4, tu, mu
 # CHECK-NEXT:  1      128   128.00         *             128   SMX60_VLS[128]                             VSSEG2E16_V                vsseg2e16.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      8     8.00           *             8     SMX60_VLS[8]                               VSSEG2E32_V                vsseg2e32.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      16    16.00          *             16    SMX60_VLS[16]                              VSSEG2E32_V                vsseg2e32.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
 # CHECK-NEXT:  1      32    32.00          *             32    SMX60_VLS[32]                              VSSEG2E32_V                vsseg2e32.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m4, tu, mu
 # CHECK-NEXT:  1      64    64.00          *             64    SMX60_VLS[64]                              VSSEG2E32_V                vsseg2e32.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      8     8.00           *             8     SMX60_VLS[8]                               VSSEG2E64_V                vsseg2e64.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
 # CHECK-NEXT:  1      16    16.00          *             16    SMX60_VLS[16]                              VSSEG2E64_V                vsseg2e64.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m4, tu, mu
 # CHECK-NEXT:  1      32    32.00          *             32    SMX60_VLS[32]                              VSSEG2E64_V                vsseg2e64.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      12    12.00          *             12    SMX60_VLS[12]                              VSSEG3E8_V                 vsseg3e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      24    24.00          *             24    SMX60_VLS[24]                              VSSEG3E8_V                 vsseg3e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      48    48.00          *             48    SMX60_VLS[48]                              VSSEG3E8_V                 vsseg3e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      96    96.00          *             96    SMX60_VLS[96]                              VSSEG3E8_V                 vsseg3e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
 # CHECK-NEXT:  1      192   192.00         *             192   SMX60_VLS[192]                             VSSEG3E8_V                 vsseg3e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      12    12.00          *             12    SMX60_VLS[12]                              VSSEG3E16_V                vsseg3e16.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      24    24.00          *             24    SMX60_VLS[24]                              VSSEG3E16_V                vsseg3e16.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      48    48.00          *             48    SMX60_VLS[48]                              VSSEG3E16_V                vsseg3e16.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
 # CHECK-NEXT:  1      96    96.00          *             96    SMX60_VLS[96]                              VSSEG3E16_V                vsseg3e16.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      12    12.00          *             12    SMX60_VLS[12]                              VSSEG3E32_V                vsseg3e32.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      24    24.00          *             24    SMX60_VLS[24]                              VSSEG3E32_V                vsseg3e32.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
 # CHECK-NEXT:  1      48    48.00          *             48    SMX60_VLS[48]                              VSSEG3E32_V                vsseg3e32.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      12    12.00          *             12    SMX60_VLS[12]                              VSSEG3E64_V                vsseg3e64.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
 # CHECK-NEXT:  1      24    24.00          *             24    SMX60_VLS[24]                              VSSEG3E64_V                vsseg3e64.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      16    16.00          *             16    SMX60_VLS[16]                              VSSEG4E8_V                 vsseg4e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      32    32.00          *             32    SMX60_VLS[32]                              VSSEG4E8_V                 vsseg4e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      64    64.00          *             64    SMX60_VLS[64]                              VSSEG4E8_V                 vsseg4e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      128   128.00         *             128   SMX60_VLS[128]                             VSSEG4E8_V                 vsseg4e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
 # CHECK-NEXT:  1      256   256.00         *             256   SMX60_VLS[256]                             VSSEG4E8_V                 vsseg4e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      16    16.00          *             16    SMX60_VLS[16]                              VSSEG4E16_V                vsseg4e16.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      32    32.00          *             32    SMX60_VLS[32]                              VSSEG4E16_V                vsseg4e16.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      64    64.00          *             64    SMX60_VLS[64]                              VSSEG4E16_V                vsseg4e16.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
 # CHECK-NEXT:  1      128   128.00         *             128   SMX60_VLS[128]                             VSSEG4E16_V                vsseg4e16.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      16    16.00          *             16    SMX60_VLS[16]                              VSSEG4E32_V                vsseg4e32.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      32    32.00          *             32    SMX60_VLS[32]                              VSSEG4E32_V                vsseg4e32.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
 # CHECK-NEXT:  1      64    64.00          *             64    SMX60_VLS[64]                              VSSEG4E32_V                vsseg4e32.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      16    16.00          *             16    SMX60_VLS[16]                              VSSEG4E64_V                vsseg4e64.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
 # CHECK-NEXT:  1      32    32.00          *             32    SMX60_VLS[32]                              VSSEG4E64_V                vsseg4e64.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      20    20.00          *             20    SMX60_VLS[20]                              VSSEG5E8_V                 vsseg5e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      40    40.00          *             40    SMX60_VLS[40]                              VSSEG5E8_V                 vsseg5e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      80    80.00          *             80    SMX60_VLS[80]                              VSSEG5E8_V                 vsseg5e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      160   160.00         *             160   SMX60_VLS[160]                             VSSEG5E8_V                 vsseg5e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      20    20.00          *             20    SMX60_VLS[20]                              VSSEG5E16_V                vsseg5e16.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      40    40.00          *             40    SMX60_VLS[40]                              VSSEG5E16_V                vsseg5e16.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      80    80.00          *             80    SMX60_VLS[80]                              VSSEG5E16_V                vsseg5e16.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      20    20.00          *             20    SMX60_VLS[20]                              VSSEG5E32_V                vsseg5e32.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      40    40.00          *             40    SMX60_VLS[40]                              VSSEG5E32_V                vsseg5e32.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      20    20.00          *             20    SMX60_VLS[20]                              VSSEG5E64_V                vsseg5e64.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      24    24.00          *             24    SMX60_VLS[24]                              VSSEG6E8_V                 vsseg6e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      48    48.00          *             48    SMX60_VLS[48]                              VSSEG6E8_V                 vsseg6e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      96    96.00          *             96    SMX60_VLS[96]                              VSSEG6E8_V                 vsseg6e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      192   192.00         *             192   SMX60_VLS[192]                             VSSEG6E8_V                 vsseg6e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      24    24.00          *             24    SMX60_VLS[24]                              VSSEG6E16_V                vsseg6e16.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      48    48.00          *             48    SMX60_VLS[48]                              VSSEG6E16_V                vsseg6e16.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      96    96.00          *             96    SMX60_VLS[96]                              VSSEG6E16_V                vsseg6e16.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      24    24.00          *             24    SMX60_VLS[24]                              VSSEG6E32_V                vsseg6e32.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      48    48.00          *             48    SMX60_VLS[48]                              VSSEG6E32_V                vsseg6e32.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      24    24.00          *             24    SMX60_VLS[24]                              VSSEG6E64_V                vsseg6e64.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      28    28.00          *             28    SMX60_VLS[28]                              VSSEG7E8_V                 vsseg7e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      56    56.00          *             56    SMX60_VLS[56]                              VSSEG7E8_V                 vsseg7e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      112   112.00         *             112   SMX60_VLS[112]                             VSSEG7E8_V                 vsseg7e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      224   224.00         *             224   SMX60_VLS[224]                             VSSEG7E8_V                 vsseg7e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      28    28.00          *             28    SMX60_VLS[28]                              VSSEG7E16_V                vsseg7e16.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      56    56.00          *             56    SMX60_VLS[56]                              VSSEG7E16_V                vsseg7e16.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      112   112.00         *             112   SMX60_VLS[112]                             VSSEG7E16_V                vsseg7e16.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      28    28.00          *             28    SMX60_VLS[28]                              VSSEG7E32_V                vsseg7e32.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      56    56.00          *             56    SMX60_VLS[56]                              VSSEG7E32_V                vsseg7e32.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      28    28.00          *             28    SMX60_VLS[28]                              VSSEG7E64_V                vsseg7e64.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      32    32.00          *             32    SMX60_VLS[32]                              VSSEG8E8_V                 vsseg8e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      64    64.00          *             64    SMX60_VLS[64]                              VSSEG8E8_V                 vsseg8e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      128   128.00         *             128   SMX60_VLS[128]                             VSSEG8E8_V                 vsseg8e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      256   256.00         *             256   SMX60_VLS[256]                             VSSEG8E8_V                 vsseg8e8.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      32    32.00          *             32    SMX60_VLS[32]                              VSSEG8E16_V                vsseg8e16.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      64    64.00          *             64    SMX60_VLS[64]                              VSSEG8E16_V                vsseg8e16.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      128   128.00         *             128   SMX60_VLS[128]                             VSSEG8E16_V                vsseg8e16.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      32    32.00          *             32    SMX60_VLS[32]                              VSSEG8E32_V                vsseg8e32.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      64    64.00          *             64    SMX60_VLS[64]                              VSSEG8E32_V                vsseg8e32.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      32    32.00          *             32    SMX60_VLS[32]                              VSSEG8E64_V                vsseg8e64.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      8     8.00    *                    8     SMX60_VLS[8]                               VLSSEG2E8_V                vlsseg2e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      16    16.00   *                    16    SMX60_VLS[16]                              VLSSEG2E8_V                vlsseg2e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLSSEG2E8_V                vlsseg2e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      64    64.00   *                    64    SMX60_VLS[64]                              VLSSEG2E8_V                vlsseg2e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
 # CHECK-NEXT:  1      128   128.00  *                    128   SMX60_VLS[128]                             VLSSEG2E8_V                vlsseg2e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m4, tu, mu
 # CHECK-NEXT:  1      256   256.00  *                    256   SMX60_VLS[256]                             VLSSEG2E8_V                vlsseg2e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      8     8.00    *                    8     SMX60_VLS[8]                               VLSSEG2E16_V               vlsseg2e16.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      16    16.00   *                    16    SMX60_VLS[16]                              VLSSEG2E16_V               vlsseg2e16.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLSSEG2E16_V               vlsseg2e16.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
 # CHECK-NEXT:  1      64    64.00   *                    64    SMX60_VLS[64]                              VLSSEG2E16_V               vlsseg2e16.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m4, tu, mu
 # CHECK-NEXT:  1      128   128.00  *                    128   SMX60_VLS[128]                             VLSSEG2E16_V               vlsseg2e16.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      8     8.00    *                    8     SMX60_VLS[8]                               VLSSEG2E32_V               vlsseg2e32.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      16    16.00   *                    16    SMX60_VLS[16]                              VLSSEG2E32_V               vlsseg2e32.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLSSEG2E32_V               vlsseg2e32.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m4, tu, mu
 # CHECK-NEXT:  1      64    64.00   *                    64    SMX60_VLS[64]                              VLSSEG2E32_V               vlsseg2e32.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      8     8.00    *                    8     SMX60_VLS[8]                               VLSSEG2E64_V               vlsseg2e64.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
 # CHECK-NEXT:  1      16    16.00   *                    16    SMX60_VLS[16]                              VLSSEG2E64_V               vlsseg2e64.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m4, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLSSEG2E64_V               vlsseg2e64.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      12    12.00   *                    12    SMX60_VLS[12]                              VLSSEG3E8_V                vlsseg3e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      24    24.00   *                    24    SMX60_VLS[24]                              VLSSEG3E8_V                vlsseg3e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      48    48.00   *                    48    SMX60_VLS[48]                              VLSSEG3E8_V                vlsseg3e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      96    96.00   *                    96    SMX60_VLS[96]                              VLSSEG3E8_V                vlsseg3e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
 # CHECK-NEXT:  1      192   192.00  *                    192   SMX60_VLS[192]                             VLSSEG3E8_V                vlsseg3e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      12    12.00   *                    12    SMX60_VLS[12]                              VLSSEG3E16_V               vlsseg3e16.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      24    24.00   *                    24    SMX60_VLS[24]                              VLSSEG3E16_V               vlsseg3e16.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      48    48.00   *                    48    SMX60_VLS[48]                              VLSSEG3E16_V               vlsseg3e16.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
 # CHECK-NEXT:  1      96    96.00   *                    96    SMX60_VLS[96]                              VLSSEG3E16_V               vlsseg3e16.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      12    12.00   *                    12    SMX60_VLS[12]                              VLSSEG3E32_V               vlsseg3e32.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      24    24.00   *                    24    SMX60_VLS[24]                              VLSSEG3E32_V               vlsseg3e32.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
 # CHECK-NEXT:  1      48    48.00   *                    48    SMX60_VLS[48]                              VLSSEG3E32_V               vlsseg3e32.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      12    12.00   *                    12    SMX60_VLS[12]                              VLSSEG3E64_V               vlsseg3e64.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
 # CHECK-NEXT:  1      24    24.00   *                    24    SMX60_VLS[24]                              VLSSEG3E64_V               vlsseg3e64.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      16    16.00   *                    16    SMX60_VLS[16]                              VLSSEG4E8_V                vlsseg4e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLSSEG4E8_V                vlsseg4e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      64    64.00   *                    64    SMX60_VLS[64]                              VLSSEG4E8_V                vlsseg4e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      128   128.00  *                    128   SMX60_VLS[128]                             VLSSEG4E8_V                vlsseg4e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
 # CHECK-NEXT:  1      256   256.00  *                    256   SMX60_VLS[256]                             VLSSEG4E8_V                vlsseg4e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      16    16.00   *                    16    SMX60_VLS[16]                              VLSSEG4E16_V               vlsseg4e16.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLSSEG4E16_V               vlsseg4e16.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      64    64.00   *                    64    SMX60_VLS[64]                              VLSSEG4E16_V               vlsseg4e16.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
 # CHECK-NEXT:  1      128   128.00  *                    128   SMX60_VLS[128]                             VLSSEG4E16_V               vlsseg4e16.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      16    16.00   *                    16    SMX60_VLS[16]                              VLSSEG4E32_V               vlsseg4e32.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLSSEG4E32_V               vlsseg4e32.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
 # CHECK-NEXT:  1      64    64.00   *                    64    SMX60_VLS[64]                              VLSSEG4E32_V               vlsseg4e32.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      16    16.00   *                    16    SMX60_VLS[16]                              VLSSEG4E64_V               vlsseg4e64.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLSSEG4E64_V               vlsseg4e64.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      20    20.00   *                    20    SMX60_VLS[20]                              VLSSEG5E8_V                vlsseg5e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      40    40.00   *                    40    SMX60_VLS[40]                              VLSSEG5E8_V                vlsseg5e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      80    80.00   *                    80    SMX60_VLS[80]                              VLSSEG5E8_V                vlsseg5e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      160   160.00  *                    160   SMX60_VLS[160]                             VLSSEG5E8_V                vlsseg5e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      20    20.00   *                    20    SMX60_VLS[20]                              VLSSEG5E16_V               vlsseg5e16.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      40    40.00   *                    40    SMX60_VLS[40]                              VLSSEG5E16_V               vlsseg5e16.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      80    80.00   *                    80    SMX60_VLS[80]                              VLSSEG5E16_V               vlsseg5e16.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      20    20.00   *                    20    SMX60_VLS[20]                              VLSSEG5E32_V               vlsseg5e32.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      40    40.00   *                    40    SMX60_VLS[40]                              VLSSEG5E32_V               vlsseg5e32.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      20    20.00   *                    20    SMX60_VLS[20]                              VLSSEG5E64_V               vlsseg5e64.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      24    24.00   *                    24    SMX60_VLS[24]                              VLSSEG6E8_V                vlsseg6e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      48    48.00   *                    48    SMX60_VLS[48]                              VLSSEG6E8_V                vlsseg6e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      96    96.00   *                    96    SMX60_VLS[96]                              VLSSEG6E8_V                vlsseg6e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      192   192.00  *                    192   SMX60_VLS[192]                             VLSSEG6E8_V                vlsseg6e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      24    24.00   *                    24    SMX60_VLS[24]                              VLSSEG6E16_V               vlsseg6e16.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      48    48.00   *                    48    SMX60_VLS[48]                              VLSSEG6E16_V               vlsseg6e16.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      96    96.00   *                    96    SMX60_VLS[96]                              VLSSEG6E16_V               vlsseg6e16.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      24    24.00   *                    24    SMX60_VLS[24]                              VLSSEG6E32_V               vlsseg6e32.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      48    48.00   *                    48    SMX60_VLS[48]                              VLSSEG6E32_V               vlsseg6e32.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      24    24.00   *                    24    SMX60_VLS[24]                              VLSSEG6E64_V               vlsseg6e64.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      28    28.00   *                    28    SMX60_VLS[28]                              VLSSEG7E8_V                vlsseg7e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      56    56.00   *                    56    SMX60_VLS[56]                              VLSSEG7E8_V                vlsseg7e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      112   112.00  *                    112   SMX60_VLS[112]                             VLSSEG7E8_V                vlsseg7e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      224   224.00  *                    224   SMX60_VLS[224]                             VLSSEG7E8_V                vlsseg7e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      28    28.00   *                    28    SMX60_VLS[28]                              VLSSEG7E16_V               vlsseg7e16.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      56    56.00   *                    56    SMX60_VLS[56]                              VLSSEG7E16_V               vlsseg7e16.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      112   112.00  *                    112   SMX60_VLS[112]                             VLSSEG7E16_V               vlsseg7e16.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      28    28.00   *                    28    SMX60_VLS[28]                              VLSSEG7E32_V               vlsseg7e32.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      56    56.00   *                    56    SMX60_VLS[56]                              VLSSEG7E32_V               vlsseg7e32.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      28    28.00   *                    28    SMX60_VLS[28]                              VLSSEG7E64_V               vlsseg7e64.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLSSEG8E8_V                vlsseg8e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      64    64.00   *                    64    SMX60_VLS[64]                              VLSSEG8E8_V                vlsseg8e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      128   128.00  *                    128   SMX60_VLS[128]                             VLSSEG8E8_V                vlsseg8e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      256   256.00  *                    256   SMX60_VLS[256]                             VLSSEG8E8_V                vlsseg8e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLSSEG8E16_V               vlsseg8e16.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      64    64.00   *                    64    SMX60_VLS[64]                              VLSSEG8E16_V               vlsseg8e16.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      128   128.00  *                    128   SMX60_VLS[128]                             VLSSEG8E16_V               vlsseg8e16.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLSSEG8E32_V               vlsseg8e32.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      64    64.00   *                    64    SMX60_VLS[64]                              VLSSEG8E32_V               vlsseg8e32.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLSSEG8E64_V               vlsseg8e64.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      8     8.00           *             8     SMX60_VLS[8]                               VSSSEG2E8_V                vssseg2e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      16    16.00          *             16    SMX60_VLS[16]                              VSSSEG2E8_V                vssseg2e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      32    32.00          *             32    SMX60_VLS[32]                              VSSSEG2E8_V                vssseg2e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      64    64.00          *             64    SMX60_VLS[64]                              VSSSEG2E8_V                vssseg2e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
 # CHECK-NEXT:  1      128   128.00         *             128   SMX60_VLS[128]                             VSSSEG2E8_V                vssseg2e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m4, tu, mu
 # CHECK-NEXT:  1      256   256.00         *             256   SMX60_VLS[256]                             VSSSEG2E8_V                vssseg2e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      8     8.00           *             8     SMX60_VLS[8]                               VSSSEG2E16_V               vssseg2e16.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      16    16.00          *             16    SMX60_VLS[16]                              VSSSEG2E16_V               vssseg2e16.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      32    32.00          *             32    SMX60_VLS[32]                              VSSSEG2E16_V               vssseg2e16.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
 # CHECK-NEXT:  1      64    64.00          *             64    SMX60_VLS[64]                              VSSSEG2E16_V               vssseg2e16.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m4, tu, mu
 # CHECK-NEXT:  1      128   128.00         *             128   SMX60_VLS[128]                             VSSSEG2E16_V               vssseg2e16.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      8     8.00           *             8     SMX60_VLS[8]                               VSSSEG2E32_V               vssseg2e32.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      16    16.00          *             16    SMX60_VLS[16]                              VSSSEG2E32_V               vssseg2e32.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
 # CHECK-NEXT:  1      32    32.00          *             32    SMX60_VLS[32]                              VSSSEG2E32_V               vssseg2e32.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m4, tu, mu
 # CHECK-NEXT:  1      64    64.00          *             64    SMX60_VLS[64]                              VSSSEG2E32_V               vssseg2e32.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      8     8.00           *             8     SMX60_VLS[8]                               VSSSEG2E64_V               vssseg2e64.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
 # CHECK-NEXT:  1      16    16.00          *             16    SMX60_VLS[16]                              VSSSEG2E64_V               vssseg2e64.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m4, tu, mu
 # CHECK-NEXT:  1      32    32.00          *             32    SMX60_VLS[32]                              VSSSEG2E64_V               vssseg2e64.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      12    12.00          *             12    SMX60_VLS[12]                              VSSSEG3E8_V                vssseg3e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      24    24.00          *             24    SMX60_VLS[24]                              VSSSEG3E8_V                vssseg3e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      48    48.00          *             48    SMX60_VLS[48]                              VSSSEG3E8_V                vssseg3e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      96    96.00          *             96    SMX60_VLS[96]                              VSSSEG3E8_V                vssseg3e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
 # CHECK-NEXT:  1      192   192.00         *             192   SMX60_VLS[192]                             VSSSEG3E8_V                vssseg3e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      12    12.00          *             12    SMX60_VLS[12]                              VSSSEG3E16_V               vssseg3e16.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      24    24.00          *             24    SMX60_VLS[24]                              VSSSEG3E16_V               vssseg3e16.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      48    48.00          *             48    SMX60_VLS[48]                              VSSSEG3E16_V               vssseg3e16.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
 # CHECK-NEXT:  1      96    96.00          *             96    SMX60_VLS[96]                              VSSSEG3E16_V               vssseg3e16.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      12    12.00          *             12    SMX60_VLS[12]                              VSSSEG3E32_V               vssseg3e32.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      24    24.00          *             24    SMX60_VLS[24]                              VSSSEG3E32_V               vssseg3e32.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
 # CHECK-NEXT:  1      48    48.00          *             48    SMX60_VLS[48]                              VSSSEG3E32_V               vssseg3e32.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      12    12.00          *             12    SMX60_VLS[12]                              VSSSEG3E64_V               vssseg3e64.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
 # CHECK-NEXT:  1      24    24.00          *             24    SMX60_VLS[24]                              VSSSEG3E64_V               vssseg3e64.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      16    16.00          *             16    SMX60_VLS[16]                              VSSSEG4E8_V                vssseg4e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      32    32.00          *             32    SMX60_VLS[32]                              VSSSEG4E8_V                vssseg4e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      64    64.00          *             64    SMX60_VLS[64]                              VSSSEG4E8_V                vssseg4e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      128   128.00         *             128   SMX60_VLS[128]                             VSSSEG4E8_V                vssseg4e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
 # CHECK-NEXT:  1      256   256.00         *             256   SMX60_VLS[256]                             VSSSEG4E8_V                vssseg4e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      16    16.00          *             16    SMX60_VLS[16]                              VSSSEG4E16_V               vssseg4e16.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      32    32.00          *             32    SMX60_VLS[32]                              VSSSEG4E16_V               vssseg4e16.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      64    64.00          *             64    SMX60_VLS[64]                              VSSSEG4E16_V               vssseg4e16.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
 # CHECK-NEXT:  1      128   128.00         *             128   SMX60_VLS[128]                             VSSSEG4E16_V               vssseg4e16.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      16    16.00          *             16    SMX60_VLS[16]                              VSSSEG4E32_V               vssseg4e32.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      32    32.00          *             32    SMX60_VLS[32]                              VSSSEG4E32_V               vssseg4e32.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
 # CHECK-NEXT:  1      64    64.00          *             64    SMX60_VLS[64]                              VSSSEG4E32_V               vssseg4e32.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      16    16.00          *             16    SMX60_VLS[16]                              VSSSEG4E64_V               vssseg4e64.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
 # CHECK-NEXT:  1      32    32.00          *             32    SMX60_VLS[32]                              VSSSEG4E64_V               vssseg4e64.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      20    20.00          *             20    SMX60_VLS[20]                              VSSSEG5E8_V                vssseg5e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      40    40.00          *             40    SMX60_VLS[40]                              VSSSEG5E8_V                vssseg5e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      80    80.00          *             80    SMX60_VLS[80]                              VSSSEG5E8_V                vssseg5e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      160   160.00         *             160   SMX60_VLS[160]                             VSSSEG5E8_V                vssseg5e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      20    20.00          *             20    SMX60_VLS[20]                              VSSSEG5E16_V               vssseg5e16.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      40    40.00          *             40    SMX60_VLS[40]                              VSSSEG5E16_V               vssseg5e16.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      80    80.00          *             80    SMX60_VLS[80]                              VSSSEG5E16_V               vssseg5e16.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      20    20.00          *             20    SMX60_VLS[20]                              VSSSEG5E32_V               vssseg5e32.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      40    40.00          *             40    SMX60_VLS[40]                              VSSSEG5E32_V               vssseg5e32.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      20    20.00          *             20    SMX60_VLS[20]                              VSSSEG5E64_V               vssseg5e64.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      24    24.00          *             24    SMX60_VLS[24]                              VSSSEG6E8_V                vssseg6e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      48    48.00          *             48    SMX60_VLS[48]                              VSSSEG6E8_V                vssseg6e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      96    96.00          *             96    SMX60_VLS[96]                              VSSSEG6E8_V                vssseg6e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      192   192.00         *             192   SMX60_VLS[192]                             VSSSEG6E8_V                vssseg6e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      24    24.00          *             24    SMX60_VLS[24]                              VSSSEG6E16_V               vssseg6e16.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      48    48.00          *             48    SMX60_VLS[48]                              VSSSEG6E16_V               vssseg6e16.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      96    96.00          *             96    SMX60_VLS[96]                              VSSSEG6E16_V               vssseg6e16.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      24    24.00          *             24    SMX60_VLS[24]                              VSSSEG6E32_V               vssseg6e32.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      48    48.00          *             48    SMX60_VLS[48]                              VSSSEG6E32_V               vssseg6e32.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      24    24.00          *             24    SMX60_VLS[24]                              VSSSEG6E64_V               vssseg6e64.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      28    28.00          *             28    SMX60_VLS[28]                              VSSSEG7E8_V                vssseg7e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      56    56.00          *             56    SMX60_VLS[56]                              VSSSEG7E8_V                vssseg7e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      112   112.00         *             112   SMX60_VLS[112]                             VSSSEG7E8_V                vssseg7e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      224   224.00         *             224   SMX60_VLS[224]                             VSSSEG7E8_V                vssseg7e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      28    28.00          *             28    SMX60_VLS[28]                              VSSSEG7E16_V               vssseg7e16.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      56    56.00          *             56    SMX60_VLS[56]                              VSSSEG7E16_V               vssseg7e16.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      112   112.00         *             112   SMX60_VLS[112]                             VSSSEG7E16_V               vssseg7e16.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      28    28.00          *             28    SMX60_VLS[28]                              VSSSEG7E32_V               vssseg7e32.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      56    56.00          *             56    SMX60_VLS[56]                              VSSSEG7E32_V               vssseg7e32.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      28    28.00          *             28    SMX60_VLS[28]                              VSSSEG7E64_V               vssseg7e64.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      32    32.00          *             32    SMX60_VLS[32]                              VSSSEG8E8_V                vssseg8e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      64    64.00          *             64    SMX60_VLS[64]                              VSSSEG8E8_V                vssseg8e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      128   128.00         *             128   SMX60_VLS[128]                             VSSSEG8E8_V                vssseg8e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      256   256.00         *             256   SMX60_VLS[256]                             VSSSEG8E8_V                vssseg8e8.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      32    32.00          *             32    SMX60_VLS[32]                              VSSSEG8E16_V               vssseg8e16.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      64    64.00          *             64    SMX60_VLS[64]                              VSSSEG8E16_V               vssseg8e16.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      128   128.00         *             128   SMX60_VLS[128]                             VSSSEG8E16_V               vssseg8e16.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      32    32.00          *             32    SMX60_VLS[32]                              VSSSEG8E32_V               vssseg8e32.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      64    64.00          *             64    SMX60_VLS[64]                              VSSSEG8E32_V               vssseg8e32.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      32    32.00          *             32    SMX60_VLS[32]                              VSSSEG8E64_V               vssseg8e64.v	v8, (a0), a1
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      8     8.00    *                    8     SMX60_VLS[8]                               VLSEG2E8FF_V               vlseg2e8ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      16    16.00   *                    16    SMX60_VLS[16]                              VLSEG2E8FF_V               vlseg2e8ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLSEG2E8FF_V               vlseg2e8ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      64    64.00   *                    64    SMX60_VLS[64]                              VLSEG2E8FF_V               vlseg2e8ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
 # CHECK-NEXT:  1      128   128.00  *                    128   SMX60_VLS[128]                             VLSEG2E8FF_V               vlseg2e8ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m4, tu, mu
 # CHECK-NEXT:  1      256   256.00  *                    256   SMX60_VLS[256]                             VLSEG2E8FF_V               vlseg2e8ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      8     8.00    *                    8     SMX60_VLS[8]                               VLSEG2E16FF_V              vlseg2e16ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      16    16.00   *                    16    SMX60_VLS[16]                              VLSEG2E16FF_V              vlseg2e16ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLSEG2E16FF_V              vlseg2e16ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
 # CHECK-NEXT:  1      64    64.00   *                    64    SMX60_VLS[64]                              VLSEG2E16FF_V              vlseg2e16ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m4, tu, mu
 # CHECK-NEXT:  1      128   128.00  *                    128   SMX60_VLS[128]                             VLSEG2E16FF_V              vlseg2e16ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      8     8.00    *                    8     SMX60_VLS[8]                               VLSEG2E32FF_V              vlseg2e32ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      16    16.00   *                    16    SMX60_VLS[16]                              VLSEG2E32FF_V              vlseg2e32ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLSEG2E32FF_V              vlseg2e32ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m4, tu, mu
 # CHECK-NEXT:  1      64    64.00   *                    64    SMX60_VLS[64]                              VLSEG2E32FF_V              vlseg2e32ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      8     8.00    *                    8     SMX60_VLS[8]                               VLSEG2E64FF_V              vlseg2e64ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
 # CHECK-NEXT:  1      16    16.00   *                    16    SMX60_VLS[16]                              VLSEG2E64FF_V              vlseg2e64ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m4, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLSEG2E64FF_V              vlseg2e64ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      12    12.00   *                    12    SMX60_VLS[12]                              VLSEG3E8FF_V               vlseg3e8ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      24    24.00   *                    24    SMX60_VLS[24]                              VLSEG3E8FF_V               vlseg3e8ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      48    48.00   *                    48    SMX60_VLS[48]                              VLSEG3E8FF_V               vlseg3e8ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      96    96.00   *                    96    SMX60_VLS[96]                              VLSEG3E8FF_V               vlseg3e8ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
 # CHECK-NEXT:  1      192   192.00  *                    192   SMX60_VLS[192]                             VLSEG3E8FF_V               vlseg3e8ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      12    12.00   *                    12    SMX60_VLS[12]                              VLSEG3E16FF_V              vlseg3e16ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      24    24.00   *                    24    SMX60_VLS[24]                              VLSEG3E16FF_V              vlseg3e16ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      48    48.00   *                    48    SMX60_VLS[48]                              VLSEG3E16FF_V              vlseg3e16ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
 # CHECK-NEXT:  1      96    96.00   *                    96    SMX60_VLS[96]                              VLSEG3E16FF_V              vlseg3e16ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      12    12.00   *                    12    SMX60_VLS[12]                              VLSEG3E32FF_V              vlseg3e32ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      24    24.00   *                    24    SMX60_VLS[24]                              VLSEG3E32FF_V              vlseg3e32ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
 # CHECK-NEXT:  1      48    48.00   *                    48    SMX60_VLS[48]                              VLSEG3E32FF_V              vlseg3e32ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      12    12.00   *                    12    SMX60_VLS[12]                              VLSEG3E64FF_V              vlseg3e64ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
 # CHECK-NEXT:  1      24    24.00   *                    24    SMX60_VLS[24]                              VLSEG3E64FF_V              vlseg3e64ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      16    16.00   *                    16    SMX60_VLS[16]                              VLSEG4E8FF_V               vlseg4e8ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLSEG4E8FF_V               vlseg4e8ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      64    64.00   *                    64    SMX60_VLS[64]                              VLSEG4E8FF_V               vlseg4e8ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      128   128.00  *                    128   SMX60_VLS[128]                             VLSEG4E8FF_V               vlseg4e8ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
 # CHECK-NEXT:  1      256   256.00  *                    256   SMX60_VLS[256]                             VLSEG4E8FF_V               vlseg4e8ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      16    16.00   *                    16    SMX60_VLS[16]                              VLSEG4E16FF_V              vlseg4e16ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLSEG4E16FF_V              vlseg4e16ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      64    64.00   *                    64    SMX60_VLS[64]                              VLSEG4E16FF_V              vlseg4e16ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
 # CHECK-NEXT:  1      128   128.00  *                    128   SMX60_VLS[128]                             VLSEG4E16FF_V              vlseg4e16ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      16    16.00   *                    16    SMX60_VLS[16]                              VLSEG4E32FF_V              vlseg4e32ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLSEG4E32FF_V              vlseg4e32ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
 # CHECK-NEXT:  1      64    64.00   *                    64    SMX60_VLS[64]                              VLSEG4E32FF_V              vlseg4e32ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      16    16.00   *                    16    SMX60_VLS[16]                              VLSEG4E64FF_V              vlseg4e64ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLSEG4E64FF_V              vlseg4e64ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      20    20.00   *                    20    SMX60_VLS[20]                              VLSEG5E8FF_V               vlseg5e8ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      40    40.00   *                    40    SMX60_VLS[40]                              VLSEG5E8FF_V               vlseg5e8ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      80    80.00   *                    80    SMX60_VLS[80]                              VLSEG5E8FF_V               vlseg5e8ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      160   160.00  *                    160   SMX60_VLS[160]                             VLSEG5E8FF_V               vlseg5e8ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      20    20.00   *                    20    SMX60_VLS[20]                              VLSEG5E16FF_V              vlseg5e16ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      40    40.00   *                    40    SMX60_VLS[40]                              VLSEG5E16FF_V              vlseg5e16ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      80    80.00   *                    80    SMX60_VLS[80]                              VLSEG5E16FF_V              vlseg5e16ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      20    20.00   *                    20    SMX60_VLS[20]                              VLSEG5E32FF_V              vlseg5e32ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      40    40.00   *                    40    SMX60_VLS[40]                              VLSEG5E32FF_V              vlseg5e32ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      20    20.00   *                    20    SMX60_VLS[20]                              VLSEG5E64FF_V              vlseg5e64ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      24    24.00   *                    24    SMX60_VLS[24]                              VLSEG6E8FF_V               vlseg6e8ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      48    48.00   *                    48    SMX60_VLS[48]                              VLSEG6E8FF_V               vlseg6e8ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      96    96.00   *                    96    SMX60_VLS[96]                              VLSEG6E8FF_V               vlseg6e8ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      192   192.00  *                    192   SMX60_VLS[192]                             VLSEG6E8FF_V               vlseg6e8ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      24    24.00   *                    24    SMX60_VLS[24]                              VLSEG6E16FF_V              vlseg6e16ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      48    48.00   *                    48    SMX60_VLS[48]                              VLSEG6E16FF_V              vlseg6e16ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      96    96.00   *                    96    SMX60_VLS[96]                              VLSEG6E16FF_V              vlseg6e16ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      24    24.00   *                    24    SMX60_VLS[24]                              VLSEG6E32FF_V              vlseg6e32ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      48    48.00   *                    48    SMX60_VLS[48]                              VLSEG6E32FF_V              vlseg6e32ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      24    24.00   *                    24    SMX60_VLS[24]                              VLSEG6E64FF_V              vlseg6e64ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      28    28.00   *                    28    SMX60_VLS[28]                              VLSEG7E8FF_V               vlseg7e8ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      56    56.00   *                    56    SMX60_VLS[56]                              VLSEG7E8FF_V               vlseg7e8ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      112   112.00  *                    112   SMX60_VLS[112]                             VLSEG7E8FF_V               vlseg7e8ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      224   224.00  *                    224   SMX60_VLS[224]                             VLSEG7E8FF_V               vlseg7e8ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      28    28.00   *                    28    SMX60_VLS[28]                              VLSEG7E16FF_V              vlseg7e16ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      56    56.00   *                    56    SMX60_VLS[56]                              VLSEG7E16FF_V              vlseg7e16ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      112   112.00  *                    112   SMX60_VLS[112]                             VLSEG7E16FF_V              vlseg7e16ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      28    28.00   *                    28    SMX60_VLS[28]                              VLSEG7E32FF_V              vlseg7e32ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      56    56.00   *                    56    SMX60_VLS[56]                              VLSEG7E32FF_V              vlseg7e32ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      28    28.00   *                    28    SMX60_VLS[28]                              VLSEG7E64FF_V              vlseg7e64ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLSEG8E8FF_V               vlseg8e8ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      64    64.00   *                    64    SMX60_VLS[64]                              VLSEG8E8FF_V               vlseg8e8ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      128   128.00  *                    128   SMX60_VLS[128]                             VLSEG8E8FF_V               vlseg8e8ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      256   256.00  *                    256   SMX60_VLS[256]                             VLSEG8E8FF_V               vlseg8e8ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLSEG8E16FF_V              vlseg8e16ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      64    64.00   *                    64    SMX60_VLS[64]                              VLSEG8E16FF_V              vlseg8e16ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      128   128.00  *                    128   SMX60_VLS[128]                             VLSEG8E16FF_V              vlseg8e16ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLSEG8E32FF_V              vlseg8e32ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      64    64.00   *                    64    SMX60_VLS[64]                              VLSEG8E32FF_V              vlseg8e32ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLSEG8E64FF_V              vlseg8e64ff.v	v8, (a0)
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      8     8.00    *                    8     SMX60_VLS[8]                               VLUXSEG2EI8_V              vluxseg2ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      16    16.00   *                    16    SMX60_VLS[16]                              VLUXSEG2EI8_V              vluxseg2ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLUXSEG2EI8_V              vluxseg2ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      64    64.00   *                    64    SMX60_VLS[64]                              VLUXSEG2EI8_V              vluxseg2ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
 # CHECK-NEXT:  1      128   128.00  *                    128   SMX60_VLS[128]                             VLUXSEG2EI8_V              vluxseg2ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m4, tu, mu
 # CHECK-NEXT:  1      256   256.00  *                    256   SMX60_VLS[256]                             VLUXSEG2EI8_V              vluxseg2ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      8     8.00    *                    8     SMX60_VLS[8]                               VLUXSEG2EI16_V             vluxseg2ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      16    16.00   *                    16    SMX60_VLS[16]                              VLUXSEG2EI16_V             vluxseg2ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLUXSEG2EI16_V             vluxseg2ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
 # CHECK-NEXT:  1      64    64.00   *                    64    SMX60_VLS[64]                              VLUXSEG2EI16_V             vluxseg2ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m4, tu, mu
 # CHECK-NEXT:  1      128   128.00  *                    128   SMX60_VLS[128]                             VLUXSEG2EI16_V             vluxseg2ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      8     8.00    *                    8     SMX60_VLS[8]                               VLUXSEG2EI32_V             vluxseg2ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      16    16.00   *                    16    SMX60_VLS[16]                              VLUXSEG2EI32_V             vluxseg2ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLUXSEG2EI32_V             vluxseg2ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m4, tu, mu
 # CHECK-NEXT:  1      64    64.00   *                    64    SMX60_VLS[64]                              VLUXSEG2EI32_V             vluxseg2ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      8     8.00    *                    8     SMX60_VLS[8]                               VLUXSEG2EI64_V             vluxseg2ei64.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
 # CHECK-NEXT:  1      16    16.00   *                    16    SMX60_VLS[16]                              VLUXSEG2EI64_V             vluxseg2ei64.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m4, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLUXSEG2EI64_V             vluxseg2ei64.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      12    12.00   *                    12    SMX60_VLS[12]                              VLUXSEG3EI8_V              vluxseg3ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      24    24.00   *                    24    SMX60_VLS[24]                              VLUXSEG3EI8_V              vluxseg3ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      48    48.00   *                    48    SMX60_VLS[48]                              VLUXSEG3EI8_V              vluxseg3ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      96    96.00   *                    96    SMX60_VLS[96]                              VLUXSEG3EI8_V              vluxseg3ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
 # CHECK-NEXT:  1      192   192.00  *                    192   SMX60_VLS[192]                             VLUXSEG3EI8_V              vluxseg3ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      12    12.00   *                    12    SMX60_VLS[12]                              VLUXSEG3EI16_V             vluxseg3ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      24    24.00   *                    24    SMX60_VLS[24]                              VLUXSEG3EI16_V             vluxseg3ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      48    48.00   *                    48    SMX60_VLS[48]                              VLUXSEG3EI16_V             vluxseg3ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
 # CHECK-NEXT:  1      96    96.00   *                    96    SMX60_VLS[96]                              VLUXSEG3EI16_V             vluxseg3ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      12    12.00   *                    12    SMX60_VLS[12]                              VLUXSEG3EI32_V             vluxseg3ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      24    24.00   *                    24    SMX60_VLS[24]                              VLUXSEG3EI32_V             vluxseg3ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
 # CHECK-NEXT:  1      48    48.00   *                    48    SMX60_VLS[48]                              VLUXSEG3EI32_V             vluxseg3ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      12    12.00   *                    12    SMX60_VLS[12]                              VLUXSEG3EI64_V             vluxseg3ei64.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
 # CHECK-NEXT:  1      24    24.00   *                    24    SMX60_VLS[24]                              VLUXSEG3EI64_V             vluxseg3ei64.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      16    16.00   *                    16    SMX60_VLS[16]                              VLUXSEG4EI8_V              vluxseg4ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLUXSEG4EI8_V              vluxseg4ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      64    64.00   *                    64    SMX60_VLS[64]                              VLUXSEG4EI8_V              vluxseg4ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      128   128.00  *                    128   SMX60_VLS[128]                             VLUXSEG4EI8_V              vluxseg4ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
 # CHECK-NEXT:  1      256   256.00  *                    256   SMX60_VLS[256]                             VLUXSEG4EI8_V              vluxseg4ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      16    16.00   *                    16    SMX60_VLS[16]                              VLUXSEG4EI16_V             vluxseg4ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLUXSEG4EI16_V             vluxseg4ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      64    64.00   *                    64    SMX60_VLS[64]                              VLUXSEG4EI16_V             vluxseg4ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
 # CHECK-NEXT:  1      128   128.00  *                    128   SMX60_VLS[128]                             VLUXSEG4EI16_V             vluxseg4ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      16    16.00   *                    16    SMX60_VLS[16]                              VLUXSEG4EI32_V             vluxseg4ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLUXSEG4EI32_V             vluxseg4ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
 # CHECK-NEXT:  1      64    64.00   *                    64    SMX60_VLS[64]                              VLUXSEG4EI32_V             vluxseg4ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      16    16.00   *                    16    SMX60_VLS[16]                              VLUXSEG4EI64_V             vluxseg4ei64.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLUXSEG4EI64_V             vluxseg4ei64.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      20    20.00   *                    20    SMX60_VLS[20]                              VLUXSEG5EI8_V              vluxseg5ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      40    40.00   *                    40    SMX60_VLS[40]                              VLUXSEG5EI8_V              vluxseg5ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      80    80.00   *                    80    SMX60_VLS[80]                              VLUXSEG5EI8_V              vluxseg5ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      160   160.00  *                    160   SMX60_VLS[160]                             VLUXSEG5EI8_V              vluxseg5ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      20    20.00   *                    20    SMX60_VLS[20]                              VLUXSEG5EI16_V             vluxseg5ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      40    40.00   *                    40    SMX60_VLS[40]                              VLUXSEG5EI16_V             vluxseg5ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      80    80.00   *                    80    SMX60_VLS[80]                              VLUXSEG5EI16_V             vluxseg5ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      20    20.00   *                    20    SMX60_VLS[20]                              VLUXSEG5EI32_V             vluxseg5ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      40    40.00   *                    40    SMX60_VLS[40]                              VLUXSEG5EI32_V             vluxseg5ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      20    20.00   *                    20    SMX60_VLS[20]                              VLUXSEG5EI64_V             vluxseg5ei64.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      24    24.00   *                    24    SMX60_VLS[24]                              VLUXSEG6EI8_V              vluxseg6ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      48    48.00   *                    48    SMX60_VLS[48]                              VLUXSEG6EI8_V              vluxseg6ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      96    96.00   *                    96    SMX60_VLS[96]                              VLUXSEG6EI8_V              vluxseg6ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      192   192.00  *                    192   SMX60_VLS[192]                             VLUXSEG6EI8_V              vluxseg6ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      24    24.00   *                    24    SMX60_VLS[24]                              VLUXSEG6EI16_V             vluxseg6ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      48    48.00   *                    48    SMX60_VLS[48]                              VLUXSEG6EI16_V             vluxseg6ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      96    96.00   *                    96    SMX60_VLS[96]                              VLUXSEG6EI16_V             vluxseg6ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      24    24.00   *                    24    SMX60_VLS[24]                              VLUXSEG6EI32_V             vluxseg6ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      48    48.00   *                    48    SMX60_VLS[48]                              VLUXSEG6EI32_V             vluxseg6ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      24    24.00   *                    24    SMX60_VLS[24]                              VLUXSEG6EI64_V             vluxseg6ei64.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      28    28.00   *                    28    SMX60_VLS[28]                              VLUXSEG7EI8_V              vluxseg7ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      56    56.00   *                    56    SMX60_VLS[56]                              VLUXSEG7EI8_V              vluxseg7ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      112   112.00  *                    112   SMX60_VLS[112]                             VLUXSEG7EI8_V              vluxseg7ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      224   224.00  *                    224   SMX60_VLS[224]                             VLUXSEG7EI8_V              vluxseg7ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      28    28.00   *                    28    SMX60_VLS[28]                              VLUXSEG7EI16_V             vluxseg7ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      56    56.00   *                    56    SMX60_VLS[56]                              VLUXSEG7EI16_V             vluxseg7ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      112   112.00  *                    112   SMX60_VLS[112]                             VLUXSEG7EI16_V             vluxseg7ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      28    28.00   *                    28    SMX60_VLS[28]                              VLUXSEG7EI32_V             vluxseg7ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      56    56.00   *                    56    SMX60_VLS[56]                              VLUXSEG7EI32_V             vluxseg7ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      28    28.00   *                    28    SMX60_VLS[28]                              VLUXSEG7EI64_V             vluxseg7ei64.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLUXSEG8EI8_V              vluxseg8ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      64    64.00   *                    64    SMX60_VLS[64]                              VLUXSEG8EI8_V              vluxseg8ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      128   128.00  *                    128   SMX60_VLS[128]                             VLUXSEG8EI8_V              vluxseg8ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      256   256.00  *                    256   SMX60_VLS[256]                             VLUXSEG8EI8_V              vluxseg8ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLUXSEG8EI16_V             vluxseg8ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      64    64.00   *                    64    SMX60_VLS[64]                              VLUXSEG8EI16_V             vluxseg8ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      128   128.00  *                    128   SMX60_VLS[128]                             VLUXSEG8EI16_V             vluxseg8ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLUXSEG8EI32_V             vluxseg8ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      64    64.00   *                    64    SMX60_VLS[64]                              VLUXSEG8EI32_V             vluxseg8ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLUXSEG8EI64_V             vluxseg8ei64.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      8     8.00    *                    8     SMX60_VLS[8]                               VLOXSEG2EI8_V              vloxseg2ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      16    16.00   *                    16    SMX60_VLS[16]                              VLOXSEG2EI8_V              vloxseg2ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLOXSEG2EI8_V              vloxseg2ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      64    64.00   *                    64    SMX60_VLS[64]                              VLOXSEG2EI8_V              vloxseg2ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
 # CHECK-NEXT:  1      128   128.00  *                    128   SMX60_VLS[128]                             VLOXSEG2EI8_V              vloxseg2ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m4, tu, mu
 # CHECK-NEXT:  1      256   256.00  *                    256   SMX60_VLS[256]                             VLOXSEG2EI8_V              vloxseg2ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      8     8.00    *                    8     SMX60_VLS[8]                               VLOXSEG2EI16_V             vloxseg2ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      16    16.00   *                    16    SMX60_VLS[16]                              VLOXSEG2EI16_V             vloxseg2ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLOXSEG2EI16_V             vloxseg2ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
 # CHECK-NEXT:  1      64    64.00   *                    64    SMX60_VLS[64]                              VLOXSEG2EI16_V             vloxseg2ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m4, tu, mu
 # CHECK-NEXT:  1      128   128.00  *                    128   SMX60_VLS[128]                             VLOXSEG2EI16_V             vloxseg2ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      8     8.00    *                    8     SMX60_VLS[8]                               VLOXSEG2EI32_V             vloxseg2ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      16    16.00   *                    16    SMX60_VLS[16]                              VLOXSEG2EI32_V             vloxseg2ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLOXSEG2EI32_V             vloxseg2ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m4, tu, mu
 # CHECK-NEXT:  1      64    64.00   *                    64    SMX60_VLS[64]                              VLOXSEG2EI32_V             vloxseg2ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      8     8.00    *                    8     SMX60_VLS[8]                               VLOXSEG2EI64_V             vloxseg2ei64.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
 # CHECK-NEXT:  1      16    16.00   *                    16    SMX60_VLS[16]                              VLOXSEG2EI64_V             vloxseg2ei64.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m4, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLOXSEG2EI64_V             vloxseg2ei64.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      12    12.00   *                    12    SMX60_VLS[12]                              VLOXSEG3EI8_V              vloxseg3ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      24    24.00   *                    24    SMX60_VLS[24]                              VLOXSEG3EI8_V              vloxseg3ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      48    48.00   *                    48    SMX60_VLS[48]                              VLOXSEG3EI8_V              vloxseg3ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      96    96.00   *                    96    SMX60_VLS[96]                              VLOXSEG3EI8_V              vloxseg3ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
 # CHECK-NEXT:  1      192   192.00  *                    192   SMX60_VLS[192]                             VLOXSEG3EI8_V              vloxseg3ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      12    12.00   *                    12    SMX60_VLS[12]                              VLOXSEG3EI16_V             vloxseg3ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      24    24.00   *                    24    SMX60_VLS[24]                              VLOXSEG3EI16_V             vloxseg3ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      48    48.00   *                    48    SMX60_VLS[48]                              VLOXSEG3EI16_V             vloxseg3ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
 # CHECK-NEXT:  1      96    96.00   *                    96    SMX60_VLS[96]                              VLOXSEG3EI16_V             vloxseg3ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      12    12.00   *                    12    SMX60_VLS[12]                              VLOXSEG3EI32_V             vloxseg3ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      24    24.00   *                    24    SMX60_VLS[24]                              VLOXSEG3EI32_V             vloxseg3ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
 # CHECK-NEXT:  1      48    48.00   *                    48    SMX60_VLS[48]                              VLOXSEG3EI32_V             vloxseg3ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      12    12.00   *                    12    SMX60_VLS[12]                              VLOXSEG3EI64_V             vloxseg3ei64.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
 # CHECK-NEXT:  1      24    24.00   *                    24    SMX60_VLS[24]                              VLOXSEG3EI64_V             vloxseg3ei64.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      16    16.00   *                    16    SMX60_VLS[16]                              VLOXSEG4EI8_V              vloxseg4ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLOXSEG4EI8_V              vloxseg4ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      64    64.00   *                    64    SMX60_VLS[64]                              VLOXSEG4EI8_V              vloxseg4ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      128   128.00  *                    128   SMX60_VLS[128]                             VLOXSEG4EI8_V              vloxseg4ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
 # CHECK-NEXT:  1      256   256.00  *                    256   SMX60_VLS[256]                             VLOXSEG4EI8_V              vloxseg4ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      16    16.00   *                    16    SMX60_VLS[16]                              VLOXSEG4EI16_V             vloxseg4ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLOXSEG4EI16_V             vloxseg4ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      64    64.00   *                    64    SMX60_VLS[64]                              VLOXSEG4EI16_V             vloxseg4ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
 # CHECK-NEXT:  1      128   128.00  *                    128   SMX60_VLS[128]                             VLOXSEG4EI16_V             vloxseg4ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      16    16.00   *                    16    SMX60_VLS[16]                              VLOXSEG4EI32_V             vloxseg4ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLOXSEG4EI32_V             vloxseg4ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
 # CHECK-NEXT:  1      64    64.00   *                    64    SMX60_VLS[64]                              VLOXSEG4EI32_V             vloxseg4ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      16    16.00   *                    16    SMX60_VLS[16]                              VLOXSEG4EI64_V             vloxseg4ei64.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLOXSEG4EI64_V             vloxseg4ei64.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      20    20.00   *                    20    SMX60_VLS[20]                              VLOXSEG5EI8_V              vloxseg5ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      40    40.00   *                    40    SMX60_VLS[40]                              VLOXSEG5EI8_V              vloxseg5ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      80    80.00   *                    80    SMX60_VLS[80]                              VLOXSEG5EI8_V              vloxseg5ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      160   160.00  *                    160   SMX60_VLS[160]                             VLOXSEG5EI8_V              vloxseg5ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      20    20.00   *                    20    SMX60_VLS[20]                              VLOXSEG5EI16_V             vloxseg5ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      40    40.00   *                    40    SMX60_VLS[40]                              VLOXSEG5EI16_V             vloxseg5ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      80    80.00   *                    80    SMX60_VLS[80]                              VLOXSEG5EI16_V             vloxseg5ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      20    20.00   *                    20    SMX60_VLS[20]                              VLOXSEG5EI32_V             vloxseg5ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      40    40.00   *                    40    SMX60_VLS[40]                              VLOXSEG5EI32_V             vloxseg5ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      20    20.00   *                    20    SMX60_VLS[20]                              VLOXSEG5EI64_V             vloxseg5ei64.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      24    24.00   *                    24    SMX60_VLS[24]                              VLOXSEG6EI8_V              vloxseg6ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      48    48.00   *                    48    SMX60_VLS[48]                              VLOXSEG6EI8_V              vloxseg6ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      96    96.00   *                    96    SMX60_VLS[96]                              VLOXSEG6EI8_V              vloxseg6ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      192   192.00  *                    192   SMX60_VLS[192]                             VLOXSEG6EI8_V              vloxseg6ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      24    24.00   *                    24    SMX60_VLS[24]                              VLOXSEG6EI16_V             vloxseg6ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      48    48.00   *                    48    SMX60_VLS[48]                              VLOXSEG6EI16_V             vloxseg6ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      96    96.00   *                    96    SMX60_VLS[96]                              VLOXSEG6EI16_V             vloxseg6ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      24    24.00   *                    24    SMX60_VLS[24]                              VLOXSEG6EI32_V             vloxseg6ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      48    48.00   *                    48    SMX60_VLS[48]                              VLOXSEG6EI32_V             vloxseg6ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      24    24.00   *                    24    SMX60_VLS[24]                              VLOXSEG6EI64_V             vloxseg6ei64.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      28    28.00   *                    28    SMX60_VLS[28]                              VLOXSEG7EI8_V              vloxseg7ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      56    56.00   *                    56    SMX60_VLS[56]                              VLOXSEG7EI8_V              vloxseg7ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      112   112.00  *                    112   SMX60_VLS[112]                             VLOXSEG7EI8_V              vloxseg7ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      224   224.00  *                    224   SMX60_VLS[224]                             VLOXSEG7EI8_V              vloxseg7ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      28    28.00   *                    28    SMX60_VLS[28]                              VLOXSEG7EI16_V             vloxseg7ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      56    56.00   *                    56    SMX60_VLS[56]                              VLOXSEG7EI16_V             vloxseg7ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      112   112.00  *                    112   SMX60_VLS[112]                             VLOXSEG7EI16_V             vloxseg7ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      28    28.00   *                    28    SMX60_VLS[28]                              VLOXSEG7EI32_V             vloxseg7ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      56    56.00   *                    56    SMX60_VLS[56]                              VLOXSEG7EI32_V             vloxseg7ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      28    28.00   *                    28    SMX60_VLS[28]                              VLOXSEG7EI64_V             vloxseg7ei64.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLOXSEG8EI8_V              vloxseg8ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      64    64.00   *                    64    SMX60_VLS[64]                              VLOXSEG8EI8_V              vloxseg8ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      128   128.00  *                    128   SMX60_VLS[128]                             VLOXSEG8EI8_V              vloxseg8ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      256   256.00  *                    256   SMX60_VLS[256]                             VLOXSEG8EI8_V              vloxseg8ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLOXSEG8EI16_V             vloxseg8ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      64    64.00   *                    64    SMX60_VLS[64]                              VLOXSEG8EI16_V             vloxseg8ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      128   128.00  *                    128   SMX60_VLS[128]                             VLOXSEG8EI16_V             vloxseg8ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLOXSEG8EI32_V             vloxseg8ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      64    64.00   *                    64    SMX60_VLS[64]                              VLOXSEG8EI32_V             vloxseg8ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      32    32.00   *                    32    SMX60_VLS[32]                              VLOXSEG8EI64_V             vloxseg8ei64.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      8     8.00           *             8     SMX60_VLS[8]                               VSUXSEG2EI8_V              vsuxseg2ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      16    16.00          *             16    SMX60_VLS[16]                              VSUXSEG2EI8_V              vsuxseg2ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      32    32.00          *             32    SMX60_VLS[32]                              VSUXSEG2EI8_V              vsuxseg2ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      64    64.00          *             64    SMX60_VLS[64]                              VSUXSEG2EI8_V              vsuxseg2ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
 # CHECK-NEXT:  1      128   128.00         *             128   SMX60_VLS[128]                             VSUXSEG2EI8_V              vsuxseg2ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      8     8.00           *             8     SMX60_VLS[8]                               VSUXSEG2EI16_V             vsuxseg2ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      16    16.00          *             16    SMX60_VLS[16]                              VSUXSEG2EI16_V             vsuxseg2ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      32    32.00          *             32    SMX60_VLS[32]                              VSUXSEG2EI16_V             vsuxseg2ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
 # CHECK-NEXT:  1      64    64.00          *             64    SMX60_VLS[64]                              VSUXSEG2EI16_V             vsuxseg2ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      8     8.00           *             8     SMX60_VLS[8]                               VSUXSEG2EI32_V             vsuxseg2ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      16    16.00          *             16    SMX60_VLS[16]                              VSUXSEG2EI32_V             vsuxseg2ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
 # CHECK-NEXT:  1      32    32.00          *             32    SMX60_VLS[32]                              VSUXSEG2EI32_V             vsuxseg2ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      8     8.00           *             8     SMX60_VLS[8]                               VSUXSEG2EI64_V             vsuxseg2ei64.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
 # CHECK-NEXT:  1      16    16.00          *             16    SMX60_VLS[16]                              VSUXSEG2EI64_V             vsuxseg2ei64.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      12    12.00          *             12    SMX60_VLS[12]                              VSUXSEG3EI8_V              vsuxseg3ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      24    24.00          *             24    SMX60_VLS[24]                              VSUXSEG3EI8_V              vsuxseg3ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      48    48.00          *             48    SMX60_VLS[48]                              VSUXSEG3EI8_V              vsuxseg3ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      96    96.00          *             96    SMX60_VLS[96]                              VSUXSEG3EI8_V              vsuxseg3ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
 # CHECK-NEXT:  1      192   192.00         *             192   SMX60_VLS[192]                             VSUXSEG3EI8_V              vsuxseg3ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      12    12.00          *             12    SMX60_VLS[12]                              VSUXSEG3EI16_V             vsuxseg3ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      24    24.00          *             24    SMX60_VLS[24]                              VSUXSEG3EI16_V             vsuxseg3ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      48    48.00          *             48    SMX60_VLS[48]                              VSUXSEG3EI16_V             vsuxseg3ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
 # CHECK-NEXT:  1      96    96.00          *             96    SMX60_VLS[96]                              VSUXSEG3EI16_V             vsuxseg3ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      12    12.00          *             12    SMX60_VLS[12]                              VSUXSEG3EI32_V             vsuxseg3ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      24    24.00          *             24    SMX60_VLS[24]                              VSUXSEG3EI32_V             vsuxseg3ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
 # CHECK-NEXT:  1      48    48.00          *             48    SMX60_VLS[48]                              VSUXSEG3EI32_V             vsuxseg3ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      12    12.00          *             12    SMX60_VLS[12]                              VSUXSEG3EI64_V             vsuxseg3ei64.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
 # CHECK-NEXT:  1      24    24.00          *             24    SMX60_VLS[24]                              VSUXSEG3EI64_V             vsuxseg3ei64.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      16    16.00          *             16    SMX60_VLS[16]                              VSUXSEG4EI8_V              vsuxseg4ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      32    32.00          *             32    SMX60_VLS[32]                              VSUXSEG4EI8_V              vsuxseg4ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      64    64.00          *             64    SMX60_VLS[64]                              VSUXSEG4EI8_V              vsuxseg4ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      128   128.00         *             128   SMX60_VLS[128]                             VSUXSEG4EI8_V              vsuxseg4ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
 # CHECK-NEXT:  1      256   256.00         *             256   SMX60_VLS[256]                             VSUXSEG4EI8_V              vsuxseg4ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      16    16.00          *             16    SMX60_VLS[16]                              VSUXSEG4EI16_V             vsuxseg4ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      32    32.00          *             32    SMX60_VLS[32]                              VSUXSEG4EI16_V             vsuxseg4ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      64    64.00          *             64    SMX60_VLS[64]                              VSUXSEG4EI16_V             vsuxseg4ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
 # CHECK-NEXT:  1      128   128.00         *             128   SMX60_VLS[128]                             VSUXSEG4EI16_V             vsuxseg4ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      16    16.00          *             16    SMX60_VLS[16]                              VSUXSEG4EI32_V             vsuxseg4ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      32    32.00          *             32    SMX60_VLS[32]                              VSUXSEG4EI32_V             vsuxseg4ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
 # CHECK-NEXT:  1      64    64.00          *             64    SMX60_VLS[64]                              VSUXSEG4EI32_V             vsuxseg4ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      16    16.00          *             16    SMX60_VLS[16]                              VSUXSEG4EI64_V             vsuxseg4ei64.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
 # CHECK-NEXT:  1      32    32.00          *             32    SMX60_VLS[32]                              VSUXSEG4EI64_V             vsuxseg4ei64.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      20    20.00          *             20    SMX60_VLS[20]                              VSUXSEG5EI8_V              vsuxseg5ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      40    40.00          *             40    SMX60_VLS[40]                              VSUXSEG5EI8_V              vsuxseg5ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      80    80.00          *             80    SMX60_VLS[80]                              VSUXSEG5EI8_V              vsuxseg5ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      160   160.00         *             160   SMX60_VLS[160]                             VSUXSEG5EI8_V              vsuxseg5ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      20    20.00          *             20    SMX60_VLS[20]                              VSUXSEG5EI16_V             vsuxseg5ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      40    40.00          *             40    SMX60_VLS[40]                              VSUXSEG5EI16_V             vsuxseg5ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      80    80.00          *             80    SMX60_VLS[80]                              VSUXSEG5EI16_V             vsuxseg5ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      20    20.00          *             20    SMX60_VLS[20]                              VSUXSEG5EI32_V             vsuxseg5ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      40    40.00          *             40    SMX60_VLS[40]                              VSUXSEG5EI32_V             vsuxseg5ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      20    20.00          *             20    SMX60_VLS[20]                              VSUXSEG5EI64_V             vsuxseg5ei64.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      24    24.00          *             24    SMX60_VLS[24]                              VSUXSEG6EI8_V              vsuxseg6ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      48    48.00          *             48    SMX60_VLS[48]                              VSUXSEG6EI8_V              vsuxseg6ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      96    96.00          *             96    SMX60_VLS[96]                              VSUXSEG6EI8_V              vsuxseg6ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      192   192.00         *             192   SMX60_VLS[192]                             VSUXSEG6EI8_V              vsuxseg6ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      24    24.00          *             24    SMX60_VLS[24]                              VSUXSEG6EI16_V             vsuxseg6ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      48    48.00          *             48    SMX60_VLS[48]                              VSUXSEG6EI16_V             vsuxseg6ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      96    96.00          *             96    SMX60_VLS[96]                              VSUXSEG6EI16_V             vsuxseg6ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      24    24.00          *             24    SMX60_VLS[24]                              VSUXSEG6EI32_V             vsuxseg6ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      48    48.00          *             48    SMX60_VLS[48]                              VSUXSEG6EI32_V             vsuxseg6ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      24    24.00          *             24    SMX60_VLS[24]                              VSUXSEG6EI64_V             vsuxseg6ei64.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      28    28.00          *             28    SMX60_VLS[28]                              VSUXSEG7EI8_V              vsuxseg7ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      56    56.00          *             56    SMX60_VLS[56]                              VSUXSEG7EI8_V              vsuxseg7ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      112   112.00         *             112   SMX60_VLS[112]                             VSUXSEG7EI8_V              vsuxseg7ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      224   224.00         *             224   SMX60_VLS[224]                             VSUXSEG7EI8_V              vsuxseg7ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      28    28.00          *             28    SMX60_VLS[28]                              VSUXSEG7EI16_V             vsuxseg7ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      56    56.00          *             56    SMX60_VLS[56]                              VSUXSEG7EI16_V             vsuxseg7ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      112   112.00         *             112   SMX60_VLS[112]                             VSUXSEG7EI16_V             vsuxseg7ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      28    28.00          *             28    SMX60_VLS[28]                              VSUXSEG7EI32_V             vsuxseg7ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      56    56.00          *             56    SMX60_VLS[56]                              VSUXSEG7EI32_V             vsuxseg7ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      28    28.00          *             28    SMX60_VLS[28]                              VSUXSEG7EI64_V             vsuxseg7ei64.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      32    32.00          *             32    SMX60_VLS[32]                              VSUXSEG8EI8_V              vsuxseg8ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      64    64.00          *             64    SMX60_VLS[64]                              VSUXSEG8EI8_V              vsuxseg8ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      128   128.00         *             128   SMX60_VLS[128]                             VSUXSEG8EI8_V              vsuxseg8ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      256   256.00         *             256   SMX60_VLS[256]                             VSUXSEG8EI8_V              vsuxseg8ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      32    32.00          *             32    SMX60_VLS[32]                              VSUXSEG8EI16_V             vsuxseg8ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      64    64.00          *             64    SMX60_VLS[64]                              VSUXSEG8EI16_V             vsuxseg8ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      128   128.00         *             128   SMX60_VLS[128]                             VSUXSEG8EI16_V             vsuxseg8ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      32    32.00          *             32    SMX60_VLS[32]                              VSUXSEG8EI32_V             vsuxseg8ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      64    64.00          *             64    SMX60_VLS[64]                              VSUXSEG8EI32_V             vsuxseg8ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      32    32.00          *             32    SMX60_VLS[32]                              VSUXSEG8EI64_V             vsuxseg8ei64.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      8     8.00           *             8     SMX60_VLS[8]                               VSOXSEG2EI8_V              vsoxseg2ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      16    16.00          *             16    SMX60_VLS[16]                              VSOXSEG2EI8_V              vsoxseg2ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      32    32.00          *             32    SMX60_VLS[32]                              VSOXSEG2EI8_V              vsoxseg2ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      64    64.00          *             64    SMX60_VLS[64]                              VSOXSEG2EI8_V              vsoxseg2ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
 # CHECK-NEXT:  1      128   128.00         *             128   SMX60_VLS[128]                             VSOXSEG2EI8_V              vsoxseg2ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m4, tu, mu
 # CHECK-NEXT:  1      256   256.00         *             256   SMX60_VLS[256]                             VSOXSEG2EI8_V              vsoxseg2ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      8     8.00           *             8     SMX60_VLS[8]                               VSOXSEG2EI16_V             vsoxseg2ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      16    16.00          *             16    SMX60_VLS[16]                              VSOXSEG2EI16_V             vsoxseg2ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      32    32.00          *             32    SMX60_VLS[32]                              VSOXSEG2EI16_V             vsoxseg2ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
 # CHECK-NEXT:  1      64    64.00          *             64    SMX60_VLS[64]                              VSOXSEG2EI16_V             vsoxseg2ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m4, tu, mu
 # CHECK-NEXT:  1      128   128.00         *             128   SMX60_VLS[128]                             VSOXSEG2EI16_V             vsoxseg2ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      8     8.00           *             8     SMX60_VLS[8]                               VSOXSEG2EI32_V             vsoxseg2ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      16    16.00          *             16    SMX60_VLS[16]                              VSOXSEG2EI32_V             vsoxseg2ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
 # CHECK-NEXT:  1      32    32.00          *             32    SMX60_VLS[32]                              VSOXSEG2EI32_V             vsoxseg2ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m4, tu, mu
 # CHECK-NEXT:  1      64    64.00          *             64    SMX60_VLS[64]                              VSOXSEG2EI32_V             vsoxseg2ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      8     8.00           *             8     SMX60_VLS[8]                               VSOXSEG2EI64_V             vsoxseg2ei64.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
 # CHECK-NEXT:  1      16    16.00          *             16    SMX60_VLS[16]                              VSOXSEG2EI64_V             vsoxseg2ei64.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m4, tu, mu
 # CHECK-NEXT:  1      32    32.00          *             32    SMX60_VLS[32]                              VSOXSEG2EI64_V             vsoxseg2ei64.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      12    12.00          *             12    SMX60_VLS[12]                              VSOXSEG3EI8_V              vsoxseg3ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      24    24.00          *             24    SMX60_VLS[24]                              VSOXSEG3EI8_V              vsoxseg3ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      48    48.00          *             48    SMX60_VLS[48]                              VSOXSEG3EI8_V              vsoxseg3ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      96    96.00          *             96    SMX60_VLS[96]                              VSOXSEG3EI8_V              vsoxseg3ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
 # CHECK-NEXT:  1      192   192.00         *             192   SMX60_VLS[192]                             VSOXSEG3EI8_V              vsoxseg3ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      12    12.00          *             12    SMX60_VLS[12]                              VSOXSEG3EI16_V             vsoxseg3ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      24    24.00          *             24    SMX60_VLS[24]                              VSOXSEG3EI16_V             vsoxseg3ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      48    48.00          *             48    SMX60_VLS[48]                              VSOXSEG3EI16_V             vsoxseg3ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
 # CHECK-NEXT:  1      96    96.00          *             96    SMX60_VLS[96]                              VSOXSEG3EI16_V             vsoxseg3ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      12    12.00          *             12    SMX60_VLS[12]                              VSOXSEG3EI32_V             vsoxseg3ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      24    24.00          *             24    SMX60_VLS[24]                              VSOXSEG3EI32_V             vsoxseg3ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
 # CHECK-NEXT:  1      48    48.00          *             48    SMX60_VLS[48]                              VSOXSEG3EI32_V             vsoxseg3ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      12    12.00          *             12    SMX60_VLS[12]                              VSOXSEG3EI64_V             vsoxseg3ei64.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
 # CHECK-NEXT:  1      24    24.00          *             24    SMX60_VLS[24]                              VSOXSEG3EI64_V             vsoxseg3ei64.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      16    16.00          *             16    SMX60_VLS[16]                              VSOXSEG4EI8_V              vsoxseg4ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      32    32.00          *             32    SMX60_VLS[32]                              VSOXSEG4EI8_V              vsoxseg4ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      64    64.00          *             64    SMX60_VLS[64]                              VSOXSEG4EI8_V              vsoxseg4ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      128   128.00         *             128   SMX60_VLS[128]                             VSOXSEG4EI8_V              vsoxseg4ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m2, tu, mu
 # CHECK-NEXT:  1      256   256.00         *             256   SMX60_VLS[256]                             VSOXSEG4EI8_V              vsoxseg4ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      16    16.00          *             16    SMX60_VLS[16]                              VSOXSEG4EI16_V             vsoxseg4ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      32    32.00          *             32    SMX60_VLS[32]                              VSOXSEG4EI16_V             vsoxseg4ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      64    64.00          *             64    SMX60_VLS[64]                              VSOXSEG4EI16_V             vsoxseg4ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m2, tu, mu
 # CHECK-NEXT:  1      128   128.00         *             128   SMX60_VLS[128]                             VSOXSEG4EI16_V             vsoxseg4ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      16    16.00          *             16    SMX60_VLS[16]                              VSOXSEG4EI32_V             vsoxseg4ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      32    32.00          *             32    SMX60_VLS[32]                              VSOXSEG4EI32_V             vsoxseg4ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m2, tu, mu
 # CHECK-NEXT:  1      64    64.00          *             64    SMX60_VLS[64]                              VSOXSEG4EI32_V             vsoxseg4ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      16    16.00          *             16    SMX60_VLS[16]                              VSOXSEG4EI64_V             vsoxseg4ei64.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m2, tu, mu
 # CHECK-NEXT:  1      32    32.00          *             32    SMX60_VLS[32]                              VSOXSEG4EI64_V             vsoxseg4ei64.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      20    20.00          *             20    SMX60_VLS[20]                              VSOXSEG5EI8_V              vsoxseg5ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      40    40.00          *             40    SMX60_VLS[40]                              VSOXSEG5EI8_V              vsoxseg5ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      80    80.00          *             80    SMX60_VLS[80]                              VSOXSEG5EI8_V              vsoxseg5ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      160   160.00         *             160   SMX60_VLS[160]                             VSOXSEG5EI8_V              vsoxseg5ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      20    20.00          *             20    SMX60_VLS[20]                              VSOXSEG5EI16_V             vsoxseg5ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      40    40.00          *             40    SMX60_VLS[40]                              VSOXSEG5EI16_V             vsoxseg5ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      80    80.00          *             80    SMX60_VLS[80]                              VSOXSEG5EI16_V             vsoxseg5ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      20    20.00          *             20    SMX60_VLS[20]                              VSOXSEG5EI32_V             vsoxseg5ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      40    40.00          *             40    SMX60_VLS[40]                              VSOXSEG5EI32_V             vsoxseg5ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      20    20.00          *             20    SMX60_VLS[20]                              VSOXSEG5EI64_V             vsoxseg5ei64.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      24    24.00          *             24    SMX60_VLS[24]                              VSOXSEG6EI8_V              vsoxseg6ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      48    48.00          *             48    SMX60_VLS[48]                              VSOXSEG6EI8_V              vsoxseg6ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      96    96.00          *             96    SMX60_VLS[96]                              VSOXSEG6EI8_V              vsoxseg6ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      192   192.00         *             192   SMX60_VLS[192]                             VSOXSEG6EI8_V              vsoxseg6ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      24    24.00          *             24    SMX60_VLS[24]                              VSOXSEG6EI16_V             vsoxseg6ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      48    48.00          *             48    SMX60_VLS[48]                              VSOXSEG6EI16_V             vsoxseg6ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      96    96.00          *             96    SMX60_VLS[96]                              VSOXSEG6EI16_V             vsoxseg6ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      24    24.00          *             24    SMX60_VLS[24]                              VSOXSEG6EI32_V             vsoxseg6ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      48    48.00          *             48    SMX60_VLS[48]                              VSOXSEG6EI32_V             vsoxseg6ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      24    24.00          *             24    SMX60_VLS[24]                              VSOXSEG6EI64_V             vsoxseg6ei64.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      28    28.00          *             28    SMX60_VLS[28]                              VSOXSEG7EI8_V              vsoxseg7ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      56    56.00          *             56    SMX60_VLS[56]                              VSOXSEG7EI8_V              vsoxseg7ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      112   112.00         *             112   SMX60_VLS[112]                             VSOXSEG7EI8_V              vsoxseg7ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      224   224.00         *             224   SMX60_VLS[224]                             VSOXSEG7EI8_V              vsoxseg7ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      28    28.00          *             28    SMX60_VLS[28]                              VSOXSEG7EI16_V             vsoxseg7ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      56    56.00          *             56    SMX60_VLS[56]                              VSOXSEG7EI16_V             vsoxseg7ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      112   112.00         *             112   SMX60_VLS[112]                             VSOXSEG7EI16_V             vsoxseg7ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      28    28.00          *             28    SMX60_VLS[28]                              VSOXSEG7EI32_V             vsoxseg7ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      56    56.00          *             56    SMX60_VLS[56]                              VSOXSEG7EI32_V             vsoxseg7ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      28    28.00          *             28    SMX60_VLS[28]                              VSOXSEG7EI64_V             vsoxseg7ei64.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf8, tu, mu
 # CHECK-NEXT:  1      32    32.00          *             32    SMX60_VLS[32]                              VSOXSEG8EI8_V              vsoxseg8ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf4, tu, mu
 # CHECK-NEXT:  1      64    64.00          *             64    SMX60_VLS[64]                              VSOXSEG8EI8_V              vsoxseg8ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, mf2, tu, mu
 # CHECK-NEXT:  1      128   128.00         *             128   SMX60_VLS[128]                             VSOXSEG8EI8_V              vsoxseg8ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e8, m1, tu, mu
 # CHECK-NEXT:  1      256   256.00         *             256   SMX60_VLS[256]                             VSOXSEG8EI8_V              vsoxseg8ei8.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf4, tu, mu
 # CHECK-NEXT:  1      32    32.00          *             32    SMX60_VLS[32]                              VSOXSEG8EI16_V             vsoxseg8ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, mf2, tu, mu
 # CHECK-NEXT:  1      64    64.00          *             64    SMX60_VLS[64]                              VSOXSEG8EI16_V             vsoxseg8ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e16, m1, tu, mu
 # CHECK-NEXT:  1      128   128.00         *             128   SMX60_VLS[128]                             VSOXSEG8EI16_V             vsoxseg8ei16.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, mf2, tu, mu
 # CHECK-NEXT:  1      32    32.00          *             32    SMX60_VLS[32]                              VSOXSEG8EI32_V             vsoxseg8ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e32, m1, tu, mu
 # CHECK-NEXT:  1      64    64.00          *             64    SMX60_VLS[64]                              VSOXSEG8EI32_V             vsoxseg8ei32.v	v8, (a0), v16
-# CHECK-NEXT:  1      1     1.00                  U      1     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
+# CHECK-NEXT:  1      5     1.00                  U      5     SMX60_IEU,SMX60_IEUA                       VSETVLI                    vsetvli	zero, zero, e64, m1, tu, mu
 # CHECK-NEXT:  1      32    32.00          *             32    SMX60_VLS[32]                              VSOXSEG8EI64_V             vsoxseg8ei64.v	v8, (a0), v16
 
 # CHECK:      Resources:
