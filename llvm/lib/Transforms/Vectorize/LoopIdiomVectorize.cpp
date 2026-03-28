@@ -10,9 +10,9 @@
 // transforms them into more optimized versions of the same loop. In cases
 // where this happens, it can be a significant performance win.
 //
-// We currently support two loops:
+// We currently support three loops:
 //
-// 1. A loop that finds the first mismatched byte in an array and returns the
+// 1. A loop that finds the first mismatched byte in two arrays and returns the
 // index, i.e. something like:
 //
 //  while (++i != n) {
@@ -20,7 +20,15 @@
 //      break;
 //  }
 //
-// In this example we can actually vectorize the loop despite the early exit,
+// 2. A loop that finds the first array element matching a loop-invariant value
+// and returns the index, i.e. something like:
+//
+//  for (; i != n; ++i) {
+//    if (a[i] == x)
+//      break;
+//  }
+//
+// In these examples we can actually vectorize the loop despite the early exit,
 // although the loop vectorizer does not support it. It requires some extra
 // checks to deal with the possibility of faulting loads when crossing page
 // boundaries. However, even with these checks it is still profitable to do the
@@ -28,12 +36,11 @@
 //
 // TODO List:
 //
-// * Add support for the inverse case where we scan for a matching element.
 // * Permit 64-bit induction variable types.
 // * Recognize loops that increment the IV *after* comparing bytes.
 // * Allow 32-bit sign-extends of the IV used by the GEP.
 //
-// 2. A loop that finds the first matching character in an array among a set of
+// 3. A loop that finds the first matching character in an array among a set of
 // possible matches, e.g.:
 //
 //   for (; first != last; ++first)
@@ -153,24 +160,54 @@ private:
                       SmallVectorImpl<BasicBlock *> &ExitBlocks);
 
   bool recognizeByteCompare();
+  // Recognize loops that compare a load against a loop-invariant value.
+  bool recognizeLoadCompareToInvariant();
+  // Choose a vectorization factor for the load/compare idiom.
+  unsigned getLoadCompareVF(Type *LoadTy) const;
 
   Value *expandFindMismatch(IRBuilder<> &Builder, DomTreeUpdater &DTU,
                             GetElementPtrInst *GEPA, GetElementPtrInst *GEPB,
                             Instruction *Index, Value *Start, Value *MaxLen);
+  // Build the vector/scalar search for the first matching element.
+  Value *expandFindFirstLoadCompare(IRBuilder<> &Builder, DomTreeUpdater &DTU,
+                                    GetElementPtrInst *GEP, Value *Invariant,
+                                    IntegerType *IndexTy, unsigned VF,
+                                    Value *Start, Value *MaxLen,
+                                    Instruction *IndexInc);
 
   Value *createMaskedFindMismatch(IRBuilder<> &Builder, DomTreeUpdater &DTU,
                                   GetElementPtrInst *GEPA,
                                   GetElementPtrInst *GEPB, Value *ExtStart,
                                   Value *ExtEnd);
+  // Build the masked vector loop for the first matching element.
+  Value *createMaskedFindFirstLoadCompare(IRBuilder<> &Builder,
+                                          DomTreeUpdater &DTU,
+                                          GetElementPtrInst *GEP,
+                                          Value *Invariant,
+                                          IntegerType *IndexTy, unsigned VF,
+                                          Value *ExtStart, Value *ExtEnd);
   Value *createPredicatedFindMismatch(IRBuilder<> &Builder, DomTreeUpdater &DTU,
                                       GetElementPtrInst *GEPA,
                                       GetElementPtrInst *GEPB, Value *ExtStart,
                                       Value *ExtEnd);
+  // Build the predicated vector loop for the first matching element.
+  Value *createPredicatedFindFirstLoadCompare(IRBuilder<> &Builder,
+                                              DomTreeUpdater &DTU,
+                                              GetElementPtrInst *GEP,
+                                              Value *Invariant,
+                                              IntegerType *IndexTy, unsigned VF,
+                                              Value *ExtStart, Value *ExtEnd);
 
   void transformByteCompare(GetElementPtrInst *GEPA, GetElementPtrInst *GEPB,
                             PHINode *IndPhi, Value *MaxLen, Instruction *Index,
                             Value *Start, bool IncIdx, BasicBlock *FoundBB,
                             BasicBlock *EndBB);
+  // Replace the loop with the vectorized load/compare control flow.
+  void transformLoadCompareToInvariant(GetElementPtrInst *GEP, PHINode *IndPhi,
+                                       Value *Invariant, Value *MaxLen,
+                                       unsigned VF, Instruction *IndexInc,
+                                       Value *Start, BasicBlock *FoundBB,
+                                       BasicBlock *EndBB);
 
   bool recognizeFindFirstByte();
 
@@ -259,6 +296,9 @@ bool LoopIdiomVectorize::run(Loop *L) {
   if (recognizeByteCompare())
     return true;
 
+  if (recognizeLoadCompareToInvariant())
+    return true;
+
   if (recognizeFindFirstByte())
     return true;
 
@@ -294,6 +334,14 @@ static void fixSuccessorPhis(Loop *L, Value *ScalarRes, Value *VectorRes,
         }
     }
   }
+}
+
+static bool sizeWithoutDebugLargerThan(const BasicBlock *BB, unsigned Limit) {
+  unsigned Count = 0;
+  for (const Instruction &I : *BB)
+    if (!I.isDebugOrPseudoInst() && ++Count > Limit)
+      return true;
+  return false;
 }
 
 bool LoopIdiomVectorize::recognizeByteCompare() {
@@ -474,6 +522,593 @@ bool LoopIdiomVectorize::recognizeByteCompare() {
   transformByteCompare(GEPA, GEPB, PN, MaxLen, Index, StartIdx, /*IncIdx=*/true,
                        FoundBB, EndBB);
   return true;
+}
+
+unsigned LoopIdiomVectorize::getLoadCompareVF(Type *LoadTy) const {
+  // Only handle scalar integer and floating-point element types.
+  if (!LoadTy->isIntegerTy() && !LoadTy->isFloatingPointTy())
+    return 0;
+
+  // Do not try to derive a VF for scalable element types.
+  TypeSize PrimSize = LoadTy->getPrimitiveSizeInBits();
+  if (PrimSize.isScalable())
+    return 0;
+
+  // Limit the idiom to scalar element widths that are easy to lower.
+  unsigned ElemBits = PrimSize.getFixedValue();
+  if (ElemBits == 0 || ElemBits > 64 || ElemBits % 8 != 0)
+    return 0;
+
+  // Cap VF using the target's known-minimum scalable vector register width to
+  // avoid creating vector types that span many registers.
+  TypeSize ScalableRegWidth =
+      TTI->getRegisterBitWidth(TargetTransformInfo::RGK_ScalableVector);
+  if (ScalableRegWidth.getKnownMinValue() < ElemBits)
+    return 0;
+
+  unsigned MaxVF = ScalableRegWidth.getKnownMinValue() / ElemBits;
+  return std::min(ByteCompareVF, MaxVF);
+}
+
+bool LoopIdiomVectorize::recognizeLoadCompareToInvariant() {
+  // This transform relies on scalable vectors and page-size checks.
+  if (!TTI->supportsScalableVectors() || !TTI->getMinPageSize().has_value())
+    return false;
+
+  BasicBlock *Header = CurLoop->getHeader();
+  BasicBlock *Latch = CurLoop->getLoopLatch();
+  if (!Latch || CurLoop->getNumBackEdges() != 1 || CurLoop->getNumBlocks() != 2)
+    return false;
+
+  PHINode *IndPhi = dyn_cast<PHINode>(&Header->front());
+  IntegerType *IndexTy =
+      dyn_cast<IntegerType>(IndPhi ? IndPhi->getType() : nullptr);
+  if (!IndPhi || !IndexTy || IndPhi->getNumIncomingValues() != 2 ||
+      IndexTy->getBitWidth() > 64)
+    return false;
+
+  if (sizeWithoutDebugLargerThan(Header, 7) ||
+      sizeWithoutDebugLargerThan(Latch, 3))
+    return false;
+
+  Value *Start = nullptr;
+  Instruction *IndexInc = nullptr;
+  BasicBlock *LoopIncoming = nullptr;
+  if (!CurLoop->contains(IndPhi->getIncomingBlock(0))) {
+    Start = IndPhi->getIncomingValue(0);
+    LoopIncoming = IndPhi->getIncomingBlock(1);
+    IndexInc = dyn_cast<Instruction>(IndPhi->getIncomingValue(1));
+  } else {
+    Start = IndPhi->getIncomingValue(1);
+    LoopIncoming = IndPhi->getIncomingBlock(0);
+    IndexInc = dyn_cast<Instruction>(IndPhi->getIncomingValue(0));
+  }
+
+  if (LoopIncoming != Latch || !CurLoop->isLoopInvariant(Start) || !IndexInc ||
+      IndexInc->getType() != IndPhi->getType() ||
+      !match(IndexInc, m_c_Add(m_Specific(IndPhi), m_One())))
+    return false;
+
+  BranchInst *HeaderBr = dyn_cast<BranchInst>(Header->getTerminator());
+  if (!HeaderBr || !HeaderBr->isConditional())
+    return false;
+
+  BasicBlock *FoundBB = HeaderBr->getSuccessor(0);
+  BasicBlock *ContinueBB = HeaderBr->getSuccessor(1);
+  if (CurLoop->contains(FoundBB) || ContinueBB != Latch)
+    return false;
+
+  CmpInst *LoadCmp = dyn_cast<CmpInst>(HeaderBr->getCondition());
+  if (!LoadCmp)
+    return false;
+
+  LoadInst *LI = dyn_cast<LoadInst>(LoadCmp->getOperand(0));
+  Value *Invariant = LoadCmp->getOperand(1);
+  if (!LI || !CurLoop->isLoopInvariant(Invariant)) {
+    LI = dyn_cast<LoadInst>(LoadCmp->getOperand(1));
+    Invariant = LoadCmp->getOperand(0);
+  }
+
+  if (!LI || !LI->isSimple() || !CurLoop->isLoopInvariant(Invariant))
+    return false;
+
+  Type *LoadTy = LI->getType();
+  if (LoadTy != Invariant->getType() ||
+      (!LoadTy->isIntegerTy() && !LoadTy->isFloatingPointTy()))
+    return false;
+
+  unsigned VF = getLoadCompareVF(LoadTy);
+  if (VF == 0)
+    return false;
+
+  if ((isa<FCmpInst>(LoadCmp) &&
+       LoadCmp->getPredicate() != CmpInst::FCMP_OEQ) ||
+      (isa<ICmpInst>(LoadCmp) && LoadCmp->getPredicate() != CmpInst::ICMP_EQ) ||
+      (!isa<FCmpInst>(LoadCmp) && !isa<ICmpInst>(LoadCmp)))
+    return false;
+
+  GetElementPtrInst *GEP = dyn_cast<GetElementPtrInst>(LI->getPointerOperand());
+  if (!GEP || GEP->getNumIndices() > 1 ||
+      !GEP->getSourceElementType()->isSized() ||
+      DL->getTypeAllocSize(GEP->getSourceElementType()) !=
+          DL->getTypeAllocSize(LoadTy) ||
+      !CurLoop->isLoopInvariant(GEP->getPointerOperand()))
+    return false;
+
+  Value *GEPIdx = GEP->getOperand(GEP->getNumIndices());
+  if (GEPIdx != IndPhi && !match(GEPIdx, m_ZExt(m_Specific(IndPhi))))
+    return false;
+
+  BranchInst *LatchBr = dyn_cast<BranchInst>(Latch->getTerminator());
+  if (!LatchBr || !LatchBr->isConditional())
+    return false;
+
+  BasicBlock *BackedgeBB = nullptr;
+  BasicBlock *EndBB = nullptr;
+  if (CurLoop->contains(LatchBr->getSuccessor(0)) &&
+      !CurLoop->contains(LatchBr->getSuccessor(1))) {
+    BackedgeBB = LatchBr->getSuccessor(0);
+    EndBB = LatchBr->getSuccessor(1);
+  } else if (!CurLoop->contains(LatchBr->getSuccessor(0)) &&
+             CurLoop->contains(LatchBr->getSuccessor(1))) {
+    EndBB = LatchBr->getSuccessor(0);
+    BackedgeBB = LatchBr->getSuccessor(1);
+  } else {
+    return false;
+  }
+
+  if (BackedgeBB != Header)
+    return false;
+
+  ICmpInst *ExitCmp = dyn_cast<ICmpInst>(LatchBr->getCondition());
+  if (!ExitCmp || (ExitCmp->getPredicate() != ICmpInst::ICMP_EQ &&
+                   ExitCmp->getPredicate() != ICmpInst::ICMP_NE))
+    return false;
+
+  if ((ExitCmp->getPredicate() == ICmpInst::ICMP_EQ &&
+       LatchBr->getSuccessor(0) != EndBB) ||
+      (ExitCmp->getPredicate() == ICmpInst::ICMP_NE &&
+       LatchBr->getSuccessor(0) != Header))
+    return false;
+
+  Value *MaxLen = nullptr;
+  if (ExitCmp->getOperand(0) == IndexInc)
+    MaxLen = ExitCmp->getOperand(1);
+  else if (ExitCmp->getOperand(1) == IndexInc)
+    MaxLen = ExitCmp->getOperand(0);
+  else
+    return false;
+
+  if (!CurLoop->isLoopInvariant(MaxLen) ||
+      MaxLen->getType() != IndPhi->getType())
+    return false;
+
+  auto canSynthesizeFoundValue = [&](Value *V) {
+    if (V == IndPhi)
+      return true;
+    auto *CI = dyn_cast<CastInst>(V);
+    return CI && CI->getOperand(0) == IndPhi && CI->getParent() == Header;
+  };
+
+  if (FoundBB == EndBB) {
+    // If both exits fold into the same block, make sure its PHIs can be
+    // reconstructed from the rewritten control flow.
+    for (PHINode &PN : EndBB->phis()) {
+      Value *HeaderVal = PN.getIncomingValueForBlock(Header);
+      Value *LatchVal = PN.getIncomingValueForBlock(Latch);
+      if (HeaderVal == LatchVal)
+        continue;
+      if (!canSynthesizeFoundValue(HeaderVal))
+        return false;
+      if (auto *I = dyn_cast<Instruction>(LatchVal))
+        if (CurLoop->contains(I))
+          return false;
+    }
+  }
+
+  // Reject loops with other live-outs; the rewrite only reconstructs the
+  // induction result.
+  for (BasicBlock *BB : CurLoop->blocks())
+    for (Instruction &I : *BB)
+      if (&I != IndPhi && &I != IndexInc)
+        for (User *U : I.users())
+          if (!CurLoop->contains(cast<Instruction>(U))) {
+            auto *UI = cast<Instruction>(U);
+            auto *PN = dyn_cast<PHINode>(UI);
+            if (FoundBB == EndBB && PN && PN->getParent() == EndBB &&
+                PN->getIncomingValueForBlock(Header) == &I)
+              continue;
+            return false;
+          }
+
+  LLVM_DEBUG(dbgs() << "FOUND LOAD/INVARIANT IDIOM IN LOOP: \n"
+                    << *(EndBB->getParent()) << "\n\n");
+
+  transformLoadCompareToInvariant(GEP, IndPhi, Invariant, MaxLen, VF, IndexInc,
+                                  Start, FoundBB, EndBB);
+  return true;
+}
+
+Value *LoopIdiomVectorize::createMaskedFindFirstLoadCompare(
+    IRBuilder<> &Builder, DomTreeUpdater &DTU, GetElementPtrInst *GEP,
+    Value *Invariant, IntegerType *IndexTy, unsigned VF, Value *ExtStart,
+    Value *ExtEnd) {
+  Type *I64Type = Builder.getInt64Ty();
+  Type *CtzTy = Builder.getInt32Ty();
+  Type *LoadType = Invariant->getType();
+  Value *Ptr = GEP->getPointerOperand();
+
+  ScalableVectorType *PredVTy =
+      ScalableVectorType::get(Builder.getInt1Ty(), VF);
+  Value *InitialPred = Builder.CreateIntrinsic(
+      Intrinsic::get_active_lane_mask, {PredVTy, I64Type}, {ExtStart, ExtEnd});
+
+  // Advance the vector loop by vscale * VF elements each iteration.
+  Value *VecLen = Builder.CreateIntrinsic(Intrinsic::vscale, {I64Type}, {});
+  VecLen = Builder.CreateMul(VecLen, ConstantInt::get(I64Type, VF), "",
+                             /*HasNUW=*/true, /*HasNSW=*/true);
+
+  ScalableVectorType *VectorLoadType = ScalableVectorType::get(LoadType, VF);
+  Value *PFalse = Builder.CreateVectorSplat(PredVTy->getElementCount(),
+                                            Builder.getInt1(false));
+  Value *Passthru = Constant::getNullValue(VectorLoadType);
+
+  BranchInst *JumpToVectorLoop = BranchInst::Create(VectorLoopStartBlock);
+  Builder.Insert(JumpToVectorLoop);
+
+  DTU.applyUpdates({{DominatorTree::Insert, VectorLoopPreheaderBlock,
+                     VectorLoopStartBlock}});
+
+  Builder.SetInsertPoint(VectorLoopStartBlock);
+  PHINode *LoopPred = Builder.CreatePHI(PredVTy, 2, "match_vec_loop_pred");
+  LoopPred->addIncoming(InitialPred, VectorLoopPreheaderBlock);
+  PHINode *VectorIndexPhi = Builder.CreatePHI(I64Type, 2, "match_vec_index");
+  VectorIndexPhi->addIncoming(ExtStart, VectorLoopPreheaderBlock);
+
+  Value *VectorGEP =
+      Builder.CreateGEP(LoadType, Ptr, VectorIndexPhi, "", GEP->isInBounds());
+  Value *VectorLoad = Builder.CreateMaskedLoad(VectorLoadType, VectorGEP,
+                                               DL->getABITypeAlign(LoadType),
+                                               LoopPred, Passthru);
+  Value *VectorInvariant =
+      Builder.CreateVectorSplat(VectorLoadType->getElementCount(), Invariant);
+
+  Value *VectorFoundCmp =
+      LoadType->isFloatingPointTy()
+          ? Builder.CreateFCmpOEQ(VectorLoad, VectorInvariant)
+          : Builder.CreateICmpEQ(VectorLoad, VectorInvariant);
+  // Ignore inactive lanes before reducing the comparison result.
+  VectorFoundCmp = Builder.CreateSelect(LoopPred, VectorFoundCmp, PFalse);
+  Value *VectorFoundHasActiveLanes = Builder.CreateOrReduce(VectorFoundCmp);
+  BranchInst *VectorEarlyExit = BranchInst::Create(
+      VectorLoopMismatchBlock, VectorLoopIncBlock, VectorFoundHasActiveLanes);
+  Builder.Insert(VectorEarlyExit);
+
+  DTU.applyUpdates(
+      {{DominatorTree::Insert, VectorLoopStartBlock, VectorLoopMismatchBlock},
+       {DominatorTree::Insert, VectorLoopStartBlock, VectorLoopIncBlock}});
+
+  Builder.SetInsertPoint(VectorLoopIncBlock);
+  Value *NewVectorIndexPhi =
+      Builder.CreateAdd(VectorIndexPhi, VecLen, "",
+                        /*HasNUW=*/true, /*HasNSW=*/true);
+  VectorIndexPhi->addIncoming(NewVectorIndexPhi, VectorLoopIncBlock);
+  Value *NewPred =
+      Builder.CreateIntrinsic(Intrinsic::get_active_lane_mask,
+                              {PredVTy, I64Type}, {NewVectorIndexPhi, ExtEnd});
+  LoopPred->addIncoming(NewPred, VectorLoopIncBlock);
+
+  Value *PredHasActiveLanes =
+      Builder.CreateExtractElement(NewPred, uint64_t(0));
+  BranchInst *VectorLoopBranchBack =
+      BranchInst::Create(VectorLoopStartBlock, EndBlock, PredHasActiveLanes);
+  Builder.Insert(VectorLoopBranchBack);
+
+  DTU.applyUpdates(
+      {{DominatorTree::Insert, VectorLoopIncBlock, VectorLoopStartBlock},
+       {DominatorTree::Insert, VectorLoopIncBlock, EndBlock}});
+
+  Builder.SetInsertPoint(VectorLoopMismatchBlock);
+  // Carry the winning predicate and index to the exit in LCSSA form.
+  PHINode *FoundPred = Builder.CreatePHI(PredVTy, 1, "match_vec_found_pred");
+  FoundPred->addIncoming(VectorFoundCmp, VectorLoopStartBlock);
+  PHINode *LastLoopPred =
+      Builder.CreatePHI(PredVTy, 1, "match_vec_last_loop_pred");
+  LastLoopPred->addIncoming(LoopPred, VectorLoopStartBlock);
+  PHINode *VectorFoundIndex =
+      Builder.CreatePHI(I64Type, 1, "match_vec_found_index");
+  VectorFoundIndex->addIncoming(VectorIndexPhi, VectorLoopStartBlock);
+
+  // Find the first matching lane in the iteration that exited.
+  Value *PredMatchCmp = Builder.CreateAnd(LastLoopPred, FoundPred);
+  Value *Ctz = Builder.CreateIntrinsic(
+      Intrinsic::experimental_cttz_elts, {CtzTy, PredMatchCmp->getType()},
+      {PredMatchCmp, /*ZeroIsPoison=*/Builder.getInt1(true)});
+  Value *Ctz64 = Builder.CreateZExt(Ctz, I64Type);
+  Value *VectorLoopRes64 = Builder.CreateAdd(VectorFoundIndex, Ctz64, "",
+                                             /*HasNUW=*/true, /*HasNSW=*/true);
+  return IndexTy->getBitWidth() == 64
+             ? VectorLoopRes64
+             : Builder.CreateTrunc(VectorLoopRes64, IndexTy);
+}
+
+Value *LoopIdiomVectorize::createPredicatedFindFirstLoadCompare(
+    IRBuilder<> &Builder, DomTreeUpdater &DTU, GetElementPtrInst *GEP,
+    Value *Invariant, IntegerType *IndexTy, unsigned VF, Value *ExtStart,
+    Value *ExtEnd) {
+  Type *I64Type = Builder.getInt64Ty();
+  Type *I32Type = Builder.getInt32Ty();
+  Type *LoadType = Invariant->getType();
+  Value *Ptr = GEP->getPointerOperand();
+
+  BranchInst *JumpToVectorLoop = BranchInst::Create(VectorLoopStartBlock);
+  Builder.Insert(JumpToVectorLoop);
+
+  DTU.applyUpdates({{DominatorTree::Insert, VectorLoopPreheaderBlock,
+                     VectorLoopStartBlock}});
+
+  Builder.SetInsertPoint(VectorLoopStartBlock);
+  PHINode *VectorIndexPhi = Builder.CreatePHI(I64Type, 2, "match_vector_index");
+  VectorIndexPhi->addIncoming(ExtStart, VectorLoopPreheaderBlock);
+
+  Value *AVL = Builder.CreateSub(ExtEnd, VectorIndexPhi, "avl", /*HasNUW=*/true,
+                                 /*HasNSW=*/true);
+  ScalableVectorType *VectorLoadType = ScalableVectorType::get(LoadType, VF);
+  Value *VFC = ConstantInt::get(I32Type, VF);
+
+  Value *VL = Builder.CreateIntrinsic(Intrinsic::experimental_get_vector_length,
+                                      {I64Type}, {AVL, VFC, Builder.getTrue()});
+  Value *VectorGEP =
+      Builder.CreateGEP(LoadType, Ptr, VectorIndexPhi, "", GEP->isInBounds());
+
+  VectorType *TrueMaskTy =
+      VectorType::get(Builder.getInt1Ty(), VectorLoadType->getElementCount());
+  Value *AllTrueMask = Constant::getAllOnesValue(TrueMaskTy);
+  Value *VectorLoad = Builder.CreateIntrinsic(
+      Intrinsic::vp_load, {VectorLoadType, VectorGEP->getType()},
+      {VectorGEP, AllTrueMask, VL}, nullptr, "match.load");
+
+  Value *VectorInvariant =
+      Builder.CreateVectorSplat(VectorLoadType->getElementCount(), Invariant);
+  MDString *PredicateMDS =
+      MDString::get(VectorLoad->getContext(),
+                    CmpInst::getPredicateName(LoadType->isFloatingPointTy()
+                                                  ? CmpInst::FCMP_OEQ
+                                                  : CmpInst::ICMP_EQ));
+  Value *PredMD = MetadataAsValue::get(VectorLoad->getContext(), PredicateMDS);
+  Value *VectorFoundCmp = Builder.CreateIntrinsic(
+      LoadType->isFloatingPointTy() ? Intrinsic::vp_fcmp : Intrinsic::vp_icmp,
+      {VectorLoad->getType()},
+      {VectorLoad, VectorInvariant, PredMD, AllTrueMask, VL}, nullptr,
+      "match.cmp");
+  Value *CTZ = Builder.CreateIntrinsic(
+      Intrinsic::vp_cttz_elts, {I32Type, VectorFoundCmp->getType()},
+      {VectorFoundCmp, /*ZeroIsPoison=*/Builder.getInt1(false), AllTrueMask,
+       VL});
+  Value *MatchFound = Builder.CreateICmpNE(CTZ, VL);
+  auto *VectorEarlyExit = BranchInst::Create(VectorLoopMismatchBlock,
+                                             VectorLoopIncBlock, MatchFound);
+  Builder.Insert(VectorEarlyExit);
+
+  DTU.applyUpdates(
+      {{DominatorTree::Insert, VectorLoopStartBlock, VectorLoopMismatchBlock},
+       {DominatorTree::Insert, VectorLoopStartBlock, VectorLoopIncBlock}});
+
+  Builder.SetInsertPoint(VectorLoopIncBlock);
+  Value *VL64 = Builder.CreateZExt(VL, I64Type);
+  Value *NewVectorIndexPhi =
+      Builder.CreateAdd(VectorIndexPhi, VL64, "",
+                        /*HasNUW=*/true, /*HasNSW=*/true);
+  VectorIndexPhi->addIncoming(NewVectorIndexPhi, VectorLoopIncBlock);
+  Value *ExitCond = Builder.CreateICmpNE(NewVectorIndexPhi, ExtEnd);
+  auto *VectorLoopBranchBack =
+      BranchInst::Create(VectorLoopStartBlock, EndBlock, ExitCond);
+  Builder.Insert(VectorLoopBranchBack);
+
+  DTU.applyUpdates(
+      {{DominatorTree::Insert, VectorLoopIncBlock, VectorLoopStartBlock},
+       {DominatorTree::Insert, VectorLoopIncBlock, EndBlock}});
+
+  Builder.SetInsertPoint(VectorLoopMismatchBlock);
+
+  // Carry the winning lane and vector index to the exit in LCSSA form.
+  PHINode *CTZLCSSAPhi = Builder.CreatePHI(CTZ->getType(), 1, "ctz");
+  CTZLCSSAPhi->addIncoming(CTZ, VectorLoopStartBlock);
+  PHINode *VectorIndexLCSSAPhi =
+      Builder.CreatePHI(VectorIndexPhi->getType(), 1, "match_vector_index");
+  VectorIndexLCSSAPhi->addIncoming(VectorIndexPhi, VectorLoopStartBlock);
+
+  Value *CTZI64 = Builder.CreateZExt(CTZLCSSAPhi, I64Type);
+  Value *VectorLoopRes64 = Builder.CreateAdd(VectorIndexLCSSAPhi, CTZI64, "",
+                                             /*HasNUW=*/true, /*HasNSW=*/true);
+  return IndexTy->getBitWidth() == 64
+             ? VectorLoopRes64
+             : Builder.CreateTrunc(VectorLoopRes64, IndexTy);
+}
+
+Value *LoopIdiomVectorize::expandFindFirstLoadCompare(
+    IRBuilder<> &Builder, DomTreeUpdater &DTU, GetElementPtrInst *GEP,
+    Value *Invariant, IntegerType *IndexTy, unsigned VF, Value *Start,
+    Value *MaxLen, Instruction *IndexInc) {
+  Value *Ptr = GEP->getPointerOperand();
+
+  // Rebuild the loop as a min-trip check, page check, vector loop, and scalar
+  // fallback.
+  BasicBlock *Preheader = CurLoop->getLoopPreheader();
+  BranchInst *PHBranch = cast<BranchInst>(Preheader->getTerminator());
+  LLVMContext &Ctx = PHBranch->getContext();
+  Type *LoadType = Invariant->getType();
+
+  EndBlock = SplitBlock(Preheader, PHBranch, DT, LI, nullptr, "match_end");
+
+  BasicBlock *MinItCheckBlock = BasicBlock::Create(
+      Ctx, "match_min_it_check", EndBlock->getParent(), EndBlock);
+  Preheader->getTerminator()->setSuccessor(0, MinItCheckBlock);
+
+  BasicBlock *MemCheckBlock = BasicBlock::Create(
+      Ctx, "match_mem_check", EndBlock->getParent(), EndBlock);
+
+  VectorLoopPreheaderBlock = BasicBlock::Create(
+      Ctx, "match_vec_loop_preheader", EndBlock->getParent(), EndBlock);
+  VectorLoopStartBlock = BasicBlock::Create(Ctx, "match_vec_loop",
+                                            EndBlock->getParent(), EndBlock);
+  VectorLoopIncBlock = BasicBlock::Create(Ctx, "match_vec_loop_inc",
+                                          EndBlock->getParent(), EndBlock);
+  VectorLoopMismatchBlock = BasicBlock::Create(Ctx, "match_vec_loop_found",
+                                               EndBlock->getParent(), EndBlock);
+
+  BasicBlock *ScalarLoopPreheaderBlock = BasicBlock::Create(
+      Ctx, "match_loop_pre", EndBlock->getParent(), EndBlock);
+  BasicBlock *ScalarLoopStartBlock =
+      BasicBlock::Create(Ctx, "match_loop", EndBlock->getParent(), EndBlock);
+  BasicBlock *ScalarLoopIncBlock = BasicBlock::Create(
+      Ctx, "match_loop_inc", EndBlock->getParent(), EndBlock);
+
+  DTU.applyUpdates({{DominatorTree::Insert, Preheader, MinItCheckBlock},
+                    {DominatorTree::Delete, Preheader, EndBlock}});
+
+  Loop *VectorLoop = LI->AllocateLoop();
+  Loop *ScalarLoop = LI->AllocateLoop();
+
+  if (Loop *ParentLoop = CurLoop->getParentLoop()) {
+    ParentLoop->addBasicBlockToLoop(MinItCheckBlock, *LI);
+    ParentLoop->addBasicBlockToLoop(MemCheckBlock, *LI);
+    ParentLoop->addBasicBlockToLoop(VectorLoopPreheaderBlock, *LI);
+    ParentLoop->addChildLoop(VectorLoop);
+    ParentLoop->addBasicBlockToLoop(VectorLoopMismatchBlock, *LI);
+    ParentLoop->addBasicBlockToLoop(ScalarLoopPreheaderBlock, *LI);
+    ParentLoop->addChildLoop(ScalarLoop);
+  } else {
+    LI->addTopLevelLoop(VectorLoop);
+    LI->addTopLevelLoop(ScalarLoop);
+  }
+
+  VectorLoop->addBasicBlockToLoop(VectorLoopStartBlock, *LI);
+  VectorLoop->addBasicBlockToLoop(VectorLoopIncBlock, *LI);
+
+  ScalarLoop->addBasicBlockToLoop(ScalarLoopStartBlock, *LI);
+  ScalarLoop->addBasicBlockToLoop(ScalarLoopIncBlock, *LI);
+
+  Type *I64Type = Builder.getInt64Ty();
+
+  Builder.SetInsertPoint(MinItCheckBlock);
+  Value *ExtStart =
+      Start->getType() == I64Type ? Start : Builder.CreateZExt(Start, I64Type);
+  Value *ExtEnd = MaxLen->getType() == I64Type
+                      ? MaxLen
+                      : Builder.CreateZExt(MaxLen, I64Type);
+  Value *LimitCheck = Builder.CreateICmpULE(Start, MaxLen);
+  BranchInst *MinItCheckBr =
+      BranchInst::Create(MemCheckBlock, ScalarLoopPreheaderBlock, LimitCheck);
+  MinItCheckBr->setMetadata(
+      LLVMContext::MD_prof,
+      MDBuilder(MinItCheckBr->getContext()).createBranchWeights(99, 1));
+  Builder.Insert(MinItCheckBr);
+
+  DTU.applyUpdates(
+      {{DominatorTree::Insert, MinItCheckBlock, MemCheckBlock},
+       {DominatorTree::Insert, MinItCheckBlock, ScalarLoopPreheaderBlock}});
+
+  Builder.SetInsertPoint(MemCheckBlock);
+  Value *StartGEP = Builder.CreateGEP(LoadType, Ptr, ExtStart);
+  Value *StartAddr = Builder.CreatePtrToInt(StartGEP, I64Type);
+  Value *EndGEP = Builder.CreateGEP(LoadType, Ptr, ExtEnd);
+  Value *EndAddr = Builder.CreatePtrToInt(EndGEP, I64Type);
+
+  const uint64_t MinPageSize = TTI->getMinPageSize().value();
+  const uint64_t AddrShiftAmt = llvm::Log2_64(MinPageSize);
+  // Avoid vector loads when the scan could cross a page boundary.
+  Value *StartPage = Builder.CreateLShr(StartAddr, AddrShiftAmt);
+  Value *EndPage = Builder.CreateLShr(EndAddr, AddrShiftAmt);
+  Value *PageCmp = Builder.CreateICmpNE(StartPage, EndPage);
+  BranchInst *PageCmpBr = BranchInst::Create(ScalarLoopPreheaderBlock,
+                                             VectorLoopPreheaderBlock, PageCmp);
+  PageCmpBr->setMetadata(
+      LLVMContext::MD_prof,
+      MDBuilder(PageCmpBr->getContext()).createBranchWeights(10, 90));
+  Builder.Insert(PageCmpBr);
+
+  DTU.applyUpdates(
+      {{DominatorTree::Insert, MemCheckBlock, ScalarLoopPreheaderBlock},
+       {DominatorTree::Insert, MemCheckBlock, VectorLoopPreheaderBlock}});
+
+  Builder.SetInsertPoint(VectorLoopPreheaderBlock);
+  Value *VectorLoopRes = nullptr;
+  switch (VectorizeStyle) {
+  case LoopIdiomVectorizeStyle::Masked:
+    VectorLoopRes = createMaskedFindFirstLoadCompare(
+        Builder, DTU, GEP, Invariant, IndexTy, VF, ExtStart, ExtEnd);
+    break;
+  case LoopIdiomVectorizeStyle::Predicated:
+    VectorLoopRes = createPredicatedFindFirstLoadCompare(
+        Builder, DTU, GEP, Invariant, IndexTy, VF, ExtStart, ExtEnd);
+    break;
+  }
+
+  Builder.Insert(BranchInst::Create(EndBlock));
+  DTU.applyUpdates(
+      {{DominatorTree::Insert, VectorLoopMismatchBlock, EndBlock}});
+
+  Builder.SetInsertPoint(ScalarLoopPreheaderBlock);
+  Builder.Insert(BranchInst::Create(ScalarLoopStartBlock));
+  DTU.applyUpdates({{DominatorTree::Insert, ScalarLoopPreheaderBlock,
+                     ScalarLoopStartBlock}});
+
+  Builder.SetInsertPoint(ScalarLoopStartBlock);
+  PHINode *IndexPhi = Builder.CreatePHI(IndexTy, 2, "match_index");
+  IndexPhi->addIncoming(Start, ScalarLoopPreheaderBlock);
+
+  Value *GepOffset = IndexTy->getBitWidth() == 64
+                         ? static_cast<Value *>(IndexPhi)
+                         : Builder.CreateZExt(IndexPhi, I64Type);
+  Value *ScalarGEP =
+      Builder.CreateGEP(LoadType, Ptr, GepOffset, "", GEP->isInBounds());
+  Value *ScalarLoad = Builder.CreateAlignedLoad(LoadType, ScalarGEP,
+                                                DL->getABITypeAlign(LoadType));
+
+  Value *MatchCmp = LoadType->isFloatingPointTy()
+                        ? Builder.CreateFCmpOEQ(ScalarLoad, Invariant)
+                        : Builder.CreateICmpEQ(ScalarLoad, Invariant);
+  BranchInst *MatchCmpBr =
+      BranchInst::Create(EndBlock, ScalarLoopIncBlock, MatchCmp);
+  Builder.Insert(MatchCmpBr);
+
+  DTU.applyUpdates(
+      {{DominatorTree::Insert, ScalarLoopStartBlock, EndBlock},
+       {DominatorTree::Insert, ScalarLoopStartBlock, ScalarLoopIncBlock}});
+
+  Builder.SetInsertPoint(ScalarLoopIncBlock);
+  Value *PhiInc = Builder.CreateAdd(IndexPhi, ConstantInt::get(IndexTy, 1), "",
+                                    /*HasNUW=*/IndexInc->hasNoUnsignedWrap(),
+                                    /*HasNSW=*/IndexInc->hasNoSignedWrap());
+  IndexPhi->addIncoming(PhiInc, ScalarLoopIncBlock);
+  Value *IVCmp = Builder.CreateICmpEQ(PhiInc, MaxLen);
+  BranchInst *IVCmpBr =
+      BranchInst::Create(EndBlock, ScalarLoopStartBlock, IVCmp);
+  Builder.Insert(IVCmpBr);
+
+  DTU.applyUpdates(
+      {{DominatorTree::Insert, ScalarLoopIncBlock, EndBlock},
+       {DominatorTree::Insert, ScalarLoopIncBlock, ScalarLoopStartBlock}});
+
+  Builder.SetInsertPoint(EndBlock, EndBlock->getFirstInsertionPt());
+  // Merge the scalar and vector exits.
+  PHINode *ResPhi = Builder.CreatePHI(IndexTy, 4, "match_result");
+  ResPhi->addIncoming(MaxLen, ScalarLoopIncBlock);
+  ResPhi->addIncoming(IndexPhi, ScalarLoopStartBlock);
+  ResPhi->addIncoming(MaxLen, VectorLoopIncBlock);
+  ResPhi->addIncoming(VectorLoopRes, VectorLoopMismatchBlock);
+
+  if (VerifyLoops) {
+    ScalarLoop->verifyLoop();
+    VectorLoop->verifyLoop();
+    if (!VectorLoop->isRecursivelyLCSSAForm(*DT, *LI))
+      report_fatal_error("Loops must remain in LCSSA form!");
+    if (!ScalarLoop->isRecursivelyLCSSAForm(*DT, *LI))
+      report_fatal_error("Loops must remain in LCSSA form!");
+  }
+
+  return ResPhi;
 }
 
 Value *LoopIdiomVectorize::createMaskedFindMismatch(
@@ -923,6 +1558,126 @@ Value *LoopIdiomVectorize::expandFindMismatch(
   }
 
   return FinalRes;
+}
+
+void LoopIdiomVectorize::transformLoadCompareToInvariant(
+    GetElementPtrInst *GEP, PHINode *IndPhi, Value *Invariant, Value *MaxLen,
+    unsigned VF, Instruction *IndexInc, Value *Start, BasicBlock *FoundBB,
+    BasicBlock *EndBB) {
+  // Expand the rewritten search from the original preheader.
+  BasicBlock *Preheader = CurLoop->getLoopPreheader();
+  BasicBlock *Header = CurLoop->getHeader();
+  BranchInst *PHBranch = cast<BranchInst>(Preheader->getTerminator());
+  IRBuilder<> Builder(PHBranch);
+  DomTreeUpdater DTU(DT, DomTreeUpdater::UpdateStrategy::Lazy);
+  Builder.SetCurrentDebugLocation(PHBranch->getDebugLoc());
+
+  IntegerType *IndexTy = cast<IntegerType>(IndPhi->getType());
+  Value *MatchRes = expandFindFirstLoadCompare(
+      Builder, DTU, GEP, Invariant, IndexTy, VF, Start, MaxLen, IndexInc);
+
+  if (FoundBB != EndBB) {
+    // Redirect loop exits to the rewritten result instead of the old IV.
+    SmallVector<Use *, 4> OutsideUses;
+    for (Use &U : IndPhi->uses()) {
+      Instruction *UI = cast<Instruction>(U.getUser());
+      if (!CurLoop->contains(UI))
+        OutsideUses.push_back(&U);
+    }
+    for (Use *U : OutsideUses)
+      U->set(MatchRes);
+  }
+
+  assert(PHBranch->isUnconditional() &&
+         "Expected preheader to terminate with an unconditional branch.");
+
+  // Distinguish between "found a match" and "reached MaxLen".
+  BasicBlock *CmpBB = BasicBlock::Create(
+      Preheader->getContext(), "load.compare", Preheader->getParent());
+  CmpBB->moveBefore(EndBB);
+
+  Builder.CreateCondBr(Builder.getTrue(), CmpBB, Header);
+  PHBranch->eraseFromParent();
+
+  BasicBlock *MatchEnd = cast<Instruction>(MatchRes)->getParent();
+  DTU.applyUpdates({{DominatorTree::Insert, MatchEnd, CmpBB}});
+
+  Builder.SetInsertPoint(CmpBB);
+  Value *FoundCmp = Builder.CreateICmpEQ(MatchRes, MaxLen);
+  if (FoundBB != EndBB) {
+    // MatchRes == MaxLen means the loop exhausted the search range.
+    Builder.CreateCondBr(FoundCmp, EndBB, FoundBB);
+    DTU.applyUpdates({{DominatorTree::Insert, CmpBB, FoundBB},
+                      {DominatorTree::Insert, CmpBB, EndBB}});
+  }
+
+  // Rebuild PHI inputs that depended on the original header live-out.
+  auto synthesizeFoundValue = [&](Value *HeaderVal) -> Value * {
+    if (HeaderVal == IndPhi)
+      return MatchRes;
+    CastInst *CI = dyn_cast<CastInst>(HeaderVal);
+    assert(CI && CI->getOperand(0) == IndPhi &&
+           "unexpected loop live-out when vectorizing load compare");
+    return Builder.CreateCast(CI->getOpcode(), MatchRes, CI->getType());
+  };
+
+  if (FoundBB == EndBB) {
+    // If both exits share the same block, distinguish them with a select.
+    BasicBlock *Latch = CurLoop->getLoopLatch();
+    for (PHINode &PN : EndBB->phis()) {
+      Value *HeaderVal = PN.getIncomingValueForBlock(Header);
+      Value *LatchVal = PN.getIncomingValueForBlock(Latch);
+      Value *Incoming = nullptr;
+      if (HeaderVal == LatchVal)
+        Incoming = HeaderVal;
+      else {
+        Value *FoundVal = synthesizeFoundValue(HeaderVal);
+        Incoming = Builder.CreateSelect(FoundCmp, LatchVal, FoundVal);
+      }
+      PN.addIncoming(Incoming, CmpBB);
+    }
+
+    Builder.CreateBr(EndBB);
+    DTU.applyUpdates({{DominatorTree::Insert, CmpBB, EndBB}});
+  }
+
+  // Give successor PHIs an incoming edge from the new compare block.
+  auto fixSuccessorPhis = [&](BasicBlock *SuccBB) {
+    for (PHINode &PN : SuccBB->phis()) {
+      bool ResPhi = false;
+      for (Value *Op : PN.incoming_values())
+        if (Op == MatchRes) {
+          ResPhi = true;
+          break;
+        }
+
+      if (ResPhi)
+        PN.addIncoming(MatchRes, CmpBB);
+      else {
+        for (BasicBlock *BB : PN.blocks())
+          if (CurLoop->contains(BB)) {
+            PN.addIncoming(PN.getIncomingValueForBlock(BB), CmpBB);
+            break;
+          }
+      }
+    }
+  };
+
+  if (FoundBB != EndBB) {
+    fixSuccessorPhis(EndBB);
+    fixSuccessorPhis(FoundBB);
+  }
+
+  if (Loop *ParentLoop = CurLoop->getParentLoop())
+    ParentLoop->addBasicBlockToLoop(CmpBB, *LI);
+
+  if (VerifyLoops) {
+    if (Loop *ParentLoop = CurLoop->getParentLoop()) {
+      ParentLoop->verifyLoop();
+      if (!ParentLoop->isRecursivelyLCSSAForm(*DT, *LI))
+        report_fatal_error("Loops must remain in LCSSA form!");
+    }
+  }
 }
 
 void LoopIdiomVectorize::transformByteCompare(GetElementPtrInst *GEPA,
