@@ -36,6 +36,7 @@
 //
 // TODO List:
 //
+// * Add support for the inverse case where we scan for a matching element.
 // * Permit 64-bit induction variable types.
 // * Recognize loops that increment the IV *after* comparing bytes.
 // * Allow 32-bit sign-extends of the IV used by the GEP.
@@ -589,8 +590,8 @@ bool LoopIdiomVectorize::recognizeLoadCompareToInvariant() {
       !match(IndexInc, m_c_Add(m_Specific(IndPhi), m_One())))
     return false;
 
-  BranchInst *HeaderBr = dyn_cast<BranchInst>(Header->getTerminator());
-  if (!HeaderBr || !HeaderBr->isConditional())
+  auto *HeaderBr = dyn_cast<CondBrInst>(Header->getTerminator());
+  if (!HeaderBr)
     return false;
 
   BasicBlock *FoundBB = HeaderBr->getSuccessor(0);
@@ -639,8 +640,8 @@ bool LoopIdiomVectorize::recognizeLoadCompareToInvariant() {
   if (GEPIdx != IndPhi && !match(GEPIdx, m_ZExt(m_Specific(IndPhi))))
     return false;
 
-  BranchInst *LatchBr = dyn_cast<BranchInst>(Latch->getTerminator());
-  if (!LatchBr || !LatchBr->isConditional())
+  auto *LatchBr = dyn_cast<CondBrInst>(Latch->getTerminator());
+  if (!LatchBr)
     return false;
 
   BasicBlock *BackedgeBB = nullptr;
@@ -707,10 +708,11 @@ bool LoopIdiomVectorize::recognizeLoadCompareToInvariant() {
   }
 
   // Reject loops with other live-outs; the rewrite only reconstructs the
-  // induction result.
+  // induction result and does not rebuild latch-defined values such as
+  // IndexInc.
   for (BasicBlock *BB : CurLoop->blocks())
     for (Instruction &I : *BB)
-      if (&I != IndPhi && &I != IndexInc)
+      if (&I != IndPhi)
         for (User *U : I.users())
           if (!CurLoop->contains(cast<Instruction>(U))) {
             auto *UI = cast<Instruction>(U);
@@ -753,7 +755,7 @@ Value *LoopIdiomVectorize::createMaskedFindFirstLoadCompare(
                                             Builder.getInt1(false));
   Value *Passthru = Constant::getNullValue(VectorLoadType);
 
-  BranchInst *JumpToVectorLoop = BranchInst::Create(VectorLoopStartBlock);
+  auto *JumpToVectorLoop = UncondBrInst::Create(VectorLoopStartBlock);
   Builder.Insert(JumpToVectorLoop);
 
   DTU.applyUpdates({{DominatorTree::Insert, VectorLoopPreheaderBlock,
@@ -780,8 +782,9 @@ Value *LoopIdiomVectorize::createMaskedFindFirstLoadCompare(
   // Ignore inactive lanes before reducing the comparison result.
   VectorFoundCmp = Builder.CreateSelect(LoopPred, VectorFoundCmp, PFalse);
   Value *VectorFoundHasActiveLanes = Builder.CreateOrReduce(VectorFoundCmp);
-  BranchInst *VectorEarlyExit = BranchInst::Create(
-      VectorLoopMismatchBlock, VectorLoopIncBlock, VectorFoundHasActiveLanes);
+  auto *VectorEarlyExit = CondBrInst::Create(VectorFoundHasActiveLanes,
+                                             VectorLoopMismatchBlock,
+                                             VectorLoopIncBlock);
   Builder.Insert(VectorEarlyExit);
 
   DTU.applyUpdates(
@@ -800,8 +803,8 @@ Value *LoopIdiomVectorize::createMaskedFindFirstLoadCompare(
 
   Value *PredHasActiveLanes =
       Builder.CreateExtractElement(NewPred, uint64_t(0));
-  BranchInst *VectorLoopBranchBack =
-      BranchInst::Create(VectorLoopStartBlock, EndBlock, PredHasActiveLanes);
+  auto *VectorLoopBranchBack =
+      CondBrInst::Create(PredHasActiveLanes, VectorLoopStartBlock, EndBlock);
   Builder.Insert(VectorLoopBranchBack);
 
   DTU.applyUpdates(
@@ -841,7 +844,7 @@ Value *LoopIdiomVectorize::createPredicatedFindFirstLoadCompare(
   Type *LoadType = Invariant->getType();
   Value *Ptr = GEP->getPointerOperand();
 
-  BranchInst *JumpToVectorLoop = BranchInst::Create(VectorLoopStartBlock);
+  auto *JumpToVectorLoop = UncondBrInst::Create(VectorLoopStartBlock);
   Builder.Insert(JumpToVectorLoop);
 
   DTU.applyUpdates({{DominatorTree::Insert, VectorLoopPreheaderBlock,
@@ -886,8 +889,9 @@ Value *LoopIdiomVectorize::createPredicatedFindFirstLoadCompare(
       {VectorFoundCmp, /*ZeroIsPoison=*/Builder.getInt1(false), AllTrueMask,
        VL});
   Value *MatchFound = Builder.CreateICmpNE(CTZ, VL);
-  auto *VectorEarlyExit = BranchInst::Create(VectorLoopMismatchBlock,
-                                             VectorLoopIncBlock, MatchFound);
+  auto *VectorEarlyExit =
+      CondBrInst::Create(MatchFound, VectorLoopMismatchBlock,
+                         VectorLoopIncBlock);
   Builder.Insert(VectorEarlyExit);
 
   DTU.applyUpdates(
@@ -902,7 +906,7 @@ Value *LoopIdiomVectorize::createPredicatedFindFirstLoadCompare(
   VectorIndexPhi->addIncoming(NewVectorIndexPhi, VectorLoopIncBlock);
   Value *ExitCond = Builder.CreateICmpNE(NewVectorIndexPhi, ExtEnd);
   auto *VectorLoopBranchBack =
-      BranchInst::Create(VectorLoopStartBlock, EndBlock, ExitCond);
+      CondBrInst::Create(ExitCond, VectorLoopStartBlock, EndBlock);
   Builder.Insert(VectorLoopBranchBack);
 
   DTU.applyUpdates(
@@ -935,7 +939,7 @@ Value *LoopIdiomVectorize::expandFindFirstLoadCompare(
   // Rebuild the loop as a min-trip check, page check, vector loop, and scalar
   // fallback.
   BasicBlock *Preheader = CurLoop->getLoopPreheader();
-  BranchInst *PHBranch = cast<BranchInst>(Preheader->getTerminator());
+  auto *PHBranch = cast<UncondBrInst>(Preheader->getTerminator());
   LLVMContext &Ctx = PHBranch->getContext();
   Type *LoadType = Invariant->getType();
 
@@ -998,8 +1002,8 @@ Value *LoopIdiomVectorize::expandFindFirstLoadCompare(
                       ? MaxLen
                       : Builder.CreateZExt(MaxLen, I64Type);
   Value *LimitCheck = Builder.CreateICmpULE(Start, MaxLen);
-  BranchInst *MinItCheckBr =
-      BranchInst::Create(MemCheckBlock, ScalarLoopPreheaderBlock, LimitCheck);
+  auto *MinItCheckBr =
+      CondBrInst::Create(LimitCheck, MemCheckBlock, ScalarLoopPreheaderBlock);
   MinItCheckBr->setMetadata(
       LLVMContext::MD_prof,
       MDBuilder(MinItCheckBr->getContext()).createBranchWeights(99, 1));
@@ -1021,8 +1025,8 @@ Value *LoopIdiomVectorize::expandFindFirstLoadCompare(
   Value *StartPage = Builder.CreateLShr(StartAddr, AddrShiftAmt);
   Value *EndPage = Builder.CreateLShr(EndAddr, AddrShiftAmt);
   Value *PageCmp = Builder.CreateICmpNE(StartPage, EndPage);
-  BranchInst *PageCmpBr = BranchInst::Create(ScalarLoopPreheaderBlock,
-                                             VectorLoopPreheaderBlock, PageCmp);
+  auto *PageCmpBr = CondBrInst::Create(PageCmp, ScalarLoopPreheaderBlock,
+                                       VectorLoopPreheaderBlock);
   PageCmpBr->setMetadata(
       LLVMContext::MD_prof,
       MDBuilder(PageCmpBr->getContext()).createBranchWeights(10, 90));
@@ -1045,12 +1049,12 @@ Value *LoopIdiomVectorize::expandFindFirstLoadCompare(
     break;
   }
 
-  Builder.Insert(BranchInst::Create(EndBlock));
+  Builder.Insert(UncondBrInst::Create(EndBlock));
   DTU.applyUpdates(
       {{DominatorTree::Insert, VectorLoopMismatchBlock, EndBlock}});
 
   Builder.SetInsertPoint(ScalarLoopPreheaderBlock);
-  Builder.Insert(BranchInst::Create(ScalarLoopStartBlock));
+  Builder.Insert(UncondBrInst::Create(ScalarLoopStartBlock));
   DTU.applyUpdates({{DominatorTree::Insert, ScalarLoopPreheaderBlock,
                      ScalarLoopStartBlock}});
 
@@ -1069,8 +1073,8 @@ Value *LoopIdiomVectorize::expandFindFirstLoadCompare(
   Value *MatchCmp = LoadType->isFloatingPointTy()
                         ? Builder.CreateFCmpOEQ(ScalarLoad, Invariant)
                         : Builder.CreateICmpEQ(ScalarLoad, Invariant);
-  BranchInst *MatchCmpBr =
-      BranchInst::Create(EndBlock, ScalarLoopIncBlock, MatchCmp);
+  auto *MatchCmpBr =
+      CondBrInst::Create(MatchCmp, EndBlock, ScalarLoopIncBlock);
   Builder.Insert(MatchCmpBr);
 
   DTU.applyUpdates(
@@ -1083,8 +1087,8 @@ Value *LoopIdiomVectorize::expandFindFirstLoadCompare(
                                     /*HasNSW=*/IndexInc->hasNoSignedWrap());
   IndexPhi->addIncoming(PhiInc, ScalarLoopIncBlock);
   Value *IVCmp = Builder.CreateICmpEQ(PhiInc, MaxLen);
-  BranchInst *IVCmpBr =
-      BranchInst::Create(EndBlock, ScalarLoopStartBlock, IVCmp);
+  auto *IVCmpBr =
+      CondBrInst::Create(IVCmp, EndBlock, ScalarLoopStartBlock);
   Builder.Insert(IVCmpBr);
 
   DTU.applyUpdates(
@@ -1567,7 +1571,7 @@ void LoopIdiomVectorize::transformLoadCompareToInvariant(
   // Expand the rewritten search from the original preheader.
   BasicBlock *Preheader = CurLoop->getLoopPreheader();
   BasicBlock *Header = CurLoop->getHeader();
-  BranchInst *PHBranch = cast<BranchInst>(Preheader->getTerminator());
+  auto *PHBranch = cast<UncondBrInst>(Preheader->getTerminator());
   IRBuilder<> Builder(PHBranch);
   DomTreeUpdater DTU(DT, DomTreeUpdater::UpdateStrategy::Lazy);
   Builder.SetCurrentDebugLocation(PHBranch->getDebugLoc());
@@ -1587,9 +1591,6 @@ void LoopIdiomVectorize::transformLoadCompareToInvariant(
     for (Use *U : OutsideUses)
       U->set(MatchRes);
   }
-
-  assert(PHBranch->isUnconditional() &&
-         "Expected preheader to terminate with an unconditional branch.");
 
   // Distinguish between "found a match" and "reached MaxLen".
   BasicBlock *CmpBB = BasicBlock::Create(
@@ -1641,31 +1642,9 @@ void LoopIdiomVectorize::transformLoadCompareToInvariant(
     DTU.applyUpdates({{DominatorTree::Insert, CmpBB, EndBB}});
   }
 
-  // Give successor PHIs an incoming edge from the new compare block.
-  auto fixSuccessorPhis = [&](BasicBlock *SuccBB) {
-    for (PHINode &PN : SuccBB->phis()) {
-      bool ResPhi = false;
-      for (Value *Op : PN.incoming_values())
-        if (Op == MatchRes) {
-          ResPhi = true;
-          break;
-        }
-
-      if (ResPhi)
-        PN.addIncoming(MatchRes, CmpBB);
-      else {
-        for (BasicBlock *BB : PN.blocks())
-          if (CurLoop->contains(BB)) {
-            PN.addIncoming(PN.getIncomingValueForBlock(BB), CmpBB);
-            break;
-          }
-      }
-    }
-  };
-
   if (FoundBB != EndBB) {
-    fixSuccessorPhis(EndBB);
-    fixSuccessorPhis(FoundBB);
+    fixSuccessorPhis(CurLoop, MatchRes, MatchRes, EndBB, CmpBB);
+    fixSuccessorPhis(CurLoop, MatchRes, MatchRes, FoundBB, CmpBB);
   }
 
   if (Loop *ParentLoop = CurLoop->getParentLoop())
