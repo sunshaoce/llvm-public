@@ -2,6 +2,32 @@
 # RUN: llc -mtriple=riscv32 -mattr=+f -run-pass=riscv-redundant-instr-elim -verify-machineinstrs %s -o - | FileCheck %s
 # RUN: llc -mtriple=riscv32 -mattr=+f -passes=riscv-redundant-instr-elim -verify-machineinstrs %s -o - | FileCheck %s
 
+# LW/SW are full-width only on RV32.
+---
+name: integer_spill
+tracksRegLiveness: true
+stack:
+  - { id: 0, type: spill-slot, size: 4, alignment: 4 }
+body: |
+  bb.0:
+    liveins: $x10, $x12
+    ; CHECK-LABEL: name: integer_spill
+    ; CHECK: liveins: $x10, $x12
+    ; CHECK-NEXT: {{  $}}
+    ; CHECK-NEXT: SW $x10, $x2, 0 :: (store (s32) into %stack.0)
+    ; CHECK-NEXT: dead $x11 = LW $x2, 0 :: (load (s32) from %stack.0)
+    ; CHECK-NEXT: SH killed $x12, $x2, 0 :: (store (s16) into %stack.0)
+    ; CHECK-NEXT: $x11 = LW $x2, 0 :: (load (s32) from %stack.0)
+    ; CHECK-NEXT: PseudoRET implicit killed $x10, implicit killed $x11
+    SW $x10, $x2, 0 :: (store (s32) into %stack.0)
+    $x10 = LW $x2, 0 :: (load (s32) from %stack.0)
+    $x11 = LW $x2, 0 :: (load (s32) from %stack.0)
+    $x11 = LW $x2, 0 :: (load (s32) from %stack.0)
+    SH $x12, $x2, 0 :: (store (s16) into %stack.0)
+    $x11 = LW $x2, 0 :: (load (s32) from %stack.0)
+    PseudoRET implicit $x10, implicit $x11
+...
+
 # A pair COPY is tracked component by component; a scalar write breaks it.
 ---
 name: register_pair

@@ -6,10 +6,10 @@
 //
 //===----------------------------------------------------------------------===//
 //
-// Eliminate redundant copies and constant materializations after register
-// allocation. Track equivalence classes of physical registers, together with
-// known integer constants. The meet operation retains only equalities that
-// hold on every incoming edge.
+// Eliminate redundant copies, constant materializations and spill reloads after
+// register allocation. Track equivalence classes of physical registers and
+// compiler-owned spill slots, together with known integer constants. The meet
+// operation retains only equalities that hold on every incoming edge.
 //
 // Value numbers are local to a dataflow state, not instruction identities. In
 // particular, executing the same definition on two iterations of a loop does
@@ -28,8 +28,11 @@
 #include "llvm/ADT/SmallVector.h"
 #include "llvm/ADT/Statistic.h"
 #include "llvm/CodeGen/LivePhysRegs.h"
+#include "llvm/CodeGen/MachineFrameInfo.h"
 #include "llvm/CodeGen/MachineFunctionPass.h"
+#include "llvm/CodeGen/MachineMemOperand.h"
 #include "llvm/CodeGen/MachineRegisterInfo.h"
+#include "llvm/CodeGen/PseudoSourceValue.h"
 #include "llvm/Support/Debug.h"
 #include "llvm/Support/ErrorHandling.h"
 #include "llvm/Support/MathExtras.h"
@@ -48,12 +51,19 @@ using namespace llvm;
 STATISTIC(NumCopiesRemoved, "Number of redundant RISC-V copies removed");
 STATISTIC(NumConstantsRemoved,
           "Number of redundant RISC-V constant instructions removed");
+STATISTIC(NumReloadsRemoved,
+          "Number of redundant RISC-V spill reloads removed");
 
 namespace {
 
 struct ValueInfo {
   unsigned Number;
   std::optional<int64_t> Constant;
+
+  bool operator==(const ValueInfo &Other) const {
+    return Number == Other.Number && Constant == Other.Constant;
+  }
+  bool operator!=(const ValueInfo &Other) const { return !(*this == Other); }
 };
 
 /// A partition of the tracked locations. Constants form a flat lattice: a
@@ -61,6 +71,9 @@ struct ValueInfo {
 class AvailableValues {
   SmallVector<unsigned, 96> Numbers;
   SmallVector<std::optional<int64_t>, 96> Constants;
+  // Absent slots have distinct unknown values. Unlike registers, spill slots
+  // are tracked lazily, and uninformative entries are discarded at block exits.
+  DenseMap<int, ValueInfo> SpillValues;
   // Every value number in use is below NextNumber.
   unsigned NextNumber;
 
@@ -74,6 +87,17 @@ public:
 
   ValueInfo get(unsigned I) const { return {Numbers[I], Constants[I]}; }
   bool equal(unsigned A, unsigned B) const { return Numbers[A] == Numbers[B]; }
+
+  ValueInfo getSpill(int FI) {
+    auto [I, Inserted] =
+        SpillValues.try_emplace(FI, ValueInfo{NextNumber, std::nullopt});
+    if (Inserted)
+      ++NextNumber;
+    return I->second;
+  }
+
+  void assignSpill(int FI, ValueInfo Value) { SpillValues[FI] = Value; }
+  void forgetSpills() { SpillValues.clear(); }
 
   void forget(unsigned I) {
     Numbers[I] = NextNumber++;
@@ -89,6 +113,12 @@ public:
     for (unsigned J = 0, E = Numbers.size(); J != E; ++J) {
       if (Constants[J] == Constant) {
         assign(I, get(J));
+        return;
+      }
+    }
+    for (const auto &[FI, Value] : SpillValues) {
+      if (Value.Constant == Constant) {
+        assign(I, Value);
         return;
       }
     }
@@ -110,10 +140,28 @@ public:
         Constants[I] = Constant;
       }
     }
+    for (auto &[FI, Value] : SpillValues) {
+      if (Value.Number == AN || Value.Number == BN)
+        Value = {AN, Constant};
+    }
     return true;
   }
 
   void canonicalize() {
+    if (!SpillValues.empty()) {
+      // A slot with no constant and no equality to another location is
+      // unknown. Forgetting it loses no information, and avoids keeping every
+      // slot ever loaded in every subsequent block's state.
+      SmallVector<unsigned, 128> Uses(NextNumber);
+      for (unsigned Number : Numbers)
+        ++Uses[Number];
+      for (const auto &[FI, Value] : SpillValues)
+        ++Uses[Value.Number];
+      SpillValues.remove_if([&](const auto &Entry) {
+        return !Entry.second.Constant && Uses[Entry.second.Number] == 1;
+      });
+    }
+
     // Number each class after its first location.
     constexpr unsigned None = ~0u;
     SmallVector<unsigned, 128> Classes(NextNumber, None);
@@ -124,6 +172,19 @@ public:
       Numbers[I] = Class;
     }
     NextNumber = Numbers.size();
+
+    // Frame-index order makes value numbers independent of hash-table order.
+    SmallVector<int, 8> Slots;
+    for (const auto &[FI, Value] : SpillValues)
+      Slots.push_back(FI);
+    llvm::sort(Slots);
+    for (int FI : Slots) {
+      ValueInfo &Value = SpillValues.find(FI)->second;
+      unsigned &Class = Classes[Value.Number];
+      if (Class == None)
+        Class = NextNumber++;
+      Value.Number = Class;
+    }
   }
 
   void meet(const AvailableValues &Other) {
@@ -136,10 +197,24 @@ public:
         Constants[I].reset();
     }
     NextNumber = Numbers.size();
+    SpillValues.remove_if([&](const auto &Entry) {
+      return !Other.SpillValues.contains(Entry.first);
+    });
+    for (auto &[FI, Value] : SpillValues) {
+      const ValueInfo &OtherValue = Other.SpillValues.find(FI)->second;
+      auto [Class, Inserted] = Classes.try_emplace(
+          std::make_pair(Value.Number, OtherValue.Number), NextNumber);
+      if (Inserted)
+        ++NextNumber;
+      Value.Number = Class->second;
+      if (Value.Constant != OtherValue.Constant)
+        Value.Constant.reset();
+    }
   }
 
   bool operator==(const AvailableValues &Other) const {
-    return Numbers == Other.Numbers && Constants == Other.Constants;
+    return Numbers == Other.Numbers && Constants == Other.Constants &&
+           SpillValues == Other.SpillValues;
   }
 };
 
@@ -160,9 +235,13 @@ class RISCVRedundantInstrElimImpl {
   // The tracked register containing each register unit. Zero means x0, which
   // is never clobbered, or a unit outside the tracked registers.
   SmallVector<unsigned> RegUnitLocations;
+  // sp, the frame pointer and the base pointer. Writing one of them changes
+  // the address of every spill slot.
+  SmallVector<unsigned, 3> StackBaseLocations;
   DenseMap<const MachineBasicBlock *, AvailableValues> LiveOutValues;
 
   std::optional<RegisterRange> getRegisterRange(const MachineOperand &MO) const;
+  std::optional<int> getSpillSlot(const MachineInstr &MI) const;
   std::optional<int64_t> getConstant(const MachineOperand &MO,
                                      const AvailableValues &Values) const;
   std::optional<int64_t> evaluateConstant(const MachineInstr &MI,
@@ -247,6 +326,11 @@ RISCVRedundantInstrElimImpl::RISCVRedundantInstrElimImpl(MachineFunction &MF)
       RegUnitLocations[static_cast<unsigned>(Unit)] = I;
     }
   }
+  StackBaseLocations.push_back(RegisterNumbers.lookup(RISCV::X2));
+  StackBaseLocations.push_back(
+      RegisterNumbers.lookup(TRI.getFrameRegister(MF)));
+  if (ST.getFrameLowering()->hasBP(MF))
+    StackBaseLocations.push_back(RegisterNumbers.lookup(RISCV::X9));
 }
 
 std::optional<RegisterRange>
@@ -260,6 +344,34 @@ RISCVRedundantInstrElimImpl::getRegisterRange(const MachineOperand &MO) const {
   if (RISCV::GPRPairRegClass.contains(Reg) && Reg != RISCV::X0_Pair)
     return RegisterRange{TRI.getEncodingValue(Reg), 2};
   return std::nullopt;
+}
+
+std::optional<int>
+RISCVRedundantInstrElimImpl::getSpillSlot(const MachineInstr &MI) const {
+  unsigned Opcode = MI.getOpcode();
+  unsigned Bytes;
+  if (Opcode == (ST.is64Bit() ? RISCV::LD : RISCV::LW) ||
+      Opcode == (ST.is64Bit() ? RISCV::SD : RISCV::SW))
+    Bytes = ST.getXLen() / 8;
+  else
+    return std::nullopt;
+  if (!MI.hasOneMemOperand() || MI.hasUnmodeledSideEffects())
+    return std::nullopt;
+  const MachineMemOperand &MMO = **MI.memoperands_begin();
+  const auto *PSV =
+      dyn_cast_or_null<FixedStackPseudoSourceValue>(MMO.getPseudoValue());
+  if (!PSV || !MMO.isUnordered() || MMO.isVolatile() || MMO.isAtomic() ||
+      MMO.getOffset() || MMO.getSize() != LocationSize::precise(Bytes))
+    return std::nullopt;
+  const MachineFrameInfo &MFI = MF.getFrameInfo();
+  int FI = PSV->getFrameIndex();
+  if (FI < MFI.getObjectIndexBegin() || FI >= MFI.getObjectIndexEnd() ||
+      MFI.isDeadObjectIndex(FI) || !MFI.isSpillSlotObjectIndex(FI) ||
+      MFI.getStackID(FI) != TargetStackID::Default ||
+      MFI.getObjectSize(FI) != Bytes || PSV->isAliased(&MFI) ||
+      PSV->mayAlias(&MFI))
+    return std::nullopt;
+  return FI;
 }
 
 std::optional<int64_t>
@@ -432,6 +544,7 @@ void RISCVRedundantInstrElimImpl::processInstruction(
     SmallVectorImpl<MachineInstr *> *Redundant) {
   if (MI.isDebugInstr())
     return;
+  auto FI = getSpillSlot(MI);
   std::optional<RegisterRange> Dst;
   std::optional<int64_t> Constant;
   SmallVector<ValueInfo, 8> Result;
@@ -442,9 +555,13 @@ void RISCVRedundantInstrElimImpl::processInstruction(
       if (Dst->First < 32 && Dst->Size == 1)
         Constant = evaluateConstant(MI, Values);
       if (!Constant) {
-        if (auto Src = getCopySource(MI, *Dst))
+        auto Src = getCopySource(MI, *Dst);
+        if (Src) {
           for (unsigned I = 0; I != Src->Size; ++I)
             Result.push_back(Values.get(Src->First + I));
+        } else if (FI && MI.mayLoad() && Dst->Size == 1) {
+          Result.push_back(Values.getSpill(*FI));
+        }
       }
     }
   }
@@ -458,13 +575,22 @@ void RISCVRedundantInstrElimImpl::processInstruction(
   if (Redundant && Same && !MI.getFlag(MachineInstr::FrameSetup) &&
       !MI.getFlag(MachineInstr::FrameDestroy)) {
     Redundant->push_back(&MI);
-    if (Constant)
+    if (MI.mayLoad())
+      ++NumReloadsRemoved;
+    else if (Constant)
       ++NumConstantsRemoved;
     else
       ++NumCopiesRemoved;
     return;
   }
 
+  // Snapshot store operands before invalidating any register or alias.
+  std::optional<ValueInfo> Stored;
+  if (ModelValue && FI && MI.mayStore()) {
+    auto Src = getRegisterRange(MI.getOperand(0));
+    if (Src && Src->Size == 1)
+      Stored = Values.get(Src->First);
+  }
   bool HasRegMask = llvm::any_of(
       MI.operands(), [](const MachineOperand &MO) { return MO.isRegMask(); });
   // Calls and inline assembly describe their register effects with operands.
@@ -472,6 +598,11 @@ void RISCVRedundantInstrElimImpl::processInstruction(
   bool Opaque = MI.hasUnmodeledSideEffects() && !MI.isCall() &&
                 !MI.isInlineAsm() && !isCSRInstruction(MI.getOpcode());
   bool ClobberAll = Opaque || MI.isBundled() || (MI.isCall() && !HasRegMask);
+  bool ClobbersStackBase = ClobberAll;
+  auto Clobber = [&](unsigned I) {
+    Values.forget(I);
+    ClobbersStackBase |= llvm::is_contained(StackBaseLocations, I);
+  };
   if (ClobberAll) {
     for (unsigned I = 1, E = Registers.size(); I != E; ++I)
       Values.forget(I);
@@ -480,15 +611,22 @@ void RISCVRedundantInstrElimImpl::processInstruction(
       if (MO.isRegMask()) {
         for (unsigned I = 1, E = Registers.size(); I != E; ++I)
           if (MO.clobbersPhysReg(Registers[I]))
-            Values.forget(I);
+            Clobber(I);
       } else if (MO.isReg() && MO.isDef() && MO.getReg().isPhysical()) {
         for (MCRegUnit Unit : TRI.regunits(MO.getReg()))
           if (unsigned I = RegUnitLocations[static_cast<unsigned>(Unit)])
-            Values.forget(I);
+            Clobber(I);
       }
     }
   }
 
+  // Different frame indices can overlap after stack coloring/layout. Any store
+  // invalidates all spill facts; remember only an exact full-slot store.
+  if (MI.mayStore() || MI.hasOrderedMemoryRef() || MI.isCall() ||
+      MI.isInlineAsm() || Opaque || MI.isBundled() || ClobbersStackBase)
+    Values.forgetSpills();
+  if (Stored && !ClobbersStackBase)
+    Values.assignSpill(*FI, *Stored);
   if (Constant)
     Values.assignConstant(Dst->First, *Constant);
   for (auto [I, Value] : llvm::enumerate(Result))
