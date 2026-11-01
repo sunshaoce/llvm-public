@@ -229,7 +229,9 @@ class RISCVRedundantInstrElimImpl {
   const RISCVInstrInfo &TII;
   const RISCVRegisterInfo &TRI;
 
-  // x0-x31.
+  // x0-x31 and optionally the full FLEN-bit FP registers. Narrow FP views
+  // cannot be treated as bitwise copies: FSGNJ may check NaN boxing, and
+  // writing a narrow FP register also changes its upper bits.
   SmallVector<MCPhysReg, 96> Registers;
   DenseMap<Register, unsigned> RegisterNumbers;
   // The tracked register containing each register unit. Zero means x0, which
@@ -239,6 +241,10 @@ class RISCVRedundantInstrElimImpl {
   // the address of every spill slot.
   SmallVector<unsigned, 3> StackBaseLocations;
   DenseMap<const MachineBasicBlock *, AvailableValues> LiveOutValues;
+  unsigned FPRegBase = 0;
+  unsigned FPLoadOpcode = 0;
+  unsigned FPStoreOpcode = 0;
+  unsigned FPRegBytes = 0;
 
   std::optional<RegisterRange> getRegisterRange(const MachineOperand &MO) const;
   std::optional<int> getSpillSlot(const MachineInstr &MI) const;
@@ -317,6 +323,29 @@ RISCVRedundantInstrElimImpl::RISCVRedundantInstrElimImpl(MachineFunction &MF)
   Registers.resize(32);
   for (MCPhysReg Reg : RISCV::GPRRegClass)
     Registers[TRI.getEncodingValue(Reg)] = Reg;
+  const TargetRegisterClass *FPRC = nullptr;
+  if (ST.hasStdExtQ()) {
+    FPRC = &RISCV::FPR128RegClass;
+    FPLoadOpcode = RISCV::FLQ;
+    FPStoreOpcode = RISCV::FSQ;
+    FPRegBytes = 16;
+  } else if (ST.hasStdExtD()) {
+    FPRC = &RISCV::FPR64RegClass;
+    FPLoadOpcode = RISCV::FLD;
+    FPStoreOpcode = RISCV::FSD;
+    FPRegBytes = 8;
+  } else if (ST.hasStdExtF()) {
+    FPRC = &RISCV::FPR32RegClass;
+    FPLoadOpcode = RISCV::FLW;
+    FPStoreOpcode = RISCV::FSW;
+    FPRegBytes = 4;
+  }
+  if (FPRC) {
+    FPRegBase = Registers.size();
+    Registers.resize(FPRegBase + 32);
+    for (MCPhysReg Reg : *FPRC)
+      Registers[FPRegBase + TRI.getEncodingValue(Reg)] = Reg;
+  }
   RegUnitLocations.resize(TRI.getNumRegUnits());
   for (auto [I, Reg] : llvm::enumerate(Registers)) {
     RegisterNumbers.try_emplace(Reg, I);
@@ -353,6 +382,8 @@ RISCVRedundantInstrElimImpl::getSpillSlot(const MachineInstr &MI) const {
   if (Opcode == (ST.is64Bit() ? RISCV::LD : RISCV::LW) ||
       Opcode == (ST.is64Bit() ? RISCV::SD : RISCV::SW))
     Bytes = ST.getXLen() / 8;
+  else if (FPRegBytes && (Opcode == FPLoadOpcode || Opcode == FPStoreOpcode))
+    Bytes = FPRegBytes;
   else
     return std::nullopt;
   if (!MI.hasOneMemOperand() || MI.hasUnmodeledSideEffects())
@@ -478,10 +509,26 @@ std::optional<RegisterRange>
 RISCVRedundantInstrElimImpl::getCopySource(const MachineInstr &MI,
                                            RegisterRange Dst) const {
   auto Copy = TII.isCopyInstr(MI);
+  // These are bitwise copies only when the integer and FP widths agree.
+  if (!Copy && FPRegBytes == ST.getXLen() / 8 &&
+      (MI.getOpcode() == RISCV::FMV_X_D || MI.getOpcode() == RISCV::FMV_D_X ||
+       MI.getOpcode() == RISCV::FMV_X_W || MI.getOpcode() == RISCV::FMV_W_X))
+    Copy = DestSourcePair{MI.getOperand(0), MI.getOperand(1)};
+  // isCopyInstr does not currently recognize the Q-extension move.
+  if (!Copy && MI.getOpcode() == RISCV::FSGNJ_Q &&
+      MI.getOperand(1).isIdenticalTo(MI.getOperand(2)))
+    Copy = DestSourcePair{MI.getOperand(0), MI.getOperand(1)};
   if (!Copy)
     return std::nullopt;
   auto Src = getRegisterRange(*Copy->Source);
   if (!Src || Src->Size != Dst.Size)
+    return std::nullopt;
+  // A cross-bank copy must transfer the complete XLEN/FLEN-bit value.
+  bool DstFP = FPRegBase && Dst.First >= FPRegBase;
+  bool SrcFP = FPRegBase && Src->First >= FPRegBase;
+  bool IntegerFPCopy = (DstFP && Src->First < 32) || (SrcFP && Dst.First < 32);
+  if (((Dst.First < 32) != (Src->First < 32) || DstFP != SrcFP) &&
+      !(IntegerFPCopy && Dst.Size == 1 && FPRegBytes == ST.getXLen() / 8))
     return std::nullopt;
   // In-register FP formats may truncate or sign-extend an XLEN-bit value.
   switch (MI.getOpcode()) {

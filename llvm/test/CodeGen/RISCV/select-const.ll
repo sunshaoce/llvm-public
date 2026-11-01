@@ -200,7 +200,6 @@ define float @select_const_fp(i1 zeroext %a) nounwind {
 ; RV32IF-NEXT:    lui a0, 263168
 ; RV32IF-NEXT:  .LBB5_3:
 ; RV32IF-NEXT:    fmv.w.x fa5, a0
-; RV32IF-NEXT:    fmv.x.w a0, fa5
 ; RV32IF-NEXT:    ret
 ;
 ; RV32ZICOND-LABEL: select_const_fp:
