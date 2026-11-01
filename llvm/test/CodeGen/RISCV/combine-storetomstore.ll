@@ -62,7 +62,6 @@ define void @test_masked_store_success_v4f16(<4 x half> %x, ptr %ptr, <4 x i1> %
 ; RISCV-NEXT:  .LBB4_2:
 ; RISCV-NEXT:    vsetivli zero, 4, e8, mf4, ta, ma
 ; RISCV-NEXT:    vmv.v.i v8, 0
-; RISCV-NEXT:    vmv1r.v v0, v9
 ; RISCV-NEXT:    vmerge.vim v8, v8, 1, v0
 ; RISCV-NEXT:    vsetivli zero, 2, e8, mf4, ta, ma
 ; RISCV-NEXT:    vslidedown.vi v8, v8, 2
@@ -201,7 +200,6 @@ define void @test_masked_store_success_v8f16(<8 x half> %x, ptr %ptr, <8 x i1> %
 ; RISCV-NEXT:  .LBB11_2:
 ; RISCV-NEXT:    vsetivli zero, 8, e8, mf2, ta, ma
 ; RISCV-NEXT:    vmv.v.i v9, 0
-; RISCV-NEXT:    vmv1r.v v0, v8
 ; RISCV-NEXT:    vmerge.vim v9, v9, 1, v0
 ; RISCV-NEXT:    vsetivli zero, 4, e8, mf2, ta, ma
 ; RISCV-NEXT:    vslidedown.vi v9, v9, 4

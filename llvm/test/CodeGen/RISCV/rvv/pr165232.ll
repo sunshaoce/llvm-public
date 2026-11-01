@@ -138,7 +138,6 @@ define i1 @main(ptr %var_117, ptr %arrayinit.element3045, ptr %arrayinit.element
 ; CHECK-NEXT:    vmv4r.v v0, v12
 ; CHECK-NEXT:    vmv4r.v v4, v16
 ; CHECK-NEXT:    vmv1r.v v2, v9
-; CHECK-NEXT:    vmv1r.v v0, v12
 ; CHECK-NEXT:    vsseg8e32.v v0, (a1)
 ; CHECK-NEXT:    addi t5, sp, 16
 ; CHECK-NEXT:    vl1r.v v12, (t5) # vscale x 8-byte Folded Reload

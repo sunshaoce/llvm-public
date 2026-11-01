@@ -16,7 +16,6 @@ define i32 @_ZN4Mesh12rezone_countESt6vectorIiSaIiEERiS3_(<vscale x 4 x i32> %wi
 ; CHECK-NEXT:    # =>This Inner Loop Header: Depth=1
 ; CHECK-NEXT:    vsetivli zero, 0, e32, m2, ta, mu
 ; CHECK-NEXT:    vmv2r.v v16, v10
-; CHECK-NEXT:    vmv1r.v v0, v8
 ; CHECK-NEXT:    slli a0, a0, 2
 ; CHECK-NEXT:    vle32.v v16, (a0), v0.t
 ; CHECK-NEXT:    vand.vi v16, v16, 1

@@ -549,7 +549,6 @@ define void @strided_store_nxv17f64(<vscale x 17 x double> %v, ptr %ptr, i32 sig
 ; CHECK-NEXT:  # %bb.3:
 ; CHECK-NEXT:    mv a7, a4
 ; CHECK-NEXT:  .LBB48_4:
-; CHECK-NEXT:    vmv1r.v v0, v7
 ; CHECK-NEXT:    vl8re64.v v24, (a0)
 ; CHECK-NEXT:    vsetvli zero, a7, e64, m8, ta, ma
 ; CHECK-NEXT:    vsse64.v v8, (a1), a2, v0.t

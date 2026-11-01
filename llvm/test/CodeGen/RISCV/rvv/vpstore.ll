@@ -404,7 +404,6 @@ define void @vpstore_nxv17f64(<vscale x 17 x double> %val, ptr %ptr, <vscale x 1
 ; CHECK-NEXT:  # %bb.3:
 ; CHECK-NEXT:    mv a6, a3
 ; CHECK-NEXT:  .LBB36_4:
-; CHECK-NEXT:    vmv1r.v v0, v7
 ; CHECK-NEXT:    vl8re64.v v24, (a0)
 ; CHECK-NEXT:    vsetvli zero, a6, e64, m8, ta, ma
 ; CHECK-NEXT:    vse64.v v8, (a1), v0.t

@@ -1210,7 +1210,6 @@ define i32 @pr202894(<vscale x 16 x i32> %0, <vscale x 16 x i1> %1, i32 %2, <vsc
 ; CHECK-NEXT:  .LBB88_2:
 ; CHECK-NEXT:    vsetvli a4, zero, e8, m1, ta, ma
 ; CHECK-NEXT:    vmv.v.i v6, 0
-; CHECK-NEXT:    vmv1r.v v0, v7
 ; CHECK-NEXT:    vsetvli zero, a3, e8, m1, ta, ma
 ; CHECK-NEXT:    vsoxei64.v v6, (zero), v16, v0.t
 ; CHECK-NEXT:    srli a3, a1, 3

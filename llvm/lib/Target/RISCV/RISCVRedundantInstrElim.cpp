@@ -33,6 +33,7 @@
 #include "llvm/CodeGen/MachineMemOperand.h"
 #include "llvm/CodeGen/MachineRegisterInfo.h"
 #include "llvm/CodeGen/PseudoSourceValue.h"
+#include "llvm/IR/Function.h"
 #include "llvm/Support/Debug.h"
 #include "llvm/Support/ErrorHandling.h"
 #include "llvm/Support/MathExtras.h"
@@ -78,6 +79,8 @@ class AvailableValues {
   unsigned NextNumber;
 
 public:
+  bool VStartIsZero = false;
+
   explicit AvailableValues(unsigned Size)
       : Numbers(Size), Constants(Size), NextNumber(Size) {
     std::iota(Numbers.begin(), Numbers.end(), 0);
@@ -210,11 +213,13 @@ public:
       if (Value.Constant != OtherValue.Constant)
         Value.Constant.reset();
     }
+    VStartIsZero &= Other.VStartIsZero;
   }
 
   bool operator==(const AvailableValues &Other) const {
     return Numbers == Other.Numbers && Constants == Other.Constants &&
-           SpillValues == Other.SpillValues;
+           SpillValues == Other.SpillValues &&
+           VStartIsZero == Other.VStartIsZero;
   }
 };
 
@@ -229,9 +234,9 @@ class RISCVRedundantInstrElimImpl {
   const RISCVInstrInfo &TII;
   const RISCVRegisterInfo &TRI;
 
-  // x0-x31 and optionally the full FLEN-bit FP registers. Narrow FP views
-  // cannot be treated as bitwise copies: FSGNJ may check NaN boxing, and
-  // writing a narrow FP register also changes its upper bits.
+  // x0-x31, optionally v0-v31, and optionally the full FLEN-bit FP registers.
+  // Narrow FP views cannot be treated as bitwise copies: FSGNJ may check NaN
+  // boxing, and writing a narrow FP register also changes its upper bits.
   SmallVector<MCPhysReg, 96> Registers;
   DenseMap<Register, unsigned> RegisterNumbers;
   // The tracked register containing each register unit. Zero means x0, which
@@ -241,6 +246,7 @@ class RISCVRedundantInstrElimImpl {
   // the address of every spill slot.
   SmallVector<unsigned, 3> StackBaseLocations;
   DenseMap<const MachineBasicBlock *, AvailableValues> LiveOutValues;
+  unsigned VectorRegBase = 0;
   unsigned FPRegBase = 0;
   unsigned FPLoadOpcode = 0;
   unsigned FPStoreOpcode = 0;
@@ -252,12 +258,15 @@ class RISCVRedundantInstrElimImpl {
                                      const AvailableValues &Values) const;
   std::optional<int64_t> evaluateConstant(const MachineInstr &MI,
                                           const AvailableValues &Values) const;
-  std::optional<RegisterRange> getCopySource(const MachineInstr &MI,
-                                             RegisterRange Dst) const;
+  std::optional<RegisterRange>
+  getCopySource(const MachineInstr &MI, RegisterRange Dst,
+                const AvailableValues &Values) const;
   std::optional<AvailableValues>
   getIncomingValues(MachineBasicBlock &MBB) const;
   bool refineEdge(MachineBasicBlock &Pred, MachineBasicBlock &Succ,
                   AvailableValues &Values) const;
+  bool getVStartIsZero(const MachineInstr &MI,
+                       const AvailableValues &Values) const;
   void processInstruction(MachineInstr &MI, AvailableValues &Values,
                           SmallVectorImpl<MachineInstr *> *Redundant = nullptr);
   void solve();
@@ -291,6 +300,21 @@ public:
 
 } // end anonymous namespace
 
+static unsigned getVectorCopySize(unsigned Opcode) {
+  switch (Opcode) {
+  default:
+    return 0;
+  case RISCV::VMV1R_V:
+    return 1;
+  case RISCV::VMV2R_V:
+    return 2;
+  case RISCV::VMV4R_V:
+    return 4;
+  case RISCV::VMV8R_V:
+    return 8;
+  }
+}
+
 static bool isCSRInstruction(unsigned Opcode) {
   switch (Opcode) {
   default:
@@ -323,6 +347,12 @@ RISCVRedundantInstrElimImpl::RISCVRedundantInstrElimImpl(MachineFunction &MF)
   Registers.resize(32);
   for (MCPhysReg Reg : RISCV::GPRRegClass)
     Registers[TRI.getEncodingValue(Reg)] = Reg;
+  if (ST.hasVInstructions()) {
+    VectorRegBase = Registers.size();
+    Registers.resize(VectorRegBase + 32);
+    for (MCPhysReg Reg : RISCV::VRRegClass)
+      Registers[VectorRegBase + TRI.getEncodingValue(Reg)] = Reg;
+  }
   const TargetRegisterClass *FPRC = nullptr;
   if (ST.hasStdExtQ()) {
     FPRC = &RISCV::FPR128RegClass;
@@ -372,6 +402,14 @@ RISCVRedundantInstrElimImpl::getRegisterRange(const MachineOperand &MO) const {
     return RegisterRange{I->second, 1};
   if (RISCV::GPRPairRegClass.contains(Reg) && Reg != RISCV::X0_Pair)
     return RegisterRange{TRI.getEncodingValue(Reg), 2};
+  if (VectorRegBase) {
+    unsigned Size = RISCV::VRM2RegClass.contains(Reg)   ? 2
+                    : RISCV::VRM4RegClass.contains(Reg) ? 4
+                    : RISCV::VRM8RegClass.contains(Reg) ? 8
+                                                        : 0;
+    if (Size)
+      return RegisterRange{VectorRegBase + TRI.getEncodingValue(Reg), Size};
+  }
   return std::nullopt;
 }
 
@@ -505,9 +543,18 @@ std::optional<int64_t> RISCVRedundantInstrElimImpl::evaluateConstant(
   return Result.getSExtValue();
 }
 
-std::optional<RegisterRange>
-RISCVRedundantInstrElimImpl::getCopySource(const MachineInstr &MI,
-                                           RegisterRange Dst) const {
+std::optional<RegisterRange> RISCVRedundantInstrElimImpl::getCopySource(
+    const MachineInstr &MI, RegisterRange Dst,
+    const AvailableValues &Values) const {
+  if (unsigned Size = getVectorCopySize(MI.getOpcode())) {
+    auto Src = getRegisterRange(MI.getOperand(1));
+    if (Values.VStartIsZero && Src && Dst.Size == Size && Src->Size == Size &&
+        VectorRegBase && Dst.First >= VectorRegBase &&
+        Dst.First < VectorRegBase + 32 && Src->First >= VectorRegBase &&
+        Src->First < VectorRegBase + 32)
+      return Src;
+    return std::nullopt;
+  }
   auto Copy = TII.isCopyInstr(MI);
   // These are bitwise copies only when the integer and FP widths agree.
   if (!Copy && FPRegBytes == ST.getXLen() / 8 &&
@@ -567,8 +614,14 @@ bool RISCVRedundantInstrElimImpl::refineEdge(MachineBasicBlock &Pred,
 std::optional<AvailableValues>
 RISCVRedundantInstrElimImpl::getIncomingValues(MachineBasicBlock &MBB) const {
   std::optional<AvailableValues> Incoming;
-  if (&MBB == &MF.front() || MBB.isEHPad() || MBB.hasAddressTaken())
+  if (&MBB == &MF.front() || MBB.isEHPad() || MBB.hasAddressTaken()) {
     Incoming.emplace(Registers.size());
+    // The standard ABI requires vstart=0 at function entry. Interrupt and
+    // naked functions do not provide this guarantee.
+    Incoming->VStartIsZero = &MBB == &MF.front() &&
+                             !MF.getFunction().hasFnAttribute("interrupt") &&
+                             !MF.getFunction().hasFnAttribute(Attribute::Naked);
+  }
   for (MachineBasicBlock *Pred : MBB.predecessors()) {
     auto I = LiveOutValues.find(Pred);
     if (I == LiveOutValues.end())
@@ -586,11 +639,72 @@ RISCVRedundantInstrElimImpl::getIncomingValues(MachineBasicBlock &MBB) const {
   return Incoming;
 }
 
+bool RISCVRedundantInstrElimImpl::getVStartIsZero(
+    const MachineInstr &MI, const AvailableValues &Values) const {
+  if (MI.isCall() || MI.isInlineAsm() || MI.isBundled())
+    return false;
+  unsigned Opcode = MI.getOpcode();
+  if (isCSRInstruction(Opcode)) {
+    if (!MI.getOperand(1).isImm() || MI.getOperand(1).getImm() != 0x008)
+      return Values.VStartIsZero;
+    auto Src = getConstant(MI.getOperand(2), Values);
+    switch (Opcode) {
+    default:
+      llvm_unreachable("Unexpected CSR instruction");
+    case RISCV::CSRRW:
+    case RISCV::CSRRWI:
+      return Src && *Src == 0;
+    case RISCV::CSRRS:
+    case RISCV::CSRRSI:
+      return Values.VStartIsZero && Src && *Src == 0;
+    case RISCV::CSRRC:
+    case RISCV::CSRRCI:
+      return Values.VStartIsZero || (Src && *Src == -1);
+    }
+  }
+  // vset{i}vl{i} resets vstart. Check before the side-effect test, since the MC
+  // forms are marked as having unmodeled side effects.
+  switch (Opcode) {
+  default:
+    break;
+  case RISCV::VSETVLI:
+  case RISCV::VSETIVLI:
+  case RISCV::VSETVL:
+  case RISCV::PseudoVSETVLI:
+  case RISCV::PseudoVSETIVLI:
+  case RISCV::PseudoVSETVLIX0:
+  case RISCV::PseudoVSETVLIX0X0:
+    return true;
+  }
+  if (MI.hasUnmodeledSideEffects())
+    return false;
+  if (getVectorCopySize(Opcode) || RISCV::getRVVMCOpcode(Opcode))
+    return true;
+  switch (Opcode) {
+  default:
+    return Values.VStartIsZero;
+#define WHOLE_VECTOR_MEMORY(N)                                                 \
+  case RISCV::VL##N##RE8_V:                                                    \
+  case RISCV::VL##N##RE16_V:                                                   \
+  case RISCV::VL##N##RE32_V:                                                   \
+  case RISCV::VL##N##RE64_V:                                                   \
+  case RISCV::VS##N##R_V:
+    WHOLE_VECTOR_MEMORY(1)
+    WHOLE_VECTOR_MEMORY(2)
+    WHOLE_VECTOR_MEMORY(4)
+    WHOLE_VECTOR_MEMORY(8)
+#undef WHOLE_VECTOR_MEMORY
+    return true;
+  }
+}
+
 void RISCVRedundantInstrElimImpl::processInstruction(
     MachineInstr &MI, AvailableValues &Values,
     SmallVectorImpl<MachineInstr *> *Redundant) {
   if (MI.isDebugInstr())
     return;
+  // vstart only matters for whole-register moves.
+  bool VStartIsZero = VectorRegBase && getVStartIsZero(MI, Values);
   auto FI = getSpillSlot(MI);
   std::optional<RegisterRange> Dst;
   std::optional<int64_t> Constant;
@@ -602,7 +716,7 @@ void RISCVRedundantInstrElimImpl::processInstruction(
       if (Dst->First < 32 && Dst->Size == 1)
         Constant = evaluateConstant(MI, Values);
       if (!Constant) {
-        auto Src = getCopySource(MI, *Dst);
+        auto Src = getCopySource(MI, *Dst, Values);
         if (Src) {
           for (unsigned I = 0; I != Src->Size; ++I)
             Result.push_back(Values.get(Src->First + I));
@@ -678,6 +792,7 @@ void RISCVRedundantInstrElimImpl::processInstruction(
     Values.assignConstant(Dst->First, *Constant);
   for (auto [I, Value] : llvm::enumerate(Result))
     Values.assign(Dst->First + I, Value);
+  Values.VStartIsZero = VStartIsZero;
 }
 
 void RISCVRedundantInstrElimImpl::solve() {
