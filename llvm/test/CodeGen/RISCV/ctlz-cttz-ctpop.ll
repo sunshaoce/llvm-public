@@ -1593,7 +1593,6 @@ define i64 @test_ctlz_i64(i64 %a) nounwind {
 ; RV32ZBB-NEXT:  # %bb.1:
 ; RV32ZBB-NEXT:    clz a0, a0
 ; RV32ZBB-NEXT:    addi a0, a0, 32
-; RV32ZBB-NEXT:    li a1, 0
 ; RV32ZBB-NEXT:    ret
 ; RV32ZBB-NEXT:  .LBB11_2:
 ; RV32ZBB-NEXT:    clz a0, a1
@@ -1611,7 +1610,6 @@ define i64 @test_ctlz_i64(i64 %a) nounwind {
 ; RV32XTHEADBB-NEXT:  # %bb.1:
 ; RV32XTHEADBB-NEXT:    th.ff1 a0, a0
 ; RV32XTHEADBB-NEXT:    addi a0, a0, 32
-; RV32XTHEADBB-NEXT:    li a1, 0
 ; RV32XTHEADBB-NEXT:    ret
 ; RV32XTHEADBB-NEXT:  .LBB11_2:
 ; RV32XTHEADBB-NEXT:    th.ff1 a0, a1
@@ -2197,7 +2195,6 @@ define i64 @test_ctlz_i64_zero_poison(i64 %a) nounwind {
 ; RV32ZBB-NEXT:  # %bb.1:
 ; RV32ZBB-NEXT:    clz a0, a0
 ; RV32ZBB-NEXT:    addi a0, a0, 32
-; RV32ZBB-NEXT:    li a1, 0
 ; RV32ZBB-NEXT:    ret
 ; RV32ZBB-NEXT:  .LBB15_2:
 ; RV32ZBB-NEXT:    clz a0, a1
@@ -2215,7 +2212,6 @@ define i64 @test_ctlz_i64_zero_poison(i64 %a) nounwind {
 ; RV32XTHEADBB-NEXT:  # %bb.1:
 ; RV32XTHEADBB-NEXT:    th.ff1 a0, a0
 ; RV32XTHEADBB-NEXT:    addi a0, a0, 32
-; RV32XTHEADBB-NEXT:    li a1, 0
 ; RV32XTHEADBB-NEXT:    ret
 ; RV32XTHEADBB-NEXT:  .LBB15_2:
 ; RV32XTHEADBB-NEXT:    th.ff1 a0, a1

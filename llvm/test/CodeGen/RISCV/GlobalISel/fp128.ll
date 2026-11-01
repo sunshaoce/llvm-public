@@ -1358,7 +1358,7 @@ define i128 @fptoui_i128(fp128 %x) nounwind {
 ; RV32I-NEXT:    j .LBB24_67
 ; RV32I-NEXT:  .LBB24_9: # %fp-to-i-if-check.exp.size
 ; RV32I-NEXT:    addi a6, a3, 111
-; RV32I-NEXT:    li a3, 1
+; RV32I-NEXT:    xori a3, a4, 1
 ; RV32I-NEXT:    j .LBB24_11
 ; RV32I-NEXT:  # %bb.10: # %fp-to-i-if-check.exp.size
 ; RV32I-NEXT:    mv a7, a3
@@ -1609,14 +1609,13 @@ define i128 @fptoui_i128(fp128 %x) nounwind {
 ; RV32D-NEXT:    li a1, 0
 ; RV32D-NEXT:    li a2, 0
 ; RV32D-NEXT:    li a3, 0
-; RV32D-NEXT:    li a4, 0
 ; RV32D-NEXT:    j .LBB24_71
 ; RV32D-NEXT:  # %bb.7: # %fp-to-i-entry
 ; RV32D-NEXT:    addi sp, sp, -16
 ; RV32D-NEXT:    bnez a4, .LBB24_6
 ; RV32D-NEXT:  .LBB24_8: # %fp-to-i-if-check.exp.size
 ; RV32D-NEXT:    addi a6, a3, 111
-; RV32D-NEXT:    li a3, 1
+; RV32D-NEXT:    xori a3, a4, 1
 ; RV32D-NEXT:    j .LBB24_10
 ; RV32D-NEXT:  # %bb.9: # %fp-to-i-if-check.exp.size
 ; RV32D-NEXT:    mv a7, a3

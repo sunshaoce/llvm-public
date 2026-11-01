@@ -166,6 +166,19 @@ void initializeRISCVInsertWriteVXRMPass(PassRegistry &);
 FunctionPass *createRISCVRedundantCopyEliminationPass();
 void initializeRISCVRedundantCopyEliminationPass(PassRegistry &);
 
+class RISCVRedundantInstrElimPass
+    : public OptionalPassInfoMixin<RISCVRedundantInstrElimPass> {
+public:
+  PreservedAnalyses run(MachineFunction &MF,
+                        MachineFunctionAnalysisManager &MFAM);
+  MachineFunctionProperties getRequiredProperties() const {
+    return MachineFunctionProperties().setNoVRegs().setNoPHIs();
+  }
+};
+
+FunctionPass *createRISCVRedundantInstrElimLegacyPass();
+void initializeRISCVRedundantInstrElimLegacyPass(PassRegistry &);
+
 FunctionPass *createRISCVMoveMergePass();
 void initializeRISCVMoveMergePass(PassRegistry &);
 

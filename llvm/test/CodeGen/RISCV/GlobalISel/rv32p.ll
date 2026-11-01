@@ -130,7 +130,6 @@ define i64 @cls_i64_2(i64 %x) {
 ; CHECK-NEXT:    ori a0, a0, 1
 ; CHECK-NEXT:    clz a0, a0
 ; CHECK-NEXT:    addi a0, a0, 32
-; CHECK-NEXT:    li a1, 0
 ; CHECK-NEXT:    ret
   %a = ashr i64 %x, 63
   %b = xor i64 %x, %a

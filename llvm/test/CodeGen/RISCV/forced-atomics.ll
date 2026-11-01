@@ -2020,7 +2020,6 @@ define float @rmw32_fadd_seq_cst(ptr %p) nounwind {
 ; RV64-ATOMIC-NEXT:    mv s1, a0
 ; RV64-ATOMIC-NEXT:    bne a0, s2, .LBB28_1
 ; RV64-ATOMIC-NEXT:  # %bb.2: # %atomicrmw.end
-; RV64-ATOMIC-NEXT:    mv a0, s1
 ; RV64-ATOMIC-NEXT:    ld ra, 24(sp) # 8-byte Folded Reload
 ; RV64-ATOMIC-NEXT:    ld s0, 16(sp) # 8-byte Folded Reload
 ; RV64-ATOMIC-NEXT:    ld s1, 8(sp) # 8-byte Folded Reload
@@ -2050,7 +2049,6 @@ define float @rmw32_fadd_seq_cst(ptr %p) nounwind {
 ; RV64-ATOMIC-TRAILING-NEXT:    mv s1, a0
 ; RV64-ATOMIC-TRAILING-NEXT:    bne a0, s2, .LBB28_1
 ; RV64-ATOMIC-TRAILING-NEXT:  # %bb.2: # %atomicrmw.end
-; RV64-ATOMIC-TRAILING-NEXT:    mv a0, s1
 ; RV64-ATOMIC-TRAILING-NEXT:    ld ra, 24(sp) # 8-byte Folded Reload
 ; RV64-ATOMIC-TRAILING-NEXT:    ld s0, 16(sp) # 8-byte Folded Reload
 ; RV64-ATOMIC-TRAILING-NEXT:    ld s1, 8(sp) # 8-byte Folded Reload
@@ -2198,7 +2196,6 @@ define float @rmw32_fsub_seq_cst(ptr %p) nounwind {
 ; RV64-ATOMIC-NEXT:    mv s1, a0
 ; RV64-ATOMIC-NEXT:    bne a0, s2, .LBB29_1
 ; RV64-ATOMIC-NEXT:  # %bb.2: # %atomicrmw.end
-; RV64-ATOMIC-NEXT:    mv a0, s1
 ; RV64-ATOMIC-NEXT:    ld ra, 24(sp) # 8-byte Folded Reload
 ; RV64-ATOMIC-NEXT:    ld s0, 16(sp) # 8-byte Folded Reload
 ; RV64-ATOMIC-NEXT:    ld s1, 8(sp) # 8-byte Folded Reload
@@ -2228,7 +2225,6 @@ define float @rmw32_fsub_seq_cst(ptr %p) nounwind {
 ; RV64-ATOMIC-TRAILING-NEXT:    mv s1, a0
 ; RV64-ATOMIC-TRAILING-NEXT:    bne a0, s2, .LBB29_1
 ; RV64-ATOMIC-TRAILING-NEXT:  # %bb.2: # %atomicrmw.end
-; RV64-ATOMIC-TRAILING-NEXT:    mv a0, s1
 ; RV64-ATOMIC-TRAILING-NEXT:    ld ra, 24(sp) # 8-byte Folded Reload
 ; RV64-ATOMIC-TRAILING-NEXT:    ld s0, 16(sp) # 8-byte Folded Reload
 ; RV64-ATOMIC-TRAILING-NEXT:    ld s1, 8(sp) # 8-byte Folded Reload
@@ -2376,7 +2372,6 @@ define float @rmw32_fmin_seq_cst(ptr %p) nounwind {
 ; RV64-ATOMIC-NEXT:    mv s1, a0
 ; RV64-ATOMIC-NEXT:    bne a0, s2, .LBB30_1
 ; RV64-ATOMIC-NEXT:  # %bb.2: # %atomicrmw.end
-; RV64-ATOMIC-NEXT:    mv a0, s1
 ; RV64-ATOMIC-NEXT:    ld ra, 24(sp) # 8-byte Folded Reload
 ; RV64-ATOMIC-NEXT:    ld s0, 16(sp) # 8-byte Folded Reload
 ; RV64-ATOMIC-NEXT:    ld s1, 8(sp) # 8-byte Folded Reload
@@ -2406,7 +2401,6 @@ define float @rmw32_fmin_seq_cst(ptr %p) nounwind {
 ; RV64-ATOMIC-TRAILING-NEXT:    mv s1, a0
 ; RV64-ATOMIC-TRAILING-NEXT:    bne a0, s2, .LBB30_1
 ; RV64-ATOMIC-TRAILING-NEXT:  # %bb.2: # %atomicrmw.end
-; RV64-ATOMIC-TRAILING-NEXT:    mv a0, s1
 ; RV64-ATOMIC-TRAILING-NEXT:    ld ra, 24(sp) # 8-byte Folded Reload
 ; RV64-ATOMIC-TRAILING-NEXT:    ld s0, 16(sp) # 8-byte Folded Reload
 ; RV64-ATOMIC-TRAILING-NEXT:    ld s1, 8(sp) # 8-byte Folded Reload
@@ -2554,7 +2548,6 @@ define float @rmw32_fmax_seq_cst(ptr %p) nounwind {
 ; RV64-ATOMIC-NEXT:    mv s1, a0
 ; RV64-ATOMIC-NEXT:    bne a0, s2, .LBB31_1
 ; RV64-ATOMIC-NEXT:  # %bb.2: # %atomicrmw.end
-; RV64-ATOMIC-NEXT:    mv a0, s1
 ; RV64-ATOMIC-NEXT:    ld ra, 24(sp) # 8-byte Folded Reload
 ; RV64-ATOMIC-NEXT:    ld s0, 16(sp) # 8-byte Folded Reload
 ; RV64-ATOMIC-NEXT:    ld s1, 8(sp) # 8-byte Folded Reload
@@ -2584,7 +2577,6 @@ define float @rmw32_fmax_seq_cst(ptr %p) nounwind {
 ; RV64-ATOMIC-TRAILING-NEXT:    mv s1, a0
 ; RV64-ATOMIC-TRAILING-NEXT:    bne a0, s2, .LBB31_1
 ; RV64-ATOMIC-TRAILING-NEXT:  # %bb.2: # %atomicrmw.end
-; RV64-ATOMIC-TRAILING-NEXT:    mv a0, s1
 ; RV64-ATOMIC-TRAILING-NEXT:    ld ra, 24(sp) # 8-byte Folded Reload
 ; RV64-ATOMIC-TRAILING-NEXT:    ld s0, 16(sp) # 8-byte Folded Reload
 ; RV64-ATOMIC-TRAILING-NEXT:    ld s1, 8(sp) # 8-byte Folded Reload

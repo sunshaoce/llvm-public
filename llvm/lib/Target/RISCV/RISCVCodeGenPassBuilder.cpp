@@ -154,6 +154,10 @@ void RISCVCodeGenPassBuilder::addPreSched2(PassManagerWrapper &PMW) {
 }
 
 void RISCVCodeGenPassBuilder::addPreEmitPass(PassManagerWrapper &PMW) {
+  if (getOptLevel() != CodeGenOptLevel::None &&
+      getTM().getCLOpts().enable_redundant_instr_elim)
+    addMachineFunctionPass(RISCVRedundantInstrElimPass(), PMW);
+
   // TODO: It would potentially be better to schedule copy propagation after
   // expanding pseudos (in addPreEmitPass2). However, performing copy
   // propagation after the machine outliner (which runs after addPreEmitPass)

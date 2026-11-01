@@ -94,6 +94,8 @@ defm : BoolField<"riscv-enable-copy-propagation", "true",
   "Enable the copy propagation with RISC-V copy instr">;
 defm : BoolField<"riscv-enable-copyelim", "true",
   "Enable the redundant copy elimination pass">;
+defm : BoolField<"riscv-enable-redundant-instr-elim", "true",
+  "Enable post-register-allocation redundant instruction elimination">;
 defm : BoolField<"riscv-enable-dead-defs", "true",
   "Enable the pass that removes dead definitions and replaces stores to them with stores to x0">;
 // FIXME: Unify control over GlobalMerge.

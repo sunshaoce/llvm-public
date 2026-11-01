@@ -768,7 +768,6 @@ define i64 @explode_8xi64(<8 x i64> %v) {
 ; RV32-NEXT:    vl4r.v v0, (a1) # vscale x 32-byte Folded Reload
 ; RV32-NEXT:    vsrl.vx v4, v0, a0
 ; RV32-NEXT:    csrr a1, vlenb
-; RV32-NEXT:    li a2, 12
 ; RV32-NEXT:    mul a1, a1, a2
 ; RV32-NEXT:    add a1, sp, a1
 ; RV32-NEXT:    addi a1, a1, 16

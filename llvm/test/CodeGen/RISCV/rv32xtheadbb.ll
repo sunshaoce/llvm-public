@@ -144,7 +144,6 @@ define i64 @ctlz_i64(i64 %a) nounwind {
 ; RV32XTHEADBB-NOB-NEXT:  # %bb.1:
 ; RV32XTHEADBB-NOB-NEXT:    th.ff1 a0, a0
 ; RV32XTHEADBB-NOB-NEXT:    addi a0, a0, 32
-; RV32XTHEADBB-NOB-NEXT:    li a1, 0
 ; RV32XTHEADBB-NOB-NEXT:    ret
 ; RV32XTHEADBB-NOB-NEXT:  .LBB1_2:
 ; RV32XTHEADBB-NOB-NEXT:    th.ff1 a0, a1
@@ -157,7 +156,6 @@ define i64 @ctlz_i64(i64 %a) nounwind {
 ; RV32XTHEADBB-B-NEXT:  # %bb.1:
 ; RV32XTHEADBB-B-NEXT:    clz a0, a0
 ; RV32XTHEADBB-B-NEXT:    addi a0, a0, 32
-; RV32XTHEADBB-B-NEXT:    li a1, 0
 ; RV32XTHEADBB-B-NEXT:    ret
 ; RV32XTHEADBB-B-NEXT:  .LBB1_2:
 ; RV32XTHEADBB-B-NEXT:    clz a0, a1

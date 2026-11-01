@@ -924,8 +924,6 @@ define i128 @udiv_i128(i128 %x, i128 %y) nounwind {
 ; RV32-NEXT:    sub s9, s9, s11
 ; RV32-NEXT:    or a4, t0, a4
 ; RV32-NEXT:    li s3, 0
-; RV32-NEXT:    li s4, 0
-; RV32-NEXT:    li s5, 0
 ; RV32-NEXT:    mv ra, a5
 ; RV32-NEXT:    beqz a4, .LBB2_31
 ; RV32-NEXT:  .LBB2_26: # %udiv-do-while
@@ -1552,7 +1550,6 @@ define i129 @udiv_i129(i129 %x, i129 %y) nounwind {
 ; RV32-NEXT:    sll t6, s4, a0
 ; RV32-NEXT:    beqz s5, .LBB3_53
 ; RV32-NEXT:  # %bb.41: # %udiv-preheader
-; RV32-NEXT:    li s7, 0
 ; RV32-NEXT:    li s8, 0
 ; RV32-NEXT:    li s9, 0
 ; RV32-NEXT:    li s10, 0
@@ -1633,7 +1630,6 @@ define i129 @udiv_i129(i129 %x, i129 %y) nounwind {
 ; RV32-NEXT:    j .LBB3_43
 ; RV32-NEXT:  .LBB3_42: # %udiv-do-while
 ; RV32-NEXT:    # in Loop: Header=BB3_43 Depth=1
-; RV32-NEXT:    mv s8, s7
 ; RV32-NEXT:    lw a7, 32(sp) # 4-byte Folded Reload
 ; RV32-NEXT:    and a7, s1, a7
 ; RV32-NEXT:    xor ra, a3, s11
@@ -1687,10 +1683,6 @@ define i129 @udiv_i129(i129 %x, i129 %y) nounwind {
 ; RV32-NEXT:    andi s3, a2, 1
 ; RV32-NEXT:    or a3, a4, a3
 ; RV32-NEXT:    or a2, a3, s3
-; RV32-NEXT:    li s7, 0
-; RV32-NEXT:    li s8, 0
-; RV32-NEXT:    li s9, 0
-; RV32-NEXT:    li s10, 0
 ; RV32-NEXT:    lw a6, 12(sp) # 4-byte Folded Reload
 ; RV32-NEXT:    lw a7, 8(sp) # 4-byte Folded Reload
 ; RV32-NEXT:    beqz a2, .LBB3_54
@@ -1741,7 +1733,6 @@ define i129 @udiv_i129(i129 %x, i129 %y) nounwind {
 ; RV32-NEXT:    mv a4, a2
 ; RV32-NEXT:  .LBB3_51: # %udiv-do-while
 ; RV32-NEXT:    # in Loop: Header=BB3_43 Depth=1
-; RV32-NEXT:    mv s10, s9
 ; RV32-NEXT:    srli a2, s11, 31
 ; RV32-NEXT:    lw a5, 16(sp) # 4-byte Folded Reload
 ; RV32-NEXT:    sub a2, a5, a2
@@ -1750,7 +1741,6 @@ define i129 @udiv_i129(i129 %x, i129 %y) nounwind {
 ; RV32-NEXT:    srai s1, a2, 31
 ; RV32-NEXT:    lw a2, 24(sp) # 4-byte Folded Reload
 ; RV32-NEXT:    and s11, s1, a2
-; RV32-NEXT:    mv s9, s8
 ; RV32-NEXT:    lw a4, 28(sp) # 4-byte Folded Reload
 ; RV32-NEXT:    and a4, s1, a4
 ; RV32-NEXT:    lw a2, 20(sp) # 4-byte Folded Reload

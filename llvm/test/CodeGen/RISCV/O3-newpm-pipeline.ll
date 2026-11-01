@@ -96,6 +96,7 @@
 ; CHECK-NEXT:     fentry-insert
 ; CHECK-NEXT:     xray-instrumentation
 ; CHECK-NEXT:     patchable-function
+; CHECK-NEXT:     riscv-redundant-instr-elim
 ; CHECK-NEXT:     machine-cp
 ; CHECK-NEXT:     branch-relaxation
 ; CHECK-NEXT:     funclet-layout

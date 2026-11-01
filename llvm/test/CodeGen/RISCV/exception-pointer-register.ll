@@ -28,13 +28,11 @@ define void @caller(ptr %p) personality ptr @__gxx_personality_v0 {
 ; RV32I-NEXT:    beqz a0, .LBB0_2
 ; RV32I-NEXT:  # %bb.1: # %bb2
 ; RV32I-NEXT:  .Ltmp0:
-; RV32I-NEXT:    mv a0, s0
 ; RV32I-NEXT:    call bar
 ; RV32I-NEXT:  .Ltmp1:
 ; RV32I-NEXT:    j .LBB0_3
 ; RV32I-NEXT:  .LBB0_2: # %bb1
 ; RV32I-NEXT:  .Ltmp2:
-; RV32I-NEXT:    mv a0, s0
 ; RV32I-NEXT:    call foo
 ; RV32I-NEXT:  .Ltmp3:
 ; RV32I-NEXT:  .LBB0_3: # %end2
@@ -71,13 +69,11 @@ define void @caller(ptr %p) personality ptr @__gxx_personality_v0 {
 ; RV64I-NEXT:    beqz a0, .LBB0_2
 ; RV64I-NEXT:  # %bb.1: # %bb2
 ; RV64I-NEXT:  .Ltmp0:
-; RV64I-NEXT:    mv a0, s0
 ; RV64I-NEXT:    call bar
 ; RV64I-NEXT:  .Ltmp1:
 ; RV64I-NEXT:    j .LBB0_3
 ; RV64I-NEXT:  .LBB0_2: # %bb1
 ; RV64I-NEXT:  .Ltmp2:
-; RV64I-NEXT:    mv a0, s0
 ; RV64I-NEXT:    call foo
 ; RV64I-NEXT:  .Ltmp3:
 ; RV64I-NEXT:  .LBB0_3: # %end2

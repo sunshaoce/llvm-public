@@ -72,6 +72,7 @@ add_llvm_target(RISCVCodeGen
   RISCVPushPopOptimizer.cpp
   RISCVQCRelaxMarking.cpp
   RISCVRedundantCopyElimination.cpp
+  RISCVRedundantInstrElim.cpp
   RISCVRegisterInfo.cpp
   RISCVSelectionDAGInfo.cpp
   RISCVSubtarget.cpp

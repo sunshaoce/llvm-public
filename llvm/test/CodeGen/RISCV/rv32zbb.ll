@@ -137,7 +137,6 @@ define i64 @ctlz_i64(i64 %a) nounwind {
 ; RV32ZBB-NEXT:  # %bb.1:
 ; RV32ZBB-NEXT:    clz a0, a0
 ; RV32ZBB-NEXT:    addi a0, a0, 32
-; RV32ZBB-NEXT:    li a1, 0
 ; RV32ZBB-NEXT:    ret
 ; RV32ZBB-NEXT:  .LBB1_2:
 ; RV32ZBB-NEXT:    clz a0, a1

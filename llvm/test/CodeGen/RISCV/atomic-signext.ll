@@ -7372,7 +7372,6 @@ define signext i32 @atomicrmw_max_i32_monotonic_crossbb(ptr %a, i1 %c) nounwind 
 ; RV32I-NEXT:    mv s0, a0
 ; RV32I-NEXT:    beqz a1, .LBB60_5
 ; RV32I-NEXT:  # %bb.1: # %then
-; RV32I-NEXT:    mv a0, s0
 ; RV32I-NEXT:    li a1, 0
 ; RV32I-NEXT:    call __atomic_load_4
 ; RV32I-NEXT:    mv a1, a0
@@ -7469,7 +7468,6 @@ define signext i32 @atomicrmw_max_i32_monotonic_crossbb(ptr %a, i1 %c) nounwind 
 ; RV64I-NEXT:    mv s0, a0
 ; RV64I-NEXT:    beqz a1, .LBB60_5
 ; RV64I-NEXT:  # %bb.1: # %then
-; RV64I-NEXT:    mv a0, s0
 ; RV64I-NEXT:    li a1, 0
 ; RV64I-NEXT:    call __atomic_load_4
 ; RV64I-NEXT:    mv a1, a0
@@ -7586,7 +7584,6 @@ define signext i32 @atomicrmw_min_i32_monotonic_crossbb(ptr %a, i1 %c) nounwind 
 ; RV32I-NEXT:    mv s0, a0
 ; RV32I-NEXT:    beqz a1, .LBB61_5
 ; RV32I-NEXT:  # %bb.1: # %then
-; RV32I-NEXT:    mv a0, s0
 ; RV32I-NEXT:    li a1, 0
 ; RV32I-NEXT:    call __atomic_load_4
 ; RV32I-NEXT:    mv a1, a0
@@ -7686,7 +7683,6 @@ define signext i32 @atomicrmw_min_i32_monotonic_crossbb(ptr %a, i1 %c) nounwind 
 ; RV64I-NEXT:    mv s0, a0
 ; RV64I-NEXT:    beqz a1, .LBB61_5
 ; RV64I-NEXT:  # %bb.1: # %then
-; RV64I-NEXT:    mv a0, s0
 ; RV64I-NEXT:    li a1, 0
 ; RV64I-NEXT:    call __atomic_load_4
 ; RV64I-NEXT:    mv a1, a0
@@ -7803,7 +7799,6 @@ define signext i32 @atomicrmw_umax_i32_monotonic_crossbb(ptr %a, i1 %c) nounwind
 ; RV32I-NEXT:    mv s0, a0
 ; RV32I-NEXT:    beqz a1, .LBB62_3
 ; RV32I-NEXT:  # %bb.1: # %then
-; RV32I-NEXT:    mv a0, s0
 ; RV32I-NEXT:    li a1, 0
 ; RV32I-NEXT:    call __atomic_load_4
 ; RV32I-NEXT:    mv a1, a0
@@ -7885,7 +7880,6 @@ define signext i32 @atomicrmw_umax_i32_monotonic_crossbb(ptr %a, i1 %c) nounwind
 ; RV64I-NEXT:    mv s0, a0
 ; RV64I-NEXT:    beqz a1, .LBB62_5
 ; RV64I-NEXT:  # %bb.1: # %then
-; RV64I-NEXT:    mv a0, s0
 ; RV64I-NEXT:    li a1, 0
 ; RV64I-NEXT:    call __atomic_load_4
 ; RV64I-NEXT:    mv a1, a0
@@ -7994,7 +7988,6 @@ define signext i32 @atomicrmw_umin_i32_monotonic_crossbb(ptr %a, i1 %c) nounwind
 ; RV32I-NEXT:    mv s0, a0
 ; RV32I-NEXT:    beqz a1, .LBB63_5
 ; RV32I-NEXT:  # %bb.1: # %then
-; RV32I-NEXT:    mv a0, s0
 ; RV32I-NEXT:    li a1, 0
 ; RV32I-NEXT:    call __atomic_load_4
 ; RV32I-NEXT:    mv a1, a0
@@ -8097,7 +8090,6 @@ define signext i32 @atomicrmw_umin_i32_monotonic_crossbb(ptr %a, i1 %c) nounwind
 ; RV64I-NEXT:    mv s0, a0
 ; RV64I-NEXT:    beqz a1, .LBB63_5
 ; RV64I-NEXT:  # %bb.1: # %then
-; RV64I-NEXT:    mv a0, s0
 ; RV64I-NEXT:    li a1, 0
 ; RV64I-NEXT:    call __atomic_load_4
 ; RV64I-NEXT:    mv a1, a0

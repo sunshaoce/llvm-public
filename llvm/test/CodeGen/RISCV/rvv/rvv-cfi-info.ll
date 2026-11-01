@@ -43,7 +43,6 @@ define riscv_vector_cc <vscale x 1 x i32> @test_vector_callee_cfi(<vscale x 1 x 
 ; OMIT-FP-NEXT:    #APP
 ; OMIT-FP-NEXT:    #NO_APP
 ; OMIT-FP-NEXT:    csrr a0, vlenb
-; OMIT-FP-NEXT:    li a1, 6
 ; OMIT-FP-NEXT:    mul a0, a0, a1
 ; OMIT-FP-NEXT:    add a0, sp, a0
 ; OMIT-FP-NEXT:    addi a0, a0, 32
@@ -182,7 +181,6 @@ define riscv_vector_cc <vscale x 1 x i32> @test_vector_callee_cfi(<vscale x 1 x 
 ; OMIT-FP-ZCMP-NEXT:    #APP
 ; OMIT-FP-ZCMP-NEXT:    #NO_APP
 ; OMIT-FP-ZCMP-NEXT:    csrr a0, vlenb
-; OMIT-FP-ZCMP-NEXT:    li a1, 6
 ; OMIT-FP-ZCMP-NEXT:    mul a0, a0, a1
 ; OMIT-FP-ZCMP-NEXT:    add a0, a0, sp
 ; OMIT-FP-ZCMP-NEXT:    addi a0, a0, 16

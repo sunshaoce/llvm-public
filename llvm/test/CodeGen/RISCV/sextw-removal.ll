@@ -803,7 +803,6 @@ define signext i32 @test14b(i32 %0, i32 signext %1) {
 ; CHECK-NEXT:    ret
 ; CHECK-NEXT:  .LBB14_5:
 ; CHECK-NEXT:    li a0, -1
-; CHECK-NEXT:    sext.w a0, a0
 ; CHECK-NEXT:    ret
 ;
 ; NOREMOVAL-LABEL: test14b:
@@ -825,7 +824,6 @@ define signext i32 @test14b(i32 %0, i32 signext %1) {
 ; NOREMOVAL-NEXT:    ret
 ; NOREMOVAL-NEXT:  .LBB14_5:
 ; NOREMOVAL-NEXT:    li a0, -1
-; NOREMOVAL-NEXT:    sext.w a0, a0
 ; NOREMOVAL-NEXT:    ret
   %3 = icmp sgt i32 %1, 1
   br i1 %3, label %4, label %12
@@ -869,7 +867,6 @@ define signext i32 @test14c(i32 zeroext %0, i32 signext %1) {
 ; CHECK-NEXT:    ret
 ; CHECK-NEXT:  .LBB15_5:
 ; CHECK-NEXT:    li a0, -1
-; CHECK-NEXT:    sext.w a0, a0
 ; CHECK-NEXT:    ret
 ;
 ; NOREMOVAL-LABEL: test14c:
@@ -891,7 +888,6 @@ define signext i32 @test14c(i32 zeroext %0, i32 signext %1) {
 ; NOREMOVAL-NEXT:    ret
 ; NOREMOVAL-NEXT:  .LBB15_5:
 ; NOREMOVAL-NEXT:    li a0, -1
-; NOREMOVAL-NEXT:    sext.w a0, a0
 ; NOREMOVAL-NEXT:    ret
   %3 = icmp sgt i32 %1, 1
   br i1 %3, label %4, label %12
@@ -1346,7 +1342,6 @@ define signext i32 @sextw_sh2add(i1 zeroext %0, ptr %1, i32 signext %2, i32 sign
 ; NOREMOVAL-LABEL: sextw_sh2add:
 ; NOREMOVAL:       # %bb.0:
 ; NOREMOVAL-NEXT:    sh2add a2, a2, a3
-; NOREMOVAL-NEXT:    mv a2, a2
 ; NOREMOVAL-NEXT:    beqz a0, .LBB22_2
 ; NOREMOVAL-NEXT:  # %bb.1:
 ; NOREMOVAL-NEXT:    sw a2, 0(a1)

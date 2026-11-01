@@ -385,7 +385,6 @@ define void @no_reserved_call_frame(i64 %n) #0 {
 ; RV64I-NEXT:    bltu a0, sp, .LBB4_1
 ; RV64I-NEXT:  # %bb.2: # %entry
 ; RV64I-NEXT:    mv sp, a0
-; RV64I-NEXT:    lui a1, 1
 ; RV64I-NEXT:    sub sp, sp, a1
 ; RV64I-NEXT:    sd zero, 0(sp)
 ; RV64I-NEXT:    call callee_stack_args
@@ -424,7 +423,6 @@ define void @no_reserved_call_frame(i64 %n) #0 {
 ; RV32I-NEXT:    bltu a0, sp, .LBB4_1
 ; RV32I-NEXT:  # %bb.2: # %entry
 ; RV32I-NEXT:    mv sp, a0
-; RV32I-NEXT:    lui a1, 1
 ; RV32I-NEXT:    sub sp, sp, a1
 ; RV32I-NEXT:    sw zero, 0(sp)
 ; RV32I-NEXT:    addi sp, sp, -32

@@ -42,7 +42,6 @@ define i64 @slti(i64 %a) nounwind {
 ; RV32I-NEXT:    ret
 ; RV32I-NEXT:  .LBB1_2:
 ; RV32I-NEXT:    sltiu a0, a0, 2
-; RV32I-NEXT:    li a1, 0
 ; RV32I-NEXT:    ret
   %1 = icmp slt i64 %a, 2
   %2 = zext i1 %1 to i64

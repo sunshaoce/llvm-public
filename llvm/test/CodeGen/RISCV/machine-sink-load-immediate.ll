@@ -64,7 +64,6 @@ define i1 @sink_li(ptr %text, ptr %text.addr.0) nounwind {
 ; CHECK-NEXT:  .LBB0_22: # %while.body.5
 ; CHECK-NEXT:    j .LBB0_24
 ; CHECK-NEXT:  # %bb.23:
-; CHECK-NEXT:    li a1, 0
 ; CHECK-NEXT:    j .LBB0_25
 ; CHECK-NEXT:  .LBB0_24: # %strdup.exit
 ; CHECK-NEXT:    li s1, 0

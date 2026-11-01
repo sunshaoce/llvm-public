@@ -1194,7 +1194,6 @@ define i1 @isinf_q_fpclass(fp128 %x) {
 ; RV64IFD-NEXT:    sltiu a0, a0, 0
 ; RV64IFD-NEXT:    xor a1, a1, a3
 ; RV64IFD-NEXT:    sub a2, a3, a2
-; RV64IFD-NEXT:    mv a1, a1
 ; RV64IFD-NEXT:    lui a3, 16383
 ; RV64IFD-NEXT:    sub a2, a2, a0
 ; RV64IFD-NEXT:    slli a3, a3, 37
@@ -1258,7 +1257,6 @@ define i1 @isinf_q_fpclass(fp128 %x) {
 ; RV64I-NEXT:    sltiu a0, a0, 0
 ; RV64I-NEXT:    xor a1, a1, a3
 ; RV64I-NEXT:    sub a2, a3, a2
-; RV64I-NEXT:    mv a1, a1
 ; RV64I-NEXT:    lui a3, 16383
 ; RV64I-NEXT:    sub a2, a2, a0
 ; RV64I-NEXT:    slli a3, a3, 37
@@ -1303,7 +1301,6 @@ define i1 @isinf_or_zero_q_fpclass(fp128 %x) {
 ; RV32IFD-NEXT:  # %bb.1:
 ; RV32IFD-NEXT:    sltiu a0, a4, 0
 ; RV32IFD-NEXT:  .LBB29_2:
-; RV32IFD-NEXT:    mv a5, a5
 ; RV32IFD-NEXT:    or a4, a1, a2
 ; RV32IFD-NEXT:    sub a1, a7, a6
 ; RV32IFD-NEXT:    lui a2, 524256
@@ -1331,7 +1328,6 @@ define i1 @isinf_or_zero_q_fpclass(fp128 %x) {
 ; RV64IFD-NEXT:    slli a2, a2, 48
 ; RV64IFD-NEXT:    xor a1, a1, a3
 ; RV64IFD-NEXT:    sltiu a0, a0, 0
-; RV64IFD-NEXT:    mv a1, a1
 ; RV64IFD-NEXT:    sub a3, a3, a2
 ; RV64IFD-NEXT:    lui a4, 16383
 ; RV64IFD-NEXT:    sub a3, a3, a0
@@ -1375,7 +1371,6 @@ define i1 @isinf_or_zero_q_fpclass(fp128 %x) {
 ; RV32I-NEXT:  # %bb.1:
 ; RV32I-NEXT:    sltiu a0, a4, 0
 ; RV32I-NEXT:  .LBB29_2:
-; RV32I-NEXT:    mv a5, a5
 ; RV32I-NEXT:    or a4, a1, a2
 ; RV32I-NEXT:    sub a1, a7, a6
 ; RV32I-NEXT:    lui a2, 524256
@@ -1403,7 +1398,6 @@ define i1 @isinf_or_zero_q_fpclass(fp128 %x) {
 ; RV64I-NEXT:    slli a2, a2, 48
 ; RV64I-NEXT:    xor a1, a1, a3
 ; RV64I-NEXT:    sltiu a0, a0, 0
-; RV64I-NEXT:    mv a1, a1
 ; RV64I-NEXT:    sub a3, a3, a2
 ; RV64I-NEXT:    lui a4, 16383
 ; RV64I-NEXT:    sub a3, a3, a0

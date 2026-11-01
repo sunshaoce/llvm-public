@@ -19,7 +19,6 @@ define signext i32 @foo(i32 signext %a, ptr %b) nounwind {
 ; RV32I-NEXT:    lw a2, 0(a1)
 ; RV32I-NEXT:    bne a0, a2, .LBB0_4
 ; RV32I-NEXT:  # %bb.3:
-; RV32I-NEXT:    mv a0, a2
 ; RV32I-NEXT:  .LBB0_4:
 ; RV32I-NEXT:    lw a2, 0(a1)
 ; RV32I-NEXT:    bltu a2, a0, .LBB0_6
@@ -132,7 +131,6 @@ define signext i32 @foo(i32 signext %a, ptr %b) nounwind {
 ; RV64I-NEXT:    lw a2, 0(a1)
 ; RV64I-NEXT:    bne a0, a2, .LBB0_4
 ; RV64I-NEXT:  # %bb.3:
-; RV64I-NEXT:    mv a0, a2
 ; RV64I-NEXT:  .LBB0_4:
 ; RV64I-NEXT:    lw a2, 0(a1)
 ; RV64I-NEXT:    bltu a2, a0, .LBB0_6

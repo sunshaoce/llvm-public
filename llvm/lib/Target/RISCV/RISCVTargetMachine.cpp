@@ -80,6 +80,7 @@ extern "C" LLVM_ABI LLVM_EXTERNAL_VISIBILITY void LLVMInitializeRISCVTarget() {
   initializeRISCVPreAllocZilsdOptPass(*PR);
   initializeRISCVExpandPseudoAtomicsLegacyPass(*PR);
   initializeRISCVRedundantCopyEliminationPass(*PR);
+  initializeRISCVRedundantInstrElimLegacyPass(*PR);
   initializeRISCVAsmPrinterPass(*PR);
   initializeRISCVPromoteConstantPass(*PR);
 }
@@ -495,6 +496,10 @@ void RISCVPassConfig::addPreSched2() {
 }
 
 void RISCVPassConfig::addPreEmitPass() {
+  if (TM->getOptLevel() != CodeGenOptLevel::None &&
+      CLOpts.enable_redundant_instr_elim)
+    addPass(createRISCVRedundantInstrElimLegacyPass());
+
   // TODO: It would potentially be better to schedule copy propagation after
   // expanding pseudos (in addPreEmitPass2). However, performing copy
   // propagation after the machine outliner (which runs after addPreEmitPass)

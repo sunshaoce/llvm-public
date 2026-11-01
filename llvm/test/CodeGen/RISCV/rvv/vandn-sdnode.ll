@@ -2315,7 +2315,6 @@ define void @vand_vx_loop_hoisted_not(ptr %a, i32 noundef signext %mask) {
 ; CHECK-RV64-NEXT:  # %bb.4: # %middle.block
 ; CHECK-RV64-NEXT:    bnez a2, .LBB98_7
 ; CHECK-RV64-NEXT:  .LBB98_5: # %for.body.preheader
-; CHECK-RV64-NEXT:    slli a2, a2, 2
 ; CHECK-RV64-NEXT:    add a2, a0, a2
 ; CHECK-RV64-NEXT:    addi a0, a0, 1024
 ; CHECK-RV64-NEXT:  .LBB98_6: # %for.body
@@ -2409,7 +2408,6 @@ define void @vand_vx_loop_hoisted_not(ptr %a, i32 noundef signext %mask) {
 ; CHECK-ZVKB-NOZBB64-NEXT:    bnez a2, .LBB98_7
 ; CHECK-ZVKB-NOZBB64-NEXT:  .LBB98_5: # %for.body.preheader
 ; CHECK-ZVKB-NOZBB64-NEXT:    not a1, a1
-; CHECK-ZVKB-NOZBB64-NEXT:    slli a2, a2, 2
 ; CHECK-ZVKB-NOZBB64-NEXT:    add a2, a0, a2
 ; CHECK-ZVKB-NOZBB64-NEXT:    addi a0, a0, 1024
 ; CHECK-ZVKB-NOZBB64-NEXT:  .LBB98_6: # %for.body
@@ -2500,7 +2498,6 @@ define void @vand_vx_loop_hoisted_not(ptr %a, i32 noundef signext %mask) {
 ; CHECK-ZVKB-ZBB64-NEXT:  # %bb.4: # %middle.block
 ; CHECK-ZVKB-ZBB64-NEXT:    bnez a2, .LBB98_7
 ; CHECK-ZVKB-ZBB64-NEXT:  .LBB98_5: # %for.body.preheader
-; CHECK-ZVKB-ZBB64-NEXT:    slli a2, a2, 2
 ; CHECK-ZVKB-ZBB64-NEXT:    add a2, a0, a2
 ; CHECK-ZVKB-ZBB64-NEXT:    addi a0, a0, 1024
 ; CHECK-ZVKB-ZBB64-NEXT:  .LBB98_6: # %for.body

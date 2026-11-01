@@ -326,7 +326,6 @@ define i64 @cls_i64_2(i64 %x) {
 ; RV32-NEXT:    addi a0, a0, 1
 ; RV32-NEXT:    clz a0, a0
 ; RV32-NEXT:    addi a0, a0, 32
-; RV32-NEXT:    li a1, 0
 ; RV32-NEXT:    ret
 ; RV32-NEXT:  .LBB18_2:
 ; RV32-NEXT:    clz a0, a1
